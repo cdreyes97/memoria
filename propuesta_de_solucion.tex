@@ -1,8 +1,38 @@
 \secnumbersection{PROPUESTA DE SOLUCIÓN}
 
-Se debe desarrollar la solución propuesta. Los subcapítulos por poner aquí son propios del autor. Se sugiere mencionar metodología usada. Es conveniente incorporar figuras y tablas para aclarar la solución, que deben indicar el número de la figura, su nombre y su autor o fuente (si las diseñas tú, la fuente es ``Elaboración propia''). Ver ejemplos en esta página y en la siguiente.
+\subsection{DISEÑO DE LA SOLUCIÓN}
 
-Cabe mencionar que aquí está la esencia del trabajo en lo que se refiere al aporte creativo del memorista, es el momento de demostrar que usted es un destacado profesional que creó, diseñó y/o llevó a cabo la solución propuesta.
+Entendiendo los problemas de los productos de software quue ofrece la empresa y las consecuencias que esto conlleva,
+se plantean nuevas herramientas de software y/o mejoras a herramientas existentes que ayuden a liberar carga y esfuerzo
+de ciertos procesos a las áreas de soporte y producción, además, darle al usuario cliente nuevas herramientas para que tenga un mejor flujo de trabajo.
+
+\subsubsection{CONFIGURADOR DE MAPA}
+
+En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo (Agregar imagen). 
+Para mostrar el mapa se utiliza \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
+Para poder configurar este mapa se puede hacer de dos maneras:
+\begin{enumerate}
+    \item En la aplicación \textit{Admin de DropControl}, ingresar a cada sector/nodo y agregar su respectivo polígono/punto de manera individual.
+    \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o puntos para sus respectivos sectores y/o nodos.
+\end{enumerate}
+Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asginar los polígonos/puntos respectivos.
+En la segunda opción existen problemas como el tiempo que demora el área tome el ticket y realize la confgiruación y/o 
+que las instrucciones no están bien indicadas llevando a que esta configuración requiera varios tickets para que se haga como el usuario cliente quiera.
+
+Para esto se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario clienta sea el que
+configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/puntos a sus respectivos sectores/nodos.
+
+\subsubsection{ALINEADOR DE IMÁGENES}
+
+Una de las herramientas que ofrece \textit{DropControl} es el análisis de imágenes utilizando 
+el índice de vegetación de diferencia normalizada o NDVI por sus siglas en inglés. Para obtener estas imágenes satelitales
+se utilizan otros proveedores y se muestran en \textit{DropControl} con \textit{Google Maps}, pero no todas las imágenes tienen
+las mismas coordenadas en \textit{Google Maps} por lo que se verán desalineadas. Esto se hace mandando un ticket al área de soporte
+y son ellos lo que se encargan de alinear la imagen.
+
+La solución para este problema se plantea una nueva herramienta para la aplicación de \textit{Admin de DropControl} en la que 
+se puedan alinear las imágenes satelitales a \textit{Google Maps}, para esto se coloca la imagen sobre el mapa y es el usuario cliente
+el que debe alinear la imagen.
 
 \subsection{EJEMPLO DE COMO CITAR FIGURAS E ILUSTRACIONES}
 
