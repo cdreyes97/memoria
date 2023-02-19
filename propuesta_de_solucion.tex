@@ -1,6 +1,6 @@
 \secnumbersection{PROPUESTA DE SOLUCIÓN}
 
-\subsection{DISEÑO DE LA SOLUCIÓN}
+\subsection{DISEÑO DE LAS SOLUCIÓN}
 
 Entendiendo los problemas de los productos de software quue ofrece la empresa y las consecuencias que esto conlleva,
 se plantean nuevas herramientas de software y/o mejoras a herramientas existentes que ayuden a liberar carga y esfuerzo
@@ -21,6 +21,7 @@ que las instrucciones no están bien indicadas llevando a que esta configuració
 
 Para esto se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario clienta sea el que
 configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/puntos a sus respectivos sectores/nodos.
+Junto con esto, tambien se agrega la funcionalidad de poder descargar el mapa de su campo en formato .kmz.
 
 \subsubsection{ALINEADOR DE IMÁGENES}
 
@@ -33,6 +34,52 @@ y son ellos lo que se encargan de alinear la imagen.
 La solución para este problema se plantea una nueva herramienta para la aplicación de \textit{Admin de DropControl} en la que 
 se puedan alinear las imágenes satelitales a \textit{Google Maps}, para esto se coloca la imagen sobre el mapa y es el usuario cliente
 el que debe alinear la imagen.
+
+\subsubsection{GRAFICADOR LIBRE}
+
+Como se explicó anteriormente, el plan gratuito que ofrece \textit{Wiseconn} sirve como punto de entrada a las herramientas
+de pago de \textit{DropControl}. Sin embargo, el plan gratuito ofrece muy pocas funcionalidades y/o herramientas
+implicando poca retención de los usuarios y no se cumplen con las especificaciones comerciales.
+
+Los usuarios clientes de plan de pago tienen a su disposición un graficador en la aplicación de \textit{DropControl}, en el cual
+se pueden graficar los datos enviados por los nodos en los campos dentro de un rango de tiempo.
+Caso contrario ocurre para los usuarios clientes de plan gratuito, los cuales no poseen esta herramienta y 
+no pueden visualizar los datos de sus nodos.
+
+Por esto se desarrolla la herramienta de "Graficado Libre" en la aplicación de \textit{Admin de DropControl}, 
+donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiempo máximo de 3 meses (90 días).
+
+\subsubsection{MARKETPLACE INTEGRADORES}
+
+
+
+\subsubsection{CONFIGURADOR DE FUENTES}
+
+
+
+\subsubsection{CERTIFICADOS TESTBED}
+
+Dentro de las tareas que cumple el área de producción es son las pruebas del hardware, cada prueba queda documentada con
+un certificado en donde se indica si el hardware pasó o no las pruebas para seguir con su producción. Estos certificados son
+almacenados en un servidor FTP que después se guardan en un bucket de S3.
+
+La aplicación de \textit{Operations} es para la gestión de lotes y despachos de productos, además de la edición de productos. 
+El producto tiene un historial con historias asociadas que indican ingresos a lotes, despachos, marcar como producto fallado y/o reparado.
+
+Los trabajadores para acceder a los certificados testbed...
+
+Teniendo esto en cuenta, se plantea implementar una historia de certificados que se agreguen automáticamente cuando se guarde un
+certificado.
+
+\subsection{IMPLEMENTACIÓN DE LA SOLUCIÓN}
+
+\subsubsection{CONFIGURADOR DE MAPA}
+\subsubsection{ALINEADOR DE IMÁGENES}
+\subsubsection{GRAFICADOR LIBRE}
+\subsubsection{MARKETPLACE INTEGRADORES}
+\subsubsection{CONFIGURADOR DE FUENTES}
+\subsubsection{CERTIFICADOS TESTBED}
+
 
 \subsection{EJEMPLO DE COMO CITAR FIGURAS E ILUSTRACIONES}
 
