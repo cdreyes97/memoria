@@ -1,9 +1,5 @@
 \secnumbersection{PROPUESTA DE SOLUCIÓN}
 
-\subsection{MÉTODO DE TRABAJO}
-
-
-
 
 \subsection{DISEÑO DE LAS SOLUCIÓN}
 
@@ -51,7 +47,7 @@ se pueden graficar los datos enviados por los nodos en los campos dentro de un r
 Caso contrario ocurre para los usuarios clientes de plan gratuito, los cuales no poseen esta herramienta y 
 no pueden visualizar los datos de sus nodos.
 
-Por esto se desarrolla la herramienta de "Graficado Libre" en la aplicación de \textit{Admin de DropControl}, 
+Por esto se desarrolla la herramienta de 'Graficado Libre' en la aplicación de \textit{Admin de DropControl}, 
 donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiempo máximo de 3 meses (90 días).
 
 \subsubsection{MARKETPLACE INTEGRADORES}
@@ -60,7 +56,15 @@ donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiemp
 
 \subsubsection{CONFIGURADOR DE FUENTES}
 
+Una de las configuraciones que se deben realizar en los campos las fuentes de agua y las conexiones entre ellas, esta configuración se hace en la aplicación de \textit{SETUP}.
 
+Actualmente, estas configuraciones se hacen ...
+
+La solución para este problema es crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
+
+Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
+
+Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}.
 
 \subsubsection{CERTIFICADOS TESTBED}
 
@@ -78,15 +82,34 @@ certificado.
 
 \subsection{IMPLEMENTACIÓN DE LA SOLUCIÓN}
 
-\subsubsection{CONFIGURADOR DE MAPA}
+\subsubsection{ENTORNO DE TRABAJO}
 
+Los servicios de WiseConn corren en la nube de \textit{Amazon Web Services}, utilizando los distintos servicios que este ofrece para las bases de datos, \textit{backend} y \textit{hosting}. En las siguientes secciones se explicará el entorno de trabajo de cada aplicación.
 
+\subsubsubsection{OPERATIONS}
 
-\subsubsection{ALINEADOR DE IMÁGENES}
-\subsubsection{GRAFICADOR LIBRE}
-\subsubsection{MARKETPLACE INTEGRADORES}
-\subsubsection{CONFIGURADOR DE FUENTES}
-\subsubsection{CERTIFICADOS TESTBED}
+\textit{Operations} es una aplicación interna usada por el área de producción de WiseConn para la gestión de inventario, lotes y despachos.
+
+Es una aplicación monolítica, por lo que, el \textit{backend} y \textit{frontend} se desarrollan juntos en el mismo código. La aplicación está desarrollada en JAVA con \textit{JavaServer Faces}, utilizando el \textit{framework} de \textit{PrimeFaces} y se conecta a una base de datos \textit{MySQL}. \textit{Operations} corre en una instancia \textit{EC2}, mientras que, la base de datos .\
+
+\subsubsubsection{SETUP}
+
+\textit{SETUP} es una aplicación interna para la configuración de cuentas, campos, sectores, usuarios, entre otros. Utilizado principalmente por el área de soporte de WiseConn.
+
+Es una aplicación monolítica desarrollada en JAVA con \textit{JavaServer Faces}, utilizando el \textit{framework} de \textit{PrimeFaces} y se conecta a la base de datos \textit{PostgreSQL} de \textit{DropControl}.
+
+\subsubsubsection{ADMIN DE DROPCONTROL}
+
+La aplicación de \textit{Admin} es utilizada por los usuarios administradores de campo para la configuración de campos, sectores, red de nodos, etc.
+
+\textit{Admin} es una aplicación destribuida, es decir, el \textit{backend} y \textit{frontend} están separadas. 
+
+Para desplegar la aplicación se utiliza el servicio de \textit{AWS Amplify}, este servicio se encarga de crear/actualizar los recursos del \textit{backend} y de desplegar la aplicación web.
+
+Para el \textit{frontend} se utiliza el framework de \textit{JavaScript}, \textit{React.js}. Además, se utilizan componentes de \textit{Syncfusion}\footnote{\href{https://www.syncfusion.com/react-components}{Syncfusion React Components}}.
+
+Respecto al \textit{backend}, este es \textit{serverless}. Se utilizan funciones \textit{Lambda} con el lenguaje de \textit{JavaScript} que se conectan a una base de datos \textit{PostgreSQL}.
+
 
 
 \subsection{EJEMPLO DE COMO CITAR FIGURAS E ILUSTRACIONES}
