@@ -9,8 +9,8 @@ de ciertos procesos a las áreas de soporte y producción, además, darle al usu
 
 \subsubsection{CONFIGURADOR DE MAPA}
 
-En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo (Agregar imagen). 
-Para mostrar el mapa se utiliza \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
+En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo en el cual puede visualizar sus sectores y nodos instalados (Agregar imagen). 
+Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
 Para poder configurar este mapa se puede hacer de dos maneras:
 \begin{enumerate}
     \item En la aplicación \textit{Admin de DropControl}, ingresar a cada sector/nodo y agregar su respectivo polígono/punto de manera individual.
@@ -80,25 +80,23 @@ Los trabajadores para acceder a los certificados testbed...
 Teniendo esto en cuenta, se plantea implementar una historia de certificados que se agreguen automáticamente cuando se guarde un
 certificado.
 
-\subsection{IMPLEMENTACIÓN DE LA SOLUCIÓN}
-
-\subsubsection{ENTORNO DE TRABAJO}
+\subsection{ENTORNO DE TRABAJO}
 
 Los servicios de WiseConn corren en la nube de \textit{Amazon Web Services}, utilizando los distintos servicios que este ofrece para las bases de datos, \textit{backend} y \textit{hosting}. En las siguientes secciones se explicará el entorno de trabajo de cada aplicación.
 
-\subsubsubsection{OPERATIONS}
+\subsubsection{OPERATIONS}
 
 \textit{Operations} es una aplicación interna usada por el área de producción de WiseConn para la gestión de inventario, lotes y despachos.
 
 Es una aplicación monolítica, por lo que, el \textit{backend} y \textit{frontend} se desarrollan juntos en el mismo código. La aplicación está desarrollada en JAVA con \textit{JavaServer Faces}, utilizando el \textit{framework} de \textit{PrimeFaces} y se conecta a una base de datos \textit{MySQL}. \textit{Operations} corre en una instancia \textit{EC2}, mientras que, la base de datos .\
 
-\subsubsubsection{SETUP}
+\subsubsection{SETUP}
 
 \textit{SETUP} es una aplicación interna para la configuración de cuentas, campos, sectores, usuarios, entre otros. Utilizado principalmente por el área de soporte de WiseConn.
 
 Es una aplicación monolítica desarrollada en JAVA con \textit{JavaServer Faces}, utilizando el \textit{framework} de \textit{PrimeFaces} y se conecta a la base de datos \textit{PostgreSQL} de \textit{DropControl}.
 
-\subsubsubsection{ADMIN DE DROPCONTROL}
+\subsubsection{ADMIN DE DROPCONTROL}
 
 La aplicación de \textit{Admin} es utilizada por los usuarios administradores de campo para la configuración de campos, sectores, red de nodos, etc.
 
@@ -109,15 +107,3 @@ Para desplegar la aplicación se utiliza el servicio de \textit{AWS Amplify}, es
 Para el \textit{frontend} se utiliza el framework de \textit{JavaScript}, \textit{React.js}. Además, se utilizan componentes de \textit{Syncfusion}\footnote{\href{https://www.syncfusion.com/react-components}{Syncfusion React Components}}.
 
 Respecto al \textit{backend}, este es \textit{serverless}. Se utilizan funciones \textit{Lambda} con el lenguaje de \textit{JavaScript} que se conectan a una base de datos \textit{PostgreSQL}.
-
-
-
-\subsection{EJEMPLO DE COMO CITAR FIGURAS E ILUSTRACIONES}
-
-Se colocó una imagen que se puede referenciar también desde el texto (Ver figura \ref{fig:malla}).
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{malla_ingenieria_informatica}
-\caption{\label{fig:malla} Malla Curricular Ingeniería Civil Informática.} Fuente: Departamento de Informática.
-\end{figure}
