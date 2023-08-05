@@ -24,6 +24,41 @@ Para esto se plantea una herramienta en la aplicación de \textit{Admin de DropC
 configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/puntos a sus respectivos sectores/nodos.
 Junto con esto, tambien se agrega la funcionalidad de poder descargar el mapa de su campo en formato .kmz.
 
+Esta nueva herramienta se encontrará en la vista del campo, haciendo click en la carta del mapa en el ícono de engranage para poder entrar al configurador de mapa.
+
+\{Adjuntar imagen\}
+
+En esta vista se divide en 2 secciones: Tabla de sectores/nodos y el mapa.
+
+En la tabla de sectores/nodos se compone de:
+
+\begin{itemize}
+    \item \textbf{Botones:}
+    \SubItem{En la parte superior izquierda estan los botónes para cambiar entre la tabla de sectores y nodos.}
+    \subitem{En el lado opuesto, se encuentra el botón de "Cargar Archivo" que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.}
+    \item Tabla: La tabla muestra los sectores o nodos, según lo seleccionado. Contiene dos columnas, la primera con el nombre del sector/nodo y la segunda es una columnna de acciones, con un botón que sirve para centrar el sector/nodo en el mapa. Además, la tabla es paginada permitiendo al usuario elegir cuantos elementos mostrar por página.
+\end{itemize}
+
+Y el mapa muestra los sectores y/o nodos que estaban previamente asignados. Si esta seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
+
+Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurre lo siguiente:
+
+\begin{itemize}
+    \item El botón de "Cargar Archivo" desaparece y se reemplaza por el nombre del archivo cargado junto a un ícono de basura que al hacerle click, elimina el archivo y vuelve al estado anterior.
+    \item En la tabla se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada). Además, en la columna de acciones se agregan dos nuevas acciones: volver al polígono/punto previamente asignado y eliminar asignación. 
+\end{itemize}
+
+
+
+\{Adjuntar imagen\}
+
+Respecto al mapa, se muestran los polígonos o puntos, según la tabla seleccionada, con un color distintivo. Por último, debajo de la tabla se muestra el botón para guardar los cambios hechos en el mapa, al hacer click sobre este se abrirá un diálogo de confirmación que al ser aceptado se guardarán los cambios y la herramienta volverá al estado en que no había un archivo cargado.
+\{Adjuntar imagen\}
+
+Otra funcionalidad que tendrá esta herramienta es el poder descargar el mapa del campo en un archivo con extensión .kmz. Esta funcionalidad se encontrará en el mapa del campo de la vista, valga la redundancia, del campo haciendo click en el ícono de descarga en la esquina superior derecha del mapa. El usuario descargando el mapa, le permite poder hacer cambios en ese archivo en aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
+
+\{Adjuntar imagen\}
+
 \subsubsection{ALINEADOR DE IMÁGENES}
 
 Una de las herramientas que ofrece \textit{DropControl} es el análisis de imágenes utilizando 
