@@ -9,7 +9,7 @@ de ciertos procesos a las áreas de soporte y producción, además, darle al usu
 
 \subsubsection{CONFIGURADOR DE MAPA}
 
-En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo en el cual puede visualizar sus sectores y nodos instalados (Agregar imagen). 
+En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo en el cual puede visualizar sus sectores y nodos instalados (Agregar imagen).
 Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
 Para poder configurar este mapa se puede hacer de dos maneras:
 \begin{enumerate}
@@ -17,7 +17,7 @@ Para poder configurar este mapa se puede hacer de dos maneras:
     \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o puntos para sus respectivos sectores y/o nodos.
 \end{enumerate}
 Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asginar los polígonos/puntos respectivos.
-En la segunda opción existen problemas como el tiempo que demora el área tome el ticket y realize la confgiruación y/o 
+En la segunda opción existen problemas como el tiempo que demora el área tome el ticket y realize la confgiruación y/o
 que las instrucciones no están bien indicadas llevando a que esta configuración requiera varios tickets para que se haga como el usuario cliente quiera.
 
 Para esto se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario clienta sea el que
@@ -34,8 +34,10 @@ En la tabla de sectores/nodos se compone de:
 
 \begin{itemize}
     \item \textbf{Botones:}
-    \SubItem{En la parte superior izquierda estan los botónes para cambiar entre la tabla de sectores y nodos.}
-    \subitem{En el lado opuesto, se encuentra el botón de "Cargar Archivo" que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.}
+          \begin{itemize}
+              \item En la parte superior izquierda estan los botónes para cambiar entre la tabla de sectores y nodos.
+              \item En el lado opuesto, se encuentra el botón de "Cargar Archivo" que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.
+          \end{itemize}
     \item Tabla: La tabla muestra los sectores o nodos, según lo seleccionado. Contiene dos columnas, la primera con el nombre del sector/nodo y la segunda es una columnna de acciones, con un botón que sirve para centrar el sector/nodo en el mapa. Además, la tabla es paginada permitiendo al usuario elegir cuantos elementos mostrar por página.
 \end{itemize}
 
@@ -45,7 +47,7 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
 
 \begin{itemize}
     \item El botón de "Cargar Archivo" desaparece y se reemplaza por el nombre del archivo cargado junto a un ícono de basura que al hacerle click, elimina el archivo y vuelve al estado anterior.
-    \item En la tabla se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada). Además, en la columna de acciones se agregan dos nuevas acciones: volver al polígono/punto previamente asignado y eliminar asignación. 
+    \item En la tabla se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada). Además, en la columna de acciones se agregan dos nuevas acciones: volver al polígono/punto previamente asignado y eliminar asignación.
 \end{itemize}
 
 
@@ -61,13 +63,13 @@ Otra funcionalidad que tendrá esta herramienta es el poder descargar el mapa de
 
 \subsubsection{ALINEADOR DE IMÁGENES}
 
-Una de las herramientas que ofrece \textit{DropControl} es el análisis de imágenes utilizando 
+Una de las herramientas que ofrece \textit{DropControl} es el análisis de imágenes utilizando
 el índice de vegetación de diferencia normalizada o NDVI\footnote{\href{https://eos.com/es/make-an-analysis/ndvi/}{NDVI: Índice De Vegetación De Diferencia Normalizada}} por sus siglas en inglés. Para obtener estas imágenes satelitales
 se utilizan otros proveedores y se muestran en \textit{DropControl} con \textit{Google Maps}, pero no todas las imágenes tienen
 las mismas coordenadas en \textit{Google Maps} por lo que se verán desalineadas. Esto se hace mandando un ticket al área de soporte
 y son ellos lo que se encargan de alinear la imagen.
 
-La solución para este problema se plantea una nueva herramienta para la aplicación de \textit{Admin de DropControl} en la que 
+La solución para este problema se plantea una nueva herramienta para la aplicación de \textit{Admin de DropControl} en la que
 se puedan alinear las imágenes satelitales a \textit{Google Maps}, para esto se coloca la imagen sobre el mapa y es el usuario cliente
 el que debe alinear la imagen.
 
@@ -79,11 +81,55 @@ implicando poca retención de los usuarios y no se cumplen con las especificacio
 
 Los usuarios clientes de plan de pago tienen a su disposición un graficador en la aplicación de \textit{DropControl}, en el cual
 se pueden graficar los datos enviados por los nodos en los campos dentro de un rango de tiempo.
-Caso contrario ocurre para los usuarios clientes de plan gratuito, los cuales no poseen esta herramienta y 
+Caso contrario ocurre para los usuarios clientes de plan gratuito, los cuales no poseen esta herramienta y
 no pueden visualizar los datos de sus nodos.
 
-Por esto se desarrolla la herramienta de 'Graficado Libre' en la aplicación de \textit{Admin de DropControl}, 
-donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiempo máximo de 3 meses (90 días).
+Por esto se desarrolla la herramienta de 'Graficado Libre' en la aplicación de \textit{Admin de DropControl},
+donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiempo máximo de los últimos 3 meses (90 días).
+
+Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropControl} como muestra en la imagen ... bajo el nombre de `Graficador Libre`. Al acceder a esta herramienta, el usuario se encontrará con lo siguiente:
+
+\begin{itemize}
+    \item \textbf{Tabla de nodos y sensores:} Aquí es donde se seleccionan los nodos junto con su sensor que se quieren desplegar en el gráfico. Esta tabla tiene las siguientes propiedades:
+          \begin{itemize}
+              \item Se podrá escoger hasta 6 combinaciones de nodo/sensor.
+              \item Las columnas de la tabla son las siguientes:
+                    \begin{enumerate}
+                        \item Selector de nodos.
+                        \item Selector de sensores.
+                        \item Selector de color.
+                        \item Botón para eliminar fila.
+                    \end{enumerate}
+              \item Para agregar nuevas filas existen 3 formas:
+                    \begin{enumerate}
+                        \item Haciendo click en el botón de `Agregar fila` que está en la esquina superior derecha de la tabla.
+                        \item Al escoger un nodo, al lado del selector aparecerá un botón con el signo `+`. Al hacer click en ese botón agregará una nueva fila con el nodo siguiente en la lista seleccionado.
+                        \item Al escoger un sensor, al lado del selector aparecerá un botón con el signo `+`. Al hacer click en ese botón agregará una nueva fila con el nodo seleccionado en la fila anterior junto al sensor siguiente en la lista.
+                    \end{enumerate}
+              \item Cada combinación de nodo/sensor tendrá su propio color que se verá en el gráfico. Este color lo puede escoger el usuario en el selector de colores en la penúltima fila de la tabla.
+              \item Para eliminar una fila se debe hacer click en el botón con ícono de basura en la última columna para eliminar la fila correspondiente.
+          \end{itemize}
+    \item \textbf{Selector de rango de fechas:} Seleccionar el rango de fecha, máximo de 90 días, de los datos. Este componente permitirá escoger el rango de fechas de forma manual o el usuario podrá seleccionar unas opciones predeterminadas que son:
+          \begin{itemize}
+              \item Últimos 7 días.
+              \item Este mes.
+              \item Últimos 30 días.
+              \item Últimos 60 días.
+              \item Últimos 90 días.
+          \end{itemize}
+    \item \textbf{Gráfico:} Aquí es donde se muestran los datos de los nodos con su sensor. Las propiedades del gráfico son los siguientes:
+          \begin{itemize}
+              \item Se podrá hacer zoom, ya sea, de forma manual seleccionado el rango en el gráfico o haciendo click en las opciones para ver rangos de 7, 30, 60 días (dependiendo del rango de fechas seleccionado).
+              \item Esconder/mostrar líneas del gráfico.              
+          \end{itemize}
+    \item \textbf{Tabla de datos del gráfico:} Tabla de los datos de los sensores seleccionados con las siguientes propiedades:
+    \begin{itemize}
+        \item La primera columna corresponde a la fecha y las columnas siguientes corresponden a las combinaciones de nodos/sensores seleccionados.
+        \item La tabla es paginada y se puede cambiar el número de filas que se pueden mostrar por cada página.
+        \item La tabla se ordena por fecha del dato, el cual se puede cambiar el orden haciendo click en el header de la columna.
+        \item En la esquina superior derecha habrá un botón con el cual se podrá descargar la tabla en formato .xls.
+    \end{itemize}   
+\end{itemize}
 
 \subsubsection{MARKETPLACE INTEGRADORES}
 
@@ -99,7 +145,8 @@ La solución para este problema es crear un configurador gráfico, donde se agre
 
 Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
 
-Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}.
+Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
+Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual se podran agregar 
 
 \subsubsection{CERTIFICADOS TESTBED}
 
@@ -107,7 +154,7 @@ Dentro de las tareas que cumple el área de producción es son las pruebas del h
 un certificado en donde se indica si el hardware pasó o no las pruebas para seguir con su producción. Estos certificados son
 almacenados en un servidor FTP que después se guardan en un bucket de S3.
 
-La aplicación de \textit{Operations} es para la gestión de lotes y despachos de productos, además de la edición de productos. 
+La aplicación de \textit{Operations} es para la gestión de lotes y despachos de productos, además de la edición de productos.
 El producto tiene un historial con historias asociadas que indican ingresos a lotes, despachos, marcar como producto fallado y/o reparado.
 
 Los trabajadores para acceder a los certificados testbed...
@@ -135,7 +182,7 @@ Es una aplicación monolítica desarrollada en JAVA con \textit{JavaServer Faces
 
 La aplicación de \textit{Admin} es utilizada por los usuarios administradores de campo para la configuración de campos, sectores, red de nodos, etc.
 
-\textit{Admin} es una aplicación destribuida, es decir, el \textit{backend} y \textit{frontend} están separadas. 
+\textit{Admin} es una aplicación destribuida, es decir, el \textit{backend} y \textit{frontend} están separadas.
 
 Para desplegar la aplicación se utiliza el servicio de \textit{AWS Amplify}, este servicio se encarga de crear/actualizar los recursos del \textit{backend} y de desplegar la aplicación web.
 
