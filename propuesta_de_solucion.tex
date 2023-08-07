@@ -120,15 +120,15 @@ Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropCon
     \item \textbf{Gráfico:} Aquí es donde se muestran los datos de los nodos con su sensor. Las propiedades del gráfico son los siguientes:
           \begin{itemize}
               \item Se podrá hacer zoom, ya sea, de forma manual seleccionado el rango en el gráfico o haciendo click en las opciones para ver rangos de 7, 30, 60 días (dependiendo del rango de fechas seleccionado).
-              \item Esconder/mostrar líneas del gráfico.              
+              \item Esconder/mostrar líneas del gráfico.
           \end{itemize}
     \item \textbf{Tabla de datos del gráfico:} Tabla de los datos de los sensores seleccionados con las siguientes propiedades:
-    \begin{itemize}
-        \item La primera columna corresponde a la fecha y las columnas siguientes corresponden a las combinaciones de nodos/sensores seleccionados.
-        \item La tabla es paginada y se puede cambiar el número de filas que se pueden mostrar por cada página.
-        \item La tabla se ordena por fecha del dato, el cual se puede cambiar el orden haciendo click en el header de la columna.
-        \item En la esquina superior derecha habrá un botón con el cual se podrá descargar la tabla en formato .xls.
-    \end{itemize}   
+          \begin{itemize}
+              \item La primera columna corresponde a la fecha y las columnas siguientes corresponden a las combinaciones de nodos/sensores seleccionados.
+              \item La tabla es paginada y se puede cambiar el número de filas que se pueden mostrar por cada página.
+              \item La tabla se ordena por fecha del dato, el cual se puede cambiar el orden haciendo click en el header de la columna.
+              \item En la esquina superior derecha habrá un botón con el cual se podrá descargar la tabla en formato .xls.
+          \end{itemize}
 \end{itemize}
 
 \subsubsection{MARKETPLACE INTEGRADORES}
@@ -146,7 +146,32 @@ La solución para este problema es crear un configurador gráfico, donde se agre
 Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
 
 Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
-Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual se podran agregar 
+Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual se realizará la configuración de fuentes del campo mediante la creación de un diagrama. El diagrama los siguientes elementos:
+\begin{itemize}
+    \item \textbf{Metrahidráulicas (Fuentes de agua):} Estos serían los nodos del diagrama. Dentro de las metrahidráulicas disponibles están:
+          \begin{itemize}
+              \item Canal
+              \item Equipo
+              \item Impulsión
+              \item Tranque
+          \end{itemize}
+    Estas fuentes tienen entradas y salidas, es aquí donde se conectaran con otras fuentes.
+    \item \textbf{Conexiones metrahidráulica}: Estas serán las conexiones (líneas) unidireccionales que conectan las metrahidráulicas. La dirección de las conexiones siempre irá desde una salida de la metrahidráulica a una entrada de otra metrahidráulica.
+\end{itemize}
+
+Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
+También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica.
+
+Luego, al terminar el diagrama, para guardar los cambios se debe hacer click el el botón siguiente en la esquina inferior derecha. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas. 
+En esta configuración se tiene un mapa junto a una tabla de las metrahidráulicas. La tabla tiene las siguientes columnas:
+\begin{enumerate}
+    \item Metrahidráulica.
+    \item .
+    \item Acciones:
+\end{enumerate}
+
+
+
 
 \subsubsection{CERTIFICADOS TESTBED}
 
