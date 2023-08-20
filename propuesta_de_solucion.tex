@@ -70,8 +70,20 @@ las mismas coordenadas en \textit{Google Maps} por lo que se verán desalineadas
 y son ellos lo que se encargan de alinear la imagen.
 
 La solución para este problema se plantea una nueva herramienta para la aplicación de \textit{Admin de DropControl} en la que
-se puedan alinear las imágenes satelitales a \textit{Google Maps}, para esto se coloca la imagen sobre el mapa y es el usuario cliente
-el que debe alinear la imagen.
+se puedan alinear las imágenes satelitales a \textit{Google Maps}.
+
+Esta nueva herramienta se encontrará en la sección de 'Proveedores Externos'. (Explicar un poco como funciona esta herramienta.). Al hacer click sobre un proveedor externo se abre un diálogo con información de este, si tiene fecha de 'Último vuelo', tendrá disponible el botón de 'Alinear imágen' el cual redireccionará a la herramienta en cuestión.
+
+En esta herramienta contiene un mapa del campo, en Google Maps, con polígonos determinando los sectores de este. Sobre el mapa estará la imagen satelital del proveedor externo, el cual se podrá mover para que el usuario pueda alinearlo con el mapa de Google Maps.
+En el mapa se pueden hacer las siguientes acciones:
+\begin{itemize}
+    \item Haciendo CTRL + click sobre la imágen satelital del proveedor externo, se puede mover la imagen.
+    \item En la esquina superior derecha del mapa se encuentra un \textit{slider} de opacidad de la imagen, para poder contrastar mejor la imagen satelital con el mapa.
+\end{itemize}
+
+Cuando el usuario logre alinear la imágen como el desee, debe hacer click en el botón 'Guardar' el cual abrirá un diálogo de confirmación para confirmar los cambios.
+
+Los cambios se verán reflejados en la herramienta de análisis de imágenes en DropControl.
 
 \subsubsection{GRAFICADOR LIBRE}
 
@@ -139,8 +151,6 @@ Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropCon
 
 Una de las configuraciones que se deben realizar en los campos las fuentes de agua y las conexiones entre ellas, esta configuración se hace en la aplicación de \textit{SETUP}.
 
-Actualmente, estas configuraciones se hacen ...
-
 La solución para este problema es crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
 
 Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
@@ -155,23 +165,24 @@ Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual 
               \item Impulsión
               \item Tranque
           \end{itemize}
-    Estas fuentes tienen entradas y salidas, es aquí donde se conectaran con otras fuentes.
+          Estas fuentes tienen entradas y salidas, es aquí donde se conectaran con otras fuentes.
     \item \textbf{Conexiones metrahidráulica}: Estas serán las conexiones (líneas) unidireccionales que conectan las metrahidráulicas. La dirección de las conexiones siempre irá desde una salida de la metrahidráulica a una entrada de otra metrahidráulica.
 \end{itemize}
 
 Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
 También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica.
 
-Luego, al terminar el diagrama, para guardar los cambios se debe hacer click el el botón siguiente en la esquina inferior derecha. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas. 
+Luego, al terminar el diagrama, para guardar los cambios se debe hacer click el el botón siguiente en la esquina inferior derecha. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
 En esta configuración se tiene un mapa junto a una tabla de las metrahidráulicas. La tabla tiene las siguientes columnas:
 \begin{enumerate}
     \item Metrahidráulica.
-    \item .
+    \item Coordenadas.
     \item Acciones:
+          \begin{itemize}
+            \item Centrar en mapa.
+            \item Eliminar coordenada.
+          \end{itemize}
 \end{enumerate}
-
-
-
 
 \subsubsection{CERTIFICADOS TESTBED}
 
@@ -184,8 +195,32 @@ El producto tiene un historial con historias asociadas que indican ingresos a lo
 
 Los trabajadores para acceder a los certificados testbed...
 
-Teniendo esto en cuenta, se plantea implementar una historia de certificados que se agreguen automáticamente cuando se guarde un
-certificado.
+Teniendo esto en cuenta, se plantea implementar un modo que agregue al historial del producto testeado un registro junto con el certificado Testbed en \textit{Operations}.
+
+En \textit{Operations}, los productos tienen un historial de movimientos, acciones (creación, ingreso a despacho, etc.), registro de fallos/arreglos, entre otros.
+Un registro en el historial contiene el tipo de historia, fecha, usuario y descripción. Dentro de los tipos de historia estan:
+\begin{itemize}
+    \item Fallo Pre-Producción
+    \item Fallo Post-Producción
+\end{itemize}
+
+Para solucionar esta problemática, se va a agregar un nuevo tipo de historia llamado 'Certificados Testbed' para registrar los certificados testbed, valga la redundancia, de los productos.
+Esta historia se registrará automáticamente cuando el trabajador de taller que esté probando los productos suba los certificados a un servidor FTP. Los certificados en este servidor se respaldan en un \textit{bucket} de S3 en \textit{Amazon Web Services}.
+Cada vez que se agregue un certificado al \textit{bucket}, se activa una función \textit{Lambda} que guardará en la base de datos de \textit{Operations} en una nueva tabla creada para los certificados.
+
+Las columnas de la tabla de certificados en la base de datos son las siguientes: 
+\begin{itemize}
+    \item Fecha.
+    \item Llave del objeto en el \textit{bucket}.
+    \item Serie del producto.
+\end{itemize}
+Esta tabla tendrá un \textit{trigger} que se activará el ingresar un nuevo registro, que creará la historia si y solo si el producto está creado en \textit{Operations}.
+En el caso que el producto aún no haya sido ingresado en \textit{Operations}, la historia se agregará cuando se cree el producto con un \textit{trigger} en la tabla de productos.
+Estas historias no se podrán editar ni eliminar.
+
+En el historial del producto, la historia de certificados mostrará en la descripción un \textit{presigned URL} con el certificado.
+
+Teniendo estas historias de certificados, se agregará una restricción en los despachos, el cuál no se permitirá ingresar un producto que no tenga un certificado testbed.
 
 \subsection{ENTORNO DE TRABAJO}
 
