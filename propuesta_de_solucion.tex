@@ -6,29 +6,57 @@
 Entendiendo los problemas de los productos de software quue ofrece la empresa y las consecuencias que esto conlleva,
 se plantean nuevas herramientas de software y/o mejoras a herramientas existentes que ayuden a liberar carga y esfuerzo
 de ciertos procesos a las áreas de soporte y producción, además, darle al usuario cliente nuevas herramientas para que tenga un mejor flujo de trabajo.
+Las nuevas funcionalidades serán implementadas en 3 productos de WiseConn: \textit{Admin} de DropControl, \textit{Operations} y \textit{Setup}.
 
-\subsubsection{CONFIGURADOR DE MAPA}
+\subsubsection{ADMIN DE DROPCONTROL}
 
-En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo en el cual puede visualizar sus sectores y nodos instalados (Agregar imagen).
+Esta aplicación surge de la necesidad de los administradores de campos de poder gestionar los distintos elementos de los campos como los sectores, red de nodos, mapa, etc. de una manera rápida y sencilla.
+Dentro de la aplicación se puede hacer:
+
+\begin{itemize}
+    \item Visualizar en mapa los campos de la cuenta.
+    \item Revisar las relaciones del campo como los dispositivos (nodos), sensores, hidráulicas, entre otros.
+    \item Parámetros comerciales.
+    \item Edición de parámetros de sectores.
+    \item Informaciones de equipos de riego.
+    \item Asociar usuarios al campo.
+    \item Visualizar APIs de terceros e integradores.
+\end{itemize}
+
+\subsubsubsection{CONFIGURADOR DE MAPA}
+
+En la aplicación \textit{DropControl}, el usuario tiene a su disposición el mapa de su campo en el cual puede visualizar sus sectores y nodos instalados (Figura \ref{fig:mapa-dropcontrol}).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapa-dropcontrol}
+	\caption{\label{fig:mapa-dropcontrol} \textit{Dashboard} de Campo - DropControl}
+\end{figure}
+
 Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
 Para poder configurar este mapa se puede hacer de dos maneras:
 \begin{enumerate}
-    \item En la aplicación \textit{Admin de DropControl}, ingresar a cada sector/nodo y agregar su respectivo polígono/punto de manera individual.
+    \item En la aplicación \textit{Admin de DropControl}, ingresar de manera individual a cada sector/nodo y agregar su respectivo polígono/punto de manera individual.
     \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o puntos para sus respectivos sectores y/o nodos.
 \end{enumerate}
 Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asginar los polígonos/puntos respectivos.
 En la segunda opción existen problemas como el tiempo que demora el área tome el ticket y realize la confgiruación y/o
 que las instrucciones no están bien indicadas llevando a que esta configuración requiera varios tickets para que se haga como el usuario cliente quiera.
 
-Para esto se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario clienta sea el que
+Es por esto que se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario cliente sea el que
 configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/puntos a sus respectivos sectores/nodos.
 Junto con esto, tambien se agrega la funcionalidad de poder descargar el mapa de su campo en formato .kmz.
 
-Esta nueva herramienta se encontrará en la vista del campo, haciendo click en la carta del mapa en el ícono de engranage para poder entrar al configurador de mapa.
+Esta nueva herramienta se encontrará en la vista del campo, en el mapa del campo se encontrarán dos botones (en la posisción que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato .kmz y otro botón para poder entrar al configurador de mapa.
 
-\{Adjuntar imagen\}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapcfg-farm}
+	\caption{\label{fig:mapcfg-farm} Posición de botones de descarga de mapa y configurador de mapa.}
+\end{figure}
 
-En esta vista se divide en 2 secciones: Tabla de sectores/nodos y el mapa.
+Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato .kmz. El usuario descargando el mapa, le permite poder hacer cambios en ese archivo en aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
+
+Al entrar en el configurador de mapa esta vista se divide en 2 secciones: Tabla de sectores/nodos y el mapa.
 
 En la tabla de sectores/nodos se compone de:
 
@@ -50,17 +78,8 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
     \item En la tabla se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada). Además, en la columna de acciones se agregan dos nuevas acciones: volver al polígono/punto previamente asignado y eliminar asignación.
 \end{itemize}
 
-
-
-\{Adjuntar imagen\}
-
 Respecto al mapa, se muestran los polígonos o puntos, según la tabla seleccionada, con un color distintivo. Por último, debajo de la tabla se muestra el botón para guardar los cambios hechos en el mapa, al hacer click sobre este se abrirá un diálogo de confirmación que al ser aceptado se guardarán los cambios y la herramienta volverá al estado en que no había un archivo cargado.
-\{Adjuntar imagen\}
-
-Otra funcionalidad que tendrá esta herramienta es el poder descargar el mapa del campo en un archivo con extensión .kmz. Esta funcionalidad se encontrará en el mapa del campo de la vista, valga la redundancia, del campo haciendo click en el ícono de descarga en la esquina superior derecha del mapa. El usuario descargando el mapa, le permite poder hacer cambios en ese archivo en aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
-
-\{Adjuntar imagen\}
-
+\iffalse
 \subsubsection{ALINEADOR DE IMÁGENES}
 
 Una de las herramientas que ofrece \textit{DropControl} es el análisis de imágenes utilizando
@@ -84,7 +103,7 @@ En el mapa se pueden hacer las siguientes acciones:
 Cuando el usuario logre alinear la imágen como el desee, debe hacer click en el botón 'Guardar' el cual abrirá un diálogo de confirmación para confirmar los cambios.
 
 Los cambios se verán reflejados en la herramienta de análisis de imágenes en DropControl.
-
+\fi
 \subsubsection{GRAFICADOR LIBRE}
 
 Como se explicó anteriormente, el plan gratuito que ofrece \textit{Wiseconn} sirve como punto de entrada a las herramientas
@@ -99,7 +118,15 @@ no pueden visualizar los datos de sus nodos.
 Por esto se desarrolla la herramienta de 'Graficado Libre' en la aplicación de \textit{Admin de DropControl},
 donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiempo máximo de los últimos 3 meses (90 días).
 
-Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropControl} como muestra en la imagen ... bajo el nombre de `Graficador Libre`. Al acceder a esta herramienta, el usuario se encontrará con lo siguiente:
+Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropControl} como muestra en la figura \ref{fig:menu-admin-graf1} bajo el nombre de `Graficador Libre`. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{menu-admin-graficador}
+	\caption{\label{fig:menu-admin-graf1} Graficador Libre en el menú de \textit{Admin}}
+\end{figure}
+
+Al acceder a esta herramienta, el usuario se encontrará con lo siguiente:
 
 \begin{itemize}
     \item \textbf{Tabla de nodos y sensores:} Aquí es donde se seleccionan los nodos junto con su sensor que se quieren desplegar en el gráfico. Esta tabla tiene las siguientes propiedades:
@@ -143,51 +170,54 @@ Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropCon
           \end{itemize}
 \end{itemize}
 
-\subsubsection{CONFIGURADOR DE FUENTES}
+\subsubsection{OPERATIONS}
 
-Una de las configuraciones que se deben realizar en los campos las fuentes de agua y las conexiones entre ellas, esta configuración se hace en la aplicación de \textit{SETUP}.
+El área de producción se encarga del ensamblado y testeo del hardware de WiseConn junto con el su inventario y despachos de estos. Para llevar registro de todo esto se utiliza la aplicación de \textit{Operations}
 
-La solución para este problema es crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
+En \textit{Operations} se puede hacer:
 
-Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
-
-Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
-Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual se realizará la configuración de fuentes del campo mediante la creación de un diagrama. El diagrama los siguientes elementos:
 \begin{itemize}
-    \item \textbf{Metrahidráulicas (Fuentes de agua):} Estos serían los nodos del diagrama. Dentro de las metrahidráulicas disponibles están:
-          \begin{itemize}
-              \item Canal
-              \item Equipo
-              \item Impulsión
-              \item Tranque
-          \end{itemize}
-          Estas fuentes tienen entradas y salidas, es aquí donde se conectaran con otras fuentes.
-    \item \textbf{Conexiones metrahidráulica}: Estas serán las conexiones (líneas) unidireccionales que conectan las metrahidráulicas. La dirección de las conexiones siempre irá desde una salida de la metrahidráulica a una entrada de otra metrahidráulica.
+    \item Configurar los tipos de productos.
+    \item Administrar lotes de productos.
+    \item Administrar despachos de productos.
+    \item Llevar el inventario de los productos y los estados de estos, gracias a que cada producto tiene asociado un historial.
 \end{itemize}
 
-Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
-También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica.
+\subsubsubsection{DESPACHOS MÚLTIPLES}
 
-Luego, al terminar el diagrama, para guardar los cambios se debe hacer click el el botón siguiente en la esquina inferior derecha. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
-En esta configuración se tiene un mapa junto a una tabla de las metrahidráulicas. La tabla tiene las siguientes columnas:
-\begin{enumerate}
-    \item Metrahidráulica.
-    \item Coordenadas.
-    \item Acciones:
-          \begin{itemize}
-            \item Centrar en mapa.
-            \item Eliminar coordenada.
-          \end{itemize}
-\end{enumerate}
+Existen muchas ocasiones en que se hacen despachos a un mismo destino
 
-\subsubsection{DESPACHOS MÚLTIPLES}
+\subsubsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
-El área de producción de WiseConn se encarga del ensamblado de los productos que 
+El área de producción al hacer el testeo del hardware y si existe un fallo se debe dejar el registro en el historial del producto en \textit{Operations}.
+Debido a que se hacen pruebas a muchos productos, el ir agregando el registro a cada producto de manera individual tomaría mucho tiempo para los trabajadores.
 
-\subsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
+Es por esto que se plantea hacer una nueva herramienta en \textit{Operations} que permita poder hacer una actualización masiva de productos para poder agregar registros al historial de los productos y bloquearlos si es necesario.
 
-En el área de produccio
+Esta nueva herramienta estará en el menú lateral de \textit{Operations}. Esta consta de dos secciones: Tabla de productos y formulario de registro.
 
+El formulario de registro contiene:
+\begin{itemize}
+    \item Un \textit{TextArea} para ingresar un comentario.
+    \item Selector \textit{dropdown} para el tipo de historia.
+    \item En caso de seleccionar un tipo de historia de fallo, se desplegará otro selector \textit{dropdown} para escoger el tipo de fallo.
+    \item Botón para guardar los registros.
+\end{itemize}
+
+La tabla de productos tendrá lo siguiente:
+
+\begin{itemize}
+    \item Un input donde se ingresará la serie del producto a ingresar.
+    \item Tabla de productos, que tiene las siguientes columnas:
+    \begin{enumerate}
+        \item Serie del producto.
+        \item Checkbox para (des)bloquear el producto.
+        \item Si se escoge tipo de historia de fallo en el formulario, se mostrará un nueva columna para indicar si el producto está reparado o no, con un \textit{checkbox}.
+    \end{enumerate}    
+\end{itemize}
+
+Al guardar los registros, si se entra a la vista de alguno de los productos ingresados, se mostrará la historía en la tabla de historial y según como se seleccionó en la tabla mostrará si está bloqueado o no (Figura *).
+\iffalse
 \subsubsection{CERTIFICADOS TESTBED}
 
 Dentro de las tareas que cumple el área de producción es son las pruebas del hardware, cada prueba queda documentada con
@@ -225,6 +255,46 @@ Estas historias no se podrán editar ni eliminar.
 En el historial del producto, la historia de certificados mostrará en la descripción un \textit{presigned URL} con el certificado.
 
 Teniendo estas historias de certificados, se agregará una restricción en los despachos, el cuál no se permitirá ingresar un producto que no tenga un certificado testbed.
+\fi
+
+\subsubsection{SETUP}
+
+\subsubsection{CONFIGURADOR DE FUENTES}
+
+Una de las configuraciones que se deben realizar en los campos las fuentes de agua y las conexiones entre ellas, esta configuración se hace en la aplicación de \textit{SETUP}.
+
+La solución para este problema es crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
+
+Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
+
+Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
+Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual se realizará la configuración de fuentes del campo mediante la creación de un diagrama. El diagrama los siguientes elementos:
+\begin{itemize}
+    \item \textbf{Metrahidráulicas (Fuentes de agua):} Estos serían los nodos del diagrama. Dentro de las metrahidráulicas disponibles están:
+          \begin{itemize}
+              \item Canal
+              \item Equipo
+              \item Impulsión
+              \item Tranque
+          \end{itemize}
+          Estas fuentes tienen entradas y salidas, es aquí donde se conectaran con otras fuentes.
+    \item \textbf{Conexiones metrahidráulica}: Estas serán las conexiones (líneas) unidireccionales que conectan las metrahidráulicas. La dirección de las conexiones siempre irá desde una salida de la metrahidráulica a una entrada de otra metrahidráulica.
+\end{itemize}
+
+Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
+También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica.
+
+Luego, al terminar el diagrama, para guardar los cambios se debe hacer click el el botón siguiente en la esquina inferior derecha. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
+En esta configuración se tiene un mapa junto a una tabla de las metrahidráulicas. La tabla tiene las siguientes columnas:
+\begin{enumerate}
+    \item Metrahidráulica.
+    \item Coordenadas.
+    \item Acciones:
+          \begin{itemize}
+            \item Centrar en mapa.
+            \item Eliminar coordenada.
+          \end{itemize}
+\end{enumerate}
 
 \subsection{ENTORNO DE TRABAJO}
 
