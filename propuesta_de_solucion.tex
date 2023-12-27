@@ -200,19 +200,69 @@ Al crear un despacho se ingresan las siguientes propiedades:
 
 En la vista de un despacho se pueden editar las propiedades de este, agregar productos y accesorios y descargar un reporte. Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
 
-Como en \textit{Operations} el despacho es individual, no existe una forma de agrupar estos despachos que comparten propiedades. Por esto, se plantea crear la funcionalidad de 'Despacho múltiples'. Los despachos múltiples consisten en un despacho padre el cual tiene las propiedades de:
+Como en \textit{Operations} el despacho es individual, no existe una forma de agrupar estos despachos que comparten propiedades. Por esto, se plantea crear la funcionalidad de 'Despacho múltiples'. 
+Los despachos múltiples tendrán una sección aparte en \textit{Operations}, en el menú lateral los despachos se dividen entre individuales y múltiples.
 
+Al entrar a la sección de despachos múltiples, se muestra la tabla de los despachos múltiples que contiene:
+\begin{itemize}
+    \item Listado de Despachos Múltiples. Las columnas que se muestran son:
+    \begin{itemize}
+        \item \textbf{ID de Despacho}
+        \item \textbf{Fecha de salida} (Ordenable)
+        \item \textbf{Destino} (con filtro de texto)
+        \item \textbf{Observación}
+        \item \textbf{Estado} (Con filtro seleccionado Abierto/Cerrado/Todos)
+    \end{itemize}
+    \item Botónes de acción en \textit{header} y \textit{footer} para crear, ver y eliminar despacho.
+    \begin{itemize}
+        \item \textbf{Crear:} Abre el formulario para crear un despacho múltiple.
+        \item \textbf{Ver:} Al seleccionar una fila de la tabla, que corresponde a un despacho, hacer click en esta acción lleva a la vista del despacho múltiple.
+        \item \textbf{Eliminar:} Al seleccionar una fila de la tabla, que corresponde a un despacho, hacer click en esta acción elimina el despacho seleccionado (luego de confirmar la acción en un diálogo de confirmación).
+    \end{itemize}
+    \item Filtro de rango de fechas.
+\end{itemize}
+
+En el formulario de creación se ingresan las siguientes propiedades:
 \begin{itemize}
     \item Fecha de salida
     \item Destino
     \item País Destino
-    \item Observación    
+    \item Observación (Propia del despacho padre)
     \item Despacho interno \textit{flag}    
+    \item Número de despachos hijos.
 \end{itemize}
 
-Estas propiedades serán heredadas por los 'Despachos Hijos' que se crean. Las demás propiedades serán individuales por cada despacho hijo.
+Según el número de despachos hijos ingresado, en el formulario se van agregando campos para cada despacho hijo, diferenciado por un número de creación. Las propiedades individuales de cada despacho hijo son:
+\begin{itemize}
+    \item Fecha de activación
+    \item Observación
+    \item Documento
+    \item Número de Documento
+\end{itemize}
 
-La vista de un despacho múltiple es similar al de un despacho individual, con la diferencia que sobre la sección de información del despacho hay un selector que contiene los despachos hijos. 
+Al guardar el despacho múltiple, las propiedades ingresadas para el despacho padre, son heredadas por los despachos hijos (excluyendo la observación).
+
+Al entrar a la vista de un despacho múltiple se verá lo siguiente:
+
+\begin{itemize}
+    \item Lado izquierdo:
+    \begin{itemize}
+        \item La primera sección contiene:
+        \begin{itemize}
+            \item ID del despacho padre, junto a un botón para descargar el reporte del despacho.
+            \item Selector de despacho hijo. Al seleccionar la opción 'Todos' se muestra la vista del despacho padre. Si se selecciona la ID de un despacho hijo, se muestra la vista de ese despacho de manera similar a la vista de un despacho individual.
+        \end{itemize}
+        \item Información del despacho padre. La propiedades son editables.
+        \item Tabla de productos: Muestra la cantidad de productos ingresados en todos los despachos hijos.
+        \item Tabla de accesorios: Muestra la cantidad de accesorios ingresados en todos los despachos hijos.
+    \end{itemize}
+    \item Lado derecho:
+    \begin{itemize}
+        \item Detalle de despachos: Tabla que muestra los despachos hijos. En el \textit{header} de la tabla tiene botónes para crear un nuevo despacho (Se abre un formulario con las propiedades del despacho individual) y para cerrar todos los despachos.
+        \item Detalle de series: Tabla que muestra todas las series de los productos ingresados a los despacho hijos.
+    \end{itemize}
+\end{itemize}
+
 Al seleccionar un despacho hijo, la vista mostrará el despacho seleccionado al igual que en la vista de despacho individual y se podrá editar, agregar productos/accesorios, cerrar/abrir el despacho.
 
 Al editar las propiedades de un despacho múltiple, modificará de igual manera a los despachos hijos. De igual forma, si se editan las propiedades heredadas de un despacho hijo de manera individual, los cambios se modificarán en los demás despachos hijos y el despacho padre.
