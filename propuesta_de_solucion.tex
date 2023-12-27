@@ -185,7 +185,41 @@ En \textit{Operations} se puede hacer:
 
 \subsubsubsection{DESPACHOS MÚLTIPLES}
 
-Existen muchas ocasiones en que se hacen despachos a un mismo destino
+En \textit{Operations}, como se mencionó anteriormente, se administran los despachos de los distintos productos de hardware que ofrece \textit{WiseConn}.
+Las propiedades de los despachos son:
+\begin{itemize}
+    \item Fecha de despacho
+    \item Destino
+    \item Comentario
+    \item Código 1
+    \item Código 2
+    \item Productos
+    \item Accesorios
+    \item Estado del despacho (abierto/cerrado)
+\end{itemize}
+
+En la vista de un despacho se pueden editar las propiedades de este, agregar productos y accesorios y descargar un reporte. Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
+
+Como en \textit{Operations} el despacho es individual, no existe una forma de agrupar estos despachos que comparten propiedades. Por esto, se plantea crear la funcionalidad de 'Despacho múltiples'. Los despachos múltiples consisten en un despacho padre el cual tiene las propiedades de:
+
+\begin{itemize}
+    \item Fecha de despacho
+    \item Destino
+    \item Comentario    
+\end{itemize}
+
+Estas propiedades serán heredadas por los 'Despachos Hijos' que se crean. Las demás propiedades serán individuales por cada despacho hijo.
+
+La vista de un despacho múltiple es similar al de un despacho individual, con la diferencia que sobre la sección de información del despacho hay un selector que contiene los despachos hijos. 
+Al seleccionar un despacho hijo, la vista mostrará el despacho seleccionado al igual que en la vista de despacho individual y se podrá editar, agregar productos/accesorios, cerrar/abrir el despacho.
+
+Al editar las propiedades de un despacho múltiple, modificará de igual manera a los despachos hijos. De igual forma, si se editan las propiedades heredadas de un despacho hijo de manera individual, los cambios se modificarán en los demás despachos hijos y el despacho padre.
+
+El estado del despacho padre depende de los despachos hijos, si todos los despachos hijos están cerrados, entonces el despacho padre está cerrado. En el caso de que haya al menos un despacho hijo abierto, el despacho padre aparece abierto.
+
+En la vista de despacho individuales, al entrar en un despacho, en la sección de información se agrega un nueva propiedad 'Id Despacho Padre' que, como dice el nombre, indica la ID del despacho padre. Al hacer click sobre este Id redireccionará a la vista del despacho padre en Despacho Múltiples.
+Al lado de esta ID, hay un botón que permite desvincular el despacho del despacho padre. 
+En el caso que el despacho no tenga despacho padre, se podrá ingresar la ID de un despacho padre para vincularlo a este. Solo se podrá vincular un despacho individual a un despacho múltiple si las propiedades del despacho múltiple coinciden con el despacho individual.
 
 \subsubsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
@@ -299,6 +333,34 @@ En esta configuración se tiene un mapa junto a una tabla de las metrahidráulic
 \subsection{ENTORNO DE TRABAJO}
 
 Los servicios de WiseConn corren en la nube de \textit{Amazon Web Services}, utilizando los distintos servicios que este ofrece para las bases de datos, \textit{backend} y \textit{hosting}. En las siguientes secciones se explicará el entorno de trabajo de cada aplicación.
+
+\subsubsection{STACK DE TECNOLOGÍAS}
+
+Para el desarrollo en las distintas aplicaciones se tienen los correspondientes \textit{stack} de tecnologías.
+
+\begin{itemize}
+    \item \textbf{\textit{Admin} de \textit{DropControl}}
+    \begin{itemize}
+        \item Framework: \textit{React.js}
+        \item IDE: VS Code
+        \item Base de Datos: \textit{PostgreSQL}
+        \item Hosting: \textit{AWS Amplify}
+    \end{itemize}
+    \item \textbf{\textit{Operations}}
+    \begin{itemize}
+        \item Framework: JavaServer Faces, Primefaces
+        \item IDE: Eclipse
+        \item Base de Datos: \textit{MySQL}
+        \item Hosting: \textit{AWS EC2}
+    \end{itemize}
+    \item \textbf{\textit{SETUP}}
+    \begin{itemize}
+        \item Framework: JavaServer Faces, Primefaces
+        \item IDE: Eclipse
+        \item Base de Datos: \textit{PostgreSQL}
+        \item Hosting: \textit{AWS EC2}
+    \end{itemize}
+\end{itemize}
 
 \subsubsection{OPERATIONS}
 
