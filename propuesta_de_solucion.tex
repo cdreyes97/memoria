@@ -183,7 +183,7 @@ no pueden visualizar los datos de sus nodos.
 \end{figure}
 
 Por esto se desarrolla la herramienta de 'Graficado Libre' en la aplicación de \textit{Admin de DropControl},
-donde el usuario podrá escoger hasta 6 nodos para graficar en un rango de tiempo máximo de los últimos 3 meses (90 días).
+donde el usuario podrá escoger hasta 6 sensores para graficar en un rango de tiempo máximo de los últimos 3 meses (90 días).
 
 Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropControl} como muestra en la figura \ref{fig:menu-admin-graf1} bajo el nombre de `Graficador Libre`. 
 
@@ -193,49 +193,95 @@ Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropCon
 	\caption{\label{fig:menu-admin-graf1} Graficador Libre en el menú de \textit{Admin}}
 \end{figure}
 
-Al acceder a esta herramienta, el usuario se encontrará con lo siguiente:
+El graficador libre tendrá el siguiente esquema mostrado en la figura \ref*{fig:graf-esquema}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-esquema}
+	\caption{\label{fig:graf-esquema} Esquema graficador libre. Fuente: Elaboración propia.}
+\end{figure}
+
+En la tabla de sensores es donde se seleccionan los sensores que se quieren desplegar en el gráfico. Esta tabla tiene las siguientes propiedades y componentes (Figura \ref{fig:graf-table}):
 \begin{itemize}
-    \item \textbf{Tabla de nodos y sensores:} Aquí es donde se seleccionan los nodos junto con su sensor que se quieren desplegar en el gráfico. Esta tabla tiene las siguientes propiedades:
-          \begin{itemize}
-              \item Se podrá escoger hasta 6 combinaciones de nodo/sensor.
-              \item Las columnas de la tabla son las siguientes:
-                    \begin{enumerate}
-                        \item Selector de nodos.
-                        \item Selector de sensores.
-                        \item Selector de color.
-                        \item Botón para eliminar fila.
-                    \end{enumerate}
-              \item Para agregar nuevas filas existen 3 formas:
-                    \begin{enumerate}
-                        \item Haciendo click en el botón de `Agregar fila` que está en la esquina superior derecha de la tabla.
-                        \item Al escoger un nodo, al lado del selector aparecerá un botón con el signo `+`. Al hacer click en ese botón agregará una nueva fila con el nodo siguiente en la lista seleccionado.
-                        \item Al escoger un sensor, al lado del selector aparecerá un botón con el signo `+`. Al hacer click en ese botón agregará una nueva fila con el nodo seleccionado en la fila anterior junto al sensor siguiente en la lista.
-                    \end{enumerate}
-              \item Cada combinación de nodo/sensor tendrá su propio color que se verá en el gráfico. Este color lo puede escoger el usuario en el selector de colores en la penúltima fila de la tabla.
-              \item Para eliminar una fila se debe hacer click en el botón con ícono de basura en la última columna para eliminar la fila correspondiente.
-          \end{itemize}
-    \item \textbf{Selector de rango de fechas:} Seleccionar el rango de fecha, máximo de 90 días, de los datos. Este componente permitirá escoger el rango de fechas de forma manual o el usuario podrá seleccionar unas opciones predeterminadas que son:
-          \begin{itemize}
-              \item Últimos 7 días.
-              \item Este mes.
-              \item Últimos 30 días.
-              \item Últimos 60 días.
-              \item Últimos 90 días.
-          \end{itemize}
-    \item \textbf{Gráfico:} Aquí es donde se muestran los datos de los nodos con su sensor. Las propiedades del gráfico son los siguientes:
-          \begin{itemize}
-              \item Se podrá hacer zoom, ya sea, de forma manual seleccionado el rango en el gráfico o haciendo click en las opciones para ver rangos de 7, 30, 60 días (dependiendo del rango de fechas seleccionado).
-              \item Esconder/mostrar líneas del gráfico.
-          \end{itemize}
-    \item \textbf{Tabla de datos del gráfico:} Tabla de los datos de los sensores seleccionados con las siguientes propiedades:
-          \begin{itemize}
-              \item La primera columna corresponde a la fecha y las columnas siguientes corresponden a las combinaciones de nodos/sensores seleccionados.
-              \item La tabla es paginada y se puede cambiar el número de filas que se pueden mostrar por cada página.
-              \item La tabla se ordena por fecha del dato, el cual se puede cambiar el orden haciendo click en el header de la columna.
-              \item En la esquina superior derecha habrá un botón con el cual se podrá descargar la tabla en formato .xls.
-          \end{itemize}
+    \item En primera instancia, la tabla empieza con una fila (Figura \ref{fig:graf-table-empty}).
+    \item Se podrá escoger hasta 6 sensores.
+    \item Las columnas de la tabla son las siguientes:
+          \begin{enumerate}
+              \item Selector de nodos.
+              \item Selector de sensores.
+              \item Selector de color.
+              \item Botón para eliminar fila (Aparece cuando se tiene más de una fila).
+          \end{enumerate}
+    \item Botón para agregar una fila vacía.
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-table-empty}
+	\caption{\label{fig:graf-table-empty} Tabla de sensores vacía. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-table}
+	\caption{\label{fig:graf-table} Componentes de la tabla de sensores. Fuente: Elaboración propia.}
+\end{figure}
+
+Los sensores pertenecen a un nodo, es por esto que primero se debe seleccionar el nodo en el primer selector, para luego seleccionar el sensor perteneciente a ese nodo.
+Para agregar nuevas filas a la tabla de sensores existen 3 formas.
+\begin{enumerate}
+    \item Haciendo click en el botón de `Agregar fila` que está en la esquina superior derecha de la tabla.
+    \item Al escoger un nodo, al lado del selector aparecerá un botón con el signo `+` (Figura \ref{fig:graf-table}). Al hacer click en ese botón agregará una nueva fila con el nodo siguiente en la lista seleccionado.
+    \item Al escoger un sensor, al lado del selector aparecerá un botón con el signo `+` (Figura \ref{fig:graf-table}). Al hacer click en ese botón agregará una nueva fila con el nodo seleccionado en la fila anterior junto al sensor siguiente en la lista.
+\end{enumerate}
+
+En cuanto al selector de rango de fecha (Figura \ref{fig:graf-chart-daterange-example}), se podrá escoger un máximo de los últimos 90 días. Además, existirán rangos predeterminados para que el usuario pueda escoger:
+\begin{itemize}
+    \item Últimos 7 días.
+    \item Este mes.
+    \item Últimos 30 días.
+    \item Últimos 60 días.
+    \item Últimos 90 días.
+\end{itemize}
+Para esto se utilizará el componente \textit{DateRangePicker} de \textit{Syncfusion}\footnote{\href{https://ej2.syncfusion.com/react/documentation/daterangepicker/getting-started}{Syncfusion: DateRangePicker}}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-chart-daterange-example}
+	\caption{\label{fig:graf-chart-daterange-example} Ejemplo de componente \textit{DateRangePicker}. Fuente: Elaboración propia.}
+\end{figure}
+Respecto al gráfico, se utilizará \textit{Highcharts Stock}\footnote{\href{https://www.highcharts.com/docs/stock/understanding-highcharts-stock}{Understanding Highcharts Stock}} para poder desplegar los datos. Cada serie del gráfico representa un sensor que se escogió en la tabla de sensores. La serie tendra un formato de nombre [Nodo]-[Sensor].
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-chart-example}
+	\caption{\label{fig:graf-chart-example} Ejemplo de gráfico. Fuente: Elaboración propia.}
+\end{figure}
+
+Pasar el puntero por encima de las series, mostrará un \textit{tooltip} con el dato de las series (Figura \ref{fig:graf-chart-tooltip}).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-chart-tooltip}
+	\caption{\label{fig:graf-chart-tooltip} \textit{Tooltip}. Fuente: Elaboración propia.}
+\end{figure}
+Al estar usando \textit{Highcharts Stock}, nos permite realizar las siguientes acciones:
+\begin{itemize}
+    \item Se podrá hacer zoom, ya sea, de forma manual seleccionado el rango en el gráfico o haciendo click en las opciones para ver rangos de 7, 30, 60 días en la esquina superior izquierda (dependiendo del rango de fechas seleccionado). También se podrá usar el \textit{navigator}\footnote{\href{https://www.highcharts.com/docs/stock/navigator}{Highcharts Stock Navigator}} que proporciona la librería
+    \item Esconder/mostrar series del gráfico haciendo click en la leyenda de la serie.
+\end{itemize}
+
+Por último tenemos la tabla de datos del gráfico (Figura \ref{fig:graf-chart-table-example}), para esto se utilizará el componente \textit{Grid}\textit{Syncfusion}\footnote{\href{https://ej2.syncfusion.com/react/documentation/grid/getting-started}{Syncfusion: Grid}} de \textit{Syncfusion}, que nos permite agregar la acción de \textit{Sorting} por columna y exportar la tabla en formato .xls.
+La tabla tiene las siguientes propiedades:
+\begin{itemize}
+    \item La primera columna corresponde a la fecha y las columnas siguientes corresponden a las combinaciones de nodos/sensores seleccionados.
+    \item La tabla es paginada y se puede cambiar el número de filas que se pueden mostrar por cada página.
+    \item La tabla se ordena por fecha del dato, el cual se puede cambiar el orden haciendo click en el header de la columna.
+    \item En la esquina superior derecha habrá un botón con el cual se podrá descargar la tabla en formato .xls.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graf-chart-table-example}
+	\caption{\label{fig:graf-chart-table-example} Ejemplo de tabla de datos. Fuente: Elaboración propia.}
+\end{figure}
 
 \subsubsection{OPERATIONS}
 
