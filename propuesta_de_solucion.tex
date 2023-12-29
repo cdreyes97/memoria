@@ -56,9 +56,14 @@ Esta nueva herramienta se encontrará en la vista del campo, en el mapa del camp
 
 Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato .kmz. El usuario descargando el mapa, le permite poder hacer cambios en ese archivo en aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
 
-Al entrar en el configurador de mapa esta vista se divide en 2 secciones: Tabla de sectores/nodos y el mapa.
+Al entrar en el configurador de mapa esta vista se divide en 2 secciones (Figura \ref{fig:mapcfg-esquema}): Tabla de sectores/nodos y el mapa.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapcfg-esquema}
+	\caption{\label{fig:mapcfg-esquema} Esquema de configurador de mapa. Fuente: Elaboración propia.}
+\end{figure}
 
-En la tabla de sectores/nodos se compone de:
+En la tabla de sectores/nodos (Figura \ref{fig:mapcfg-tables-exameple}) se compone de:
 
 \begin{itemize}
     \item \textbf{Botones:}
@@ -66,8 +71,20 @@ En la tabla de sectores/nodos se compone de:
               \item En la parte superior izquierda estan los botónes para cambiar entre la tabla de sectores y nodos.
               \item En el lado opuesto, se encuentra el botón de "Cargar Archivo" que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.
           \end{itemize}
-    \item Tabla: La tabla muestra los sectores o nodos, según lo seleccionado. Contiene dos columnas, la primera con el nombre del sector/nodo y la segunda es una columnna de acciones, con un botón que sirve para centrar el sector/nodo en el mapa. Además, la tabla es paginada permitiendo al usuario elegir cuantos elementos mostrar por página.
+    \item Tabla:  
+    \begin{itemize}
+        \item La tabla muestra los sectores o nodos, según lo seleccionado.
+        \item En primera instancia contiene dos columnas, la primera con el nombre del sector/nodo y la segunda es una columnna de acciones, con un botón que sirve para centrar el sector/nodo en el mapa. 
+        \item Además, la tabla es paginada permitiendo al usuario elegir cuantos elementos mostrar por página.
+    \end{itemize}
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapcfg-tables}
+	\caption{\label{fig:mapcfg-tables-exameple} Ejemplo tabla de sectores y nodos. Fuente: Elaboración propia.}
+\end{figure}
+
 
 Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (Figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo (fig). Si esta seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
 \begin{figure}[H]
@@ -76,7 +93,7 @@ Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente as
 	\caption{\label{fig:mapcfg-zone-pre} Sector previamente asignado en el mapa}
 \end{figure}
 
-Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurre lo siguiente:
+Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurre lo siguiente (Figura \ref{fig:mapcfg-tables-edit-exameple}):
 
 \begin{itemize}
     \item El botón de "Cargar Archivo" desaparece y se reemplaza por el nombre del archivo cargado junto a un ícono de basura que al hacerle click, elimina el archivo y vuelve al estado anterior.
@@ -93,6 +110,12 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
     \item En el mapa se agregan los polígonos/puntos del archivo cargado previamente. Para los polígonos se muestran como en la figura \ref{fig:mapcfg-zone-loaded}, mientras que los nodos como en la figura \ref{fig:mapcfg-node-loaded}.
     \item Por último, debajo de la tabla se muestra el botón para guardar los cambios hechos en el mapa, al hacer click sobre este se abrirá un diálogo de confirmación que al ser aceptado se guardarán los cambios y la herramienta volverá al estado en que no había un archivo cargado.
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapcfg-tables-edit}
+	\caption{\label{fig:mapcfg-tables-edit-exameple} Ejemplo tabla de sectores y nodos al cargar un archivo. Fuente: Elaboración propia.}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
