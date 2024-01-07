@@ -322,7 +322,23 @@ En \textit{Operations} se puede hacer:
 \subsubsubsection{DESPACHOS MÚLTIPLES}
 
 En \textit{Operations}, como se mencionó anteriormente, se administran los despachos de los distintos productos de hardware que ofrece \textit{WiseConn}.
-Al crear un despacho se ingresan las siguientes propiedades:
+La sección de despachos (Figura \ref{fig:dm-mantenedor-indv}) se compone de una tabla que contiene los despachos, valga la redundancia, creados. La tabla contiene botónes de acciones de crear, editar, eliminar y exportar a CSV en el \textit{header} y \textit{footer} de este, además, en la parte izquierda del \textit{header} existe un filtro de rango de fecha. 
+Para las acciones de ver, eliminar y cerrar es necesario primero seleccionar una fila de la tabla para que se habilite el botón.
+De igual manera, existen filtros por columnas como se ve en la figura \ref{fig:dm-mantenedor-indv-filters}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-mantenedor-indv}
+	\caption{\label{fig:dm-mantenedor-indv} Sección de despachos. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-mantenedor-indv-filters}
+	\caption{\label{fig:dm-mantenedor-indv-filters} Filtros por columna. Fuente: Elaboración propia.}
+\end{figure}
+
+Al hacer click en el botón crear se abre un siguiente formulario (Figura \ref{fig:dm-create-indv-form}) para ingresar las propiedades:
 \begin{itemize}
     \item Fecha de salida
     \item Fecha de activación
@@ -334,12 +350,43 @@ Al crear un despacho se ingresan las siguientes propiedades:
     \item Despacho interno \textit{flag}    
 \end{itemize}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-create-indv-form}
+	\caption{\label{fig:dm-create-indv-form} Filtros por columna. Fuente: Elaboración propia.}
+\end{figure}
+
+Para poder entrar a un despacho se debe hacer click en la fila de la tabla y hacer click en el botón ver, al igual que haciendo click en la Id del despacho.
+La vista del despacho se muestra en la figura \ref{fig:dm-vista-indv}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-vista-indv}
+	\caption{\label{fig:dm-vista-indv} Vista de despacho. Fuente: Elaboración propia.}
+\end{figure}
+
+La vista del despacho contiene las siguientes secciones:
+\begin{itemize}
+    \item En el lado derecho:
+    \begin{itemize}
+        \item \textit{Input} para ingresar la serie del producto o código de accesorio.
+        \item Tabla de productos. Columnas: Series, tipo de producto, acción de eliminar.
+    \end{itemize}
+    \item En el lado izquierdo:
+    \begin{itemize}
+        \item Información del despacho.
+        \item Resumen de productos.
+        \item Resumen de accesorios.
+        \item Tabla de comentarios.
+    \end{itemize}
+\end{itemize}
+
 En la vista de un despacho se pueden editar las propiedades de este, agregar productos y accesorios y descargar un reporte. Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
 
 Como en \textit{Operations} el despacho es individual, no existe una forma de agrupar estos despachos que comparten propiedades. Por esto, se plantea crear la funcionalidad de 'Despacho múltiples'. 
 Los despachos múltiples tendrán una sección aparte en \textit{Operations}, en el menú lateral los despachos se dividen entre individuales y múltiples.
 
-Al entrar a la sección de despachos múltiples, se muestra la tabla de los despachos múltiples que contiene:
+Al entrar a la sección de despachos múltiples, se muestra la tabla de los despachos múltiples (Figura \ref{fig:dm-mantenedor-mult}) que contiene:
 \begin{itemize}
     \item Listado de Despachos Múltiples. Las columnas que se muestran son:
     \begin{itemize}
@@ -358,15 +405,27 @@ Al entrar a la sección de despachos múltiples, se muestra la tabla de los desp
     \item Filtro de rango de fechas.
 \end{itemize}
 
-En el formulario de creación se ingresan las siguientes propiedades:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-mantenedor-mult}
+	\caption{\label{fig:dm-mantenedor-mult} Sección de despachos múltiples. Fuente: Elaboración propia.}
+\end{figure}
+
+En el formulario de creación (Figura \ref{fig:dm-create-multi-form}) se ingresan las siguientes propiedades:
 \begin{itemize}
     \item Fecha de salida
     \item Destino
     \item País Destino
     \item Observación (Propia del despacho padre)
     \item Despacho interno \textit{flag}    
-    \item Número de despachos hijos.
+    \item Número de despachos.
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-create-multi-form}
+	\caption{\label{fig:dm-create-multi-form} Formulario creación despacho múltiple. Fuente: Elaboración propia.}
+\end{figure}
 
 Según el número de despachos hijos ingresado, en el formulario se van agregando campos para cada despacho hijo, diferenciado por un número de creación. Las propiedades individuales de cada despacho hijo son:
 \begin{itemize}
@@ -378,7 +437,7 @@ Según el número de despachos hijos ingresado, en el formulario se van agregand
 
 Al guardar el despacho múltiple, las propiedades ingresadas para el despacho padre, son heredadas por los despachos hijos (excluyendo la observación).
 
-Al entrar a la vista de un despacho múltiple se verá lo siguiente:
+Al entrar a la vista de un despacho múltiple (Figura ...) se verá lo siguiente:
 
 \begin{itemize}
     \item Lado izquierdo:
@@ -412,11 +471,33 @@ En el caso que el despacho no pertenezca a un despacho múltiple, se podrá ingr
 \subsubsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
 El área de producción al hacer el testeo del hardware y si existe un fallo se debe dejar el registro en el historial del producto en \textit{Operations}.
+Cada producto tiene asociado un historial, las historias del historial se pueden agregar de forma manual o de forma automática realizando ciertas acciones como agregar un producto a un despacho.
+Los tipos de historia que se pueden crear de forma manual son:
+\begin{itemize}
+    \item Observación.
+    \item Fallo PrePorducción.
+    \item Fallo PostProducción.
+\end{itemize}
+
+Para las historias de fallo, se debe ingresar el tipo de falla.
+
 Debido a que se hacen pruebas a muchos productos, el ir agregando el registro a cada producto de manera individual tomaría mucho tiempo para los trabajadores.
 
 Es por esto que se plantea hacer una nueva herramienta en \textit{Operations} que permita poder hacer una actualización masiva de productos para poder agregar registros al historial de los productos y bloquearlos si es necesario.
 
-Esta nueva herramienta estará en el menú lateral de \textit{Operations}. Esta consta de dos secciones: Tabla de productos y formulario de registro.
+Esta nueva herramienta estará en el menú lateral de \textit{Operations} (Figura \ref{fig:history-menu}). Esta herramienta (Figura \ref{fig:history-view}) consta de dos secciones: Tabla de productos y formulario de registro.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{history-menu}
+	\caption{\label{fig:history-menu} Sección de Comentario Múltiple en el menú. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{history-view}
+	\caption{\label{fig:history-view} Vista de Comentario Múltiple. Fuente: Elaboración propia.}
+\end{figure}
 
 El formulario de registro contiene:
 \begin{itemize}
