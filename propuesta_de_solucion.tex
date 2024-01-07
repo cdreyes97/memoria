@@ -564,14 +564,15 @@ Teniendo estas historias de certificados, se agregará una restricción en los d
 
 \subsubsubsection{CONFIGURADOR DE FUENTES}
 
-Una de las configuraciones que se deben realizar en los campos las fuentes de agua y las conexiones entre ellas, esta configuración se hace en la aplicación de \textit{SETUP}.
+Una de las herramientas más recientes que se ofrece en \textit{DropControl} es el Análisis de Fuentes. En esta herramienta se pueden visualizar las distintas fuentes de agua de un campo como el tranque, canal, equipo de riego e impulsión.
+Para mostrar las fuentes de agua en la herramienta, se deben hacer las configuraciones de las fuentes de agua y las conexiones entre ellas en la aplicación de \textit{SETUP}.
 
-La solución para este problema es crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
+Para realizar estas configuraciones se decidió crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
 
 Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
 
 Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
-Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual se realizará la configuración de fuentes del campo mediante la creación de un diagrama. El diagrama los siguientes elementos:
+Al seleccionar esta nueva configuración (Figura \ref{fig:water-view}), se mostrará una `pizarra` en el cual se realizará la configuración de fuentes del campo mediante la creación de un diagrama. El diagrama los siguientes elementos (Figura \ref{fig:water-nodes-board}):
 \begin{itemize}
     \item \textbf{Metrahidráulicas (Fuentes de agua):} Estos serían los nodos del diagrama. Dentro de las metrahidráulicas disponibles están:
           \begin{itemize}
@@ -579,15 +580,118 @@ Al seleccionar esta nueva configuración, se mostrará una `pizarra` en el cual 
               \item Equipo
               \item Impulsión
               \item Tranque
+              \item Pozo
           \end{itemize}
-          Estas fuentes tienen entradas y salidas, es aquí donde se conectaran con otras fuentes.
-    \item \textbf{Conexiones metrahidráulica}: Estas serán las conexiones (líneas) unidireccionales que conectan las metrahidráulicas. La dirección de las conexiones siempre irá desde una salida de la metrahidráulica a una entrada de otra metrahidráulica.
+    
 \end{itemize}
 
-Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
-También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-view}
+	\caption{\label{fig:water-view} Vista de Configurador de fuentes. Fuente: Elaboración propia.}
+\end{figure}
 
-Luego, al terminar el diagrama, para guardar los cambios se debe hacer click el el botón siguiente en la esquina inferior derecha. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-nodes-board}
+	\caption{\label{fig:water-nodes-board} Elementos del diagrama. Fuente: Elaboración propia.}
+\end{figure}
+
+Las restricciones de conexión se muestran en la figura \ref{fig:water-connections}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-connections}
+	\caption{\label{fig:water-connections} Sección de Comentario Múltiple en el menú. Fuente: Elaboración propia.}
+\end{figure}
+
+La conexión entre metahidraulica se conoce como 'Conexiones Metrahidráulica'. Esta conexión es la flecha que se muestra en la figura \ref{fig:water-conexion-mh}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-conexion-mh}
+	\caption{\label{fig:water-conexion-mh} Conexión Metrahidráulica. Fuente: Elaboración propia.}
+\end{figure}
+
+Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
+Los formularios de cada elemento:
+\begin{itemize}
+    \item Canal (Figura \ref{fig:water-canal-form})
+    \item Equipo (Figura \ref{fig:water-canal-form})
+    \item Impulsión (Figura \ref{fig:water-impulsion-form})
+    \item Tranque (Figura \ref{fig:water-tranque-form})
+    \item Pozo (Figura \ref{fig:water-pozo-form})
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-canal-form}
+	\caption{\label{fig:water-canal-form} Formulario Canal. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-equipo-form}
+	\caption{\label{fig:water-Equipo-form} Formulario Equipo. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-impulsion-form}
+	\caption{\label{fig:water-impulsion-form} Formulario Canal. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-tranque-form}
+	\caption{\label{fig:water-tranque-form} Formulario Tranque. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-pozo-form}
+	\caption{\label{fig:water-pozo-form} Formulario Pozo. Fuente: Elaboración propia.}
+\end{figure}
+
+Existen 2 propiedades que está en todos los formularios, los campos de \textit{Inports} y \textit{Outports}. Esta propiedad indica el número de entradas y salidas de la fuente (Figura \ref{fig:water-node-ports}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-node-ports}
+	\caption{\label{fig:water-node-ports} Entradas y salidas de una fuente. Fuente: Elaboración propia.}
+\end{figure}
+
+También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas que esten conectadas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica (Figura \ref{fig:water-conexion-form}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-conexion-form}
+	\caption{\label{fig:water-conexion-form} Formulario Entrada/Salida. Fuente: Elaboración propia.}
+\end{figure}
+
+Para poder eliminar ya sea una fuente o conexión, se debe pasar el cursor por sobre el elemento para que aparezca un ícono como se muestran en las figuras \ref{fig:water-delete} y \ref{fig:water-delete-connection}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-delete}
+	\caption{\label{fig:water-delete} Eliminación Fuente. Fuente: Elaboración propia.}
+\end{figure}
+
+Cuando una entrada/salida tiene un ... asignado, este tiene un color rojo, como muestra en la figura ....
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-delete-connection}
+	\caption{\label{fig:water-delete-connection} Eliminación Conexión Metrahidráulica. Fuente: Elaboración propia.}
+\end{figure}
+
+Para poder realizar este diagrama, se utilizará la librería de \textit{JavaScript}, \textit{JointJS}\footnote{\href{https://www.jointjs.com/}{JointJS}}. 
+Esta libreria permite la creación de diagramas meidante objetos \textit{JSON}, esto nos ayuda a poder crear y cargar diagramas de una forma más sencilla. Además, esta librería soporta atributos \textit{custom}, lo que nos permite poder guardar los datos de los formularios en los \texit{json} de los elementos.
+Otro beneficio de esta librería, es la facilidad del trabajo con las entradas y salidas de las fuentes (\textit{ports}\footnote{\href{https://resources.jointjs.com/tutorial/ports}{JointJS: Working with Ports}}) para poder agregar/eliminar \textit{ports}, asignar las propiedades del formulario.
+
+Al terminar el diagrama y hacer click en siguiente, primero se hace una validación para verificar de que no existan conexiones del tipo que se muestra en la figura ....
+
+Cuando se pasa la validación de las conexiones, se guardan las fuentes y conexiones. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
 En esta configuración se tiene un mapa junto a una tabla de las metrahidráulicas. La tabla tiene las siguientes columnas:
 \begin{enumerate}
     \item Metrahidráulica.
