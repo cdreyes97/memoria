@@ -381,8 +381,14 @@ La vista del despacho contiene las siguientes secciones:
     \end{itemize}
 \end{itemize}
 
-En la vista de un despacho se pueden editar las propiedades de este, agregar productos y accesorios y descargar un reporte. Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
+En la vista de un despacho se pueden editar las propiedades de este como muestra en la figura \ref{fig:dm-indv-edit}, haciendo click sobre el dato se cambiará a un input correspondiente al tipo de dato (fecha, texto, select, etc.). Agregar productos y accesorios y descargar un reporte.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-indv-edit}
+	\caption{\label{fig:dm-indv-edit} Edición propiedades despacho. Fuente: Elaboración propia.}
+\end{figure}
+Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
 Como en \textit{Operations} el despacho es individual, no existe una forma de agrupar estos despachos que comparten propiedades. Por esto, se plantea crear la funcionalidad de 'Despacho múltiples'. 
 Los despachos múltiples tendrán una sección aparte en \textit{Operations}, en el menú lateral los despachos se dividen entre individuales y múltiples.
 
@@ -437,7 +443,13 @@ Según el número de despachos hijos ingresado, en el formulario se van agregand
 
 Al guardar el despacho múltiple, las propiedades ingresadas para el despacho padre, son heredadas por los despachos hijos (excluyendo la observación).
 
-Al entrar a la vista de un despacho múltiple (Figura ...) se verá lo siguiente:
+Al entrar a la vista de un despacho múltiple (Figura \ref{fig:dm-view}) se verá lo siguiente en primera instancia:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dm-view}
+	\caption{\label{fig:dm-view} Formulario creación despacho múltiple. Fuente: Elaboración propia.}
+\end{figure}
 
 \begin{itemize}
     \item Lado izquierdo:
@@ -683,31 +695,69 @@ Para poder eliminar ya sea una fuente o conexión, se debe pasar el cursor por s
 	\caption{\label{fig:water-delete} Eliminación Fuente. Fuente: Elaboración propia.}
 \end{figure}
 
-Cuando una entrada/salida tiene un ... asignado, este tiene un color rojo, como muestra en la figura ....
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{water-delete-connection}
 	\caption{\label{fig:water-delete-connection} Eliminación Conexión Metrahidráulica. Fuente: Elaboración propia.}
 \end{figure}
 
+Cuando una entrada/salida tiene un caudalimetro asignado, este tiene un color rojo, como muestra en la figura \ref{fig:water-port-caudal}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-port-caudal}
+	\caption{\label{fig:water-port-caudal} Asignación caudalimetro en entrada. Fuente: Elaboración propia.}
+\end{figure}
+
 Para poder realizar este diagrama, se utilizará la librería de \textit{JavaScript}, \textit{JointJS}\footnote{\href{https://www.jointjs.com/}{JointJS}}. 
 Esta libreria permite la creación de diagramas meidante objetos \textit{JSON}, esto nos ayuda a poder crear y cargar diagramas de una forma más sencilla. Además, esta librería soporta atributos \textit{custom}, lo que nos permite poder guardar los datos de los formularios en los \textit{json} de los elementos.
 Otro beneficio de esta librería, es la facilidad del trabajo con las entradas y salidas de las fuentes (\textit{ports}\footnote{\href{https://resources.jointjs.com/tutorial/ports}{JointJS: Working with Ports}}) para poder agregar/eliminar \textit{ports}, asignar las propiedades del formulario.
 
-Al terminar el diagrama y hacer click en siguiente, primero se hace una validación para verificar de que no existan conexiones del tipo que se muestra en la figura ....
-
-Cuando se pasa la validación de las conexiones, se guardan las fuentes y conexiones. Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
-En esta configuración se tiene un mapa junto a una tabla de las metrahidráulicas. La tabla tiene las siguientes columnas:
+Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
+En esta configuración se tiene un mapa junto a una tabla de las fuentes (Figura \ref{fig:water-map-view}). La tabla tiene las siguientes columnas:
 \begin{enumerate}
-    \item Metrahidráulica.
+    \item Fuente de agua.
     \item Coordenadas.
-    \item Acciones:
+    \item Acciones (Figura \ref{fig:water-table-actions}):
           \begin{itemize}
-            \item Centrar en mapa.
+            \item Editar.
+            \item Crear
             \item Eliminar coordenada.
+            \item Centrar en mapa.
           \end{itemize}
 \end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-map-view}
+	\caption{\label{fig:water-map-view} Configuración de Coordenadas. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-table-actions}
+	\caption{\label{fig:water-table-actions} Configuración de Coordenadas: Acciones. Fuente: Elaboración propia.}
+\end{figure}
+
+Para ingresar las coordenadas de cada fuente, se pueden hacer de dos formas:
+\begin{itemize}
+    \item Al hacer click en la acción de editar, la fila permitirá editar el nombre de la fuente ye ingresar las coordenadas de forma manual, vease figura \ref{fig:water-map-edit}.    
+    \item Al hacer click en la acción crear, se mostrará un tooltip que indica que se tiene que hacer click en un lugar del mapa. Al seleccionar el lugar en el mapa se agregará un punto en el mapa y se asignarán las coordenadas a la fuente (Figura \ref{fig:water-map-create}).
+\end{itemize}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{water-map-edit}
+	\caption{\label{fig:water-map-edit} Acción editar. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.5\textwidth]{water-map-create}
+   \caption{\label{fig:water-map-create} Acción crear. Fuente: Elaboración propia.}
+\end{figure}
+
+Al tener las coordenadas asignadas a cada fuente, hacer click en siguiente para guardar.
 
 \subsection{ENTORNO DE TRABAJO}
 
