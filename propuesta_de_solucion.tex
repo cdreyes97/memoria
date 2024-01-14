@@ -39,7 +39,7 @@ Para poder configurar este mapa se puede hacer de dos maneras:
     \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o puntos para sus respectivos sectores y/o nodos.
 \end{enumerate}
 Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asginar los polígonos/puntos respectivos.
-En la segunda opción existen problemas como el tiempo que demora el área tome el ticket y realize la confgiruación y/o
+En la segunda opción existen problemas como el tiempo que demora el área de soporte en tomar el ticket y realize la confgiruación y/o
 que las instrucciones no están bien indicadas llevando a que esta configuración requiera varios tickets para que se haga como el usuario cliente quiera.
 
 Es por esto que se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario cliente sea el que
@@ -69,7 +69,7 @@ En la tabla de sectores/nodos (Figura \ref{fig:mapcfg-tables-exameple}) se compo
     \item \textbf{Botones:}
           \begin{itemize}
               \item En la parte superior izquierda estan los botónes para cambiar entre la tabla de sectores y nodos.
-              \item En el lado opuesto, se encuentra el botón de "Cargar Archivo" que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.
+              \item En el lado opuesto, se encuentra el botón de 'Cargar Archivo' que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.
           \end{itemize}
     \item Tabla:  
     \begin{itemize}
@@ -86,7 +86,7 @@ En la tabla de sectores/nodos (Figura \ref{fig:mapcfg-tables-exameple}) se compo
 \end{figure}
 
 
-Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (Figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo (fig). Si esta seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
+Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (Figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo (...). Si esta seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-zone-pre}
@@ -96,10 +96,10 @@ Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente as
 Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurre lo siguiente (Figura \ref{fig:mapcfg-tables-edit-exameple}):
 
 \begin{itemize}
-    \item El botón de "Cargar Archivo" desaparece y se reemplaza por el nombre del archivo cargado junto a un ícono de basura que al hacerle click, elimina el archivo y vuelve al estado anterior.
+    \item El botón de 'Cargar Archivo' desaparece y se reemplaza por el nombre del archivo cargado junto a un ícono de basura que al hacerle click, elimina el archivo y vuelve al estado anterior.
     \item En la tabla ocurre lo siguiente:
     \begin{itemize}
-        \item Se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada) del archivo que se cargó recientemente.
+        \item Se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada) del archivo que se cargó recientemente (Figura \ref{fig:mapcfg-add-zone-full}).
         \item En la columna de acciones:
         \begin{itemize}        
             \item Cuando un sector/nodo tiene un polígono/punto previamente asignado, tiene las acciones de centrar en el mapa y descartar polígono/punto.
@@ -115,6 +115,12 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-tables-edit}
 	\caption{\label{fig:mapcfg-tables-edit-exameple} Ejemplo tabla de sectores y nodos al cargar un archivo. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapcfg-add-zone-full}
+	\caption{\label{fig:mapcfg-add-zone-full} Asignar un polígono a un sector. Fuente: Elaboración propia.}
 \end{figure}
 
 \begin{figure}[H]
@@ -240,13 +246,13 @@ En la tabla de sensores es donde se seleccionan los sensores que se quieren desp
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graf-table-empty}
+	\includegraphics[width=0.8\textwidth]{graf-table-empty}
 	\caption{\label{fig:graf-table-empty} Tabla de sensores vacía. Fuente: Elaboración propia.}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graf-table}
+	\includegraphics[width=0.8\textwidth]{graf-table}
 	\caption{\label{fig:graf-table} Componentes de la tabla de sensores. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -269,13 +275,13 @@ En cuanto al selector de rango de fecha (Figura \ref{fig:graf-chart-daterange-ex
 Para esto se utilizará el componente \textit{DateRangePicker} de \textit{Syncfusion}\footnote{\href{https://ej2.syncfusion.com/react/documentation/daterangepicker/getting-started}{Syncfusion: DateRangePicker}}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graf-chart-daterange-example}
+	\includegraphics[width=0.8\textwidth]{graf-chart-daterange-example}
 	\caption{\label{fig:graf-chart-daterange-example} Ejemplo de componente \textit{DateRangePicker}. Fuente: Elaboración propia.}
 \end{figure}
 Respecto al gráfico, se utilizará \textit{Highcharts Stock}\footnote{\href{https://www.highcharts.com/docs/stock/understanding-highcharts-stock}{Understanding Highcharts Stock}} para poder desplegar los datos. Cada serie del gráfico representa un sensor que se escogió en la tabla de sensores. La serie tendra un formato de nombre [Nodo]-[Sensor].
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graf-chart-example}
+	\includegraphics[width=0.8\textwidth]{graf-chart-example}
 	\caption{\label{fig:graf-chart-example} Ejemplo de gráfico. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -302,7 +308,7 @@ La tabla tiene las siguientes propiedades:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graf-chart-table-example}
+	\includegraphics[width=0.8\textwidth]{graf-chart-table-example}
 	\caption{\label{fig:graf-chart-table-example} Ejemplo de tabla de datos. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -328,13 +334,13 @@ De igual manera, existen filtros por columnas como se ve en la figura \ref{fig:d
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{dm-mantenedor-indv}
+	\includegraphics[width=0.8\textwidth]{dm-mantenedor-indv}
 	\caption{\label{fig:dm-mantenedor-indv} Sección de despachos. Fuente: Elaboración propia.}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{dm-mantenedor-indv-filters}
+	\includegraphics[width=0.8\textwidth]{dm-mantenedor-indv-filters}
 	\caption{\label{fig:dm-mantenedor-indv-filters} Filtros por columna. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -353,7 +359,7 @@ Al hacer click en el botón crear se abre un siguiente formulario (Figura \ref{f
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{dm-create-indv-form}
-	\caption{\label{fig:dm-create-indv-form} Filtros por columna. Fuente: Elaboración propia.}
+	\caption{\label{fig:dm-create-indv-form} Formulario creación de Despacho. Fuente: Elaboración propia.}
 \end{figure}
 
 Para poder entrar a un despacho se debe hacer click en la fila de la tabla y hacer click en el botón ver, al igual que haciendo click en la Id del despacho.
@@ -361,7 +367,7 @@ La vista del despacho se muestra en la figura \ref{fig:dm-vista-indv}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{dm-vista-indv}
+	\includegraphics[width=0.8\textwidth]{dm-vista-indv}
 	\caption{\label{fig:dm-vista-indv} Vista de despacho. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -385,7 +391,7 @@ En la vista de un despacho se pueden editar las propiedades de este como muestra
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{dm-indv-edit}
+	\includegraphics[width=0.8\textwidth]{dm-indv-edit}
 	\caption{\label{fig:dm-indv-edit} Edición propiedades despacho. Fuente: Elaboración propia.}
 \end{figure}
 Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
@@ -413,7 +419,7 @@ Al entrar a la sección de despachos múltiples, se muestra la tabla de los desp
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{dm-mantenedor-mult}
+	\includegraphics[width=0.8\textwidth]{dm-mantenedor-mult}
 	\caption{\label{fig:dm-mantenedor-mult} Sección de despachos múltiples. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -447,8 +453,8 @@ Al entrar a la vista de un despacho múltiple (Figura \ref{fig:dm-view}) se ver�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{dm-view}
-	\caption{\label{fig:dm-view} Formulario creación despacho múltiple. Fuente: Elaboración propia.}
+	\includegraphics[width=0.8\textwidth]{dm-view}
+	\caption{\label{fig:dm-view} Vista despacho múltiple. Fuente: Elaboración propia.}
 \end{figure}
 
 \begin{itemize}
@@ -457,7 +463,7 @@ Al entrar a la vista de un despacho múltiple (Figura \ref{fig:dm-view}) se ver�
         \item La primera sección contiene:
         \begin{itemize}
             \item ID del despacho padre, junto a un botón para descargar el reporte del despacho.
-            \item Selector de despacho hijo. Al seleccionar la opción 'Todos' se muestra la vista del despacho padre. Si se selecciona la ID de un despacho hijo, se muestra la vista de ese despacho de manera similar a la vista de un despacho individual.
+            \item Selector de despachos. Al seleccionar la opción 'Todos' se muestra la vista del despacho padre. Si se selecciona la ID de un despacho hijo, se muestra la vista de ese despacho de manera similar a la vista de un despacho individual, como en la figura \ref{fig:dm-child-selected}, pero manteniendo el selector de despachos.
         \end{itemize}
         \item Información del despacho padre. La propiedades son editables.
         \item Tabla de productos: Muestra la cantidad de productos ingresados en todos los despachos hijos.
@@ -470,15 +476,53 @@ Al entrar a la vista de un despacho múltiple (Figura \ref{fig:dm-view}) se ver�
     \end{itemize}
 \end{itemize}
 
-Al seleccionar un despacho hijo, la vista mostrará el despacho seleccionado al igual que en la vista de despacho individual y se podrá editar, agregar productos/accesorios, cerrar/abrir el despacho.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{dm-child-selected}
+	\caption{\label{fig:dm-child-selected} Vista despacho hijo seleccionado. Fuente: Elaboración propia.}
+\end{figure}
 
-Al editar las propiedades de un despacho múltiple, modificará de igual manera a los despachos hijos. De igual forma, si se editan las propiedades heredadas de un despacho hijo de manera individual, los cambios se modificarán en los demás despachos hijos y el despacho padre.
+
+En la vista del despacho múltiple, en la tabla de despachos, se pueden cerrar todos los despachos con el botón 'Cerrar Todos' (Figura \ref{fig:dm-close}). Como también se pueden crear nuevos despachos con el botón 'Crear' (Figura \ref{fig:dm-create-indv-full}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{dm-close}
+	\caption{\label{fig:dm-close} Cerrar los despachos desde la tabla. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{dm-create-indv-full}
+	\caption{\label{fig:dm-create-indv-full} Crear despachos desde la tabla. Fuente: Elaboración propia.}
+\end{figure}
+
+Las siguientes propiedades del Despacho Múltiple padre son heredadas por los despachos hijos, por lo que, al editar una de estas propiedades, ya sea desde el despacho padre o del despacho hijo, se actualizarán para los demás despachos hijos y/o padre.
+\begin{itemize}
+    \item Fecha de salida.
+    \item Destino.
+    \item País Destino.    
+    \item Despacho interno \textit{flag}.    
+    \item Estado del despacho (Abierto/Cerrado).
+\end{itemize}
 
 El estado del despacho padre depende de los despachos hijos, si todos los despachos hijos están cerrados, entonces el despacho padre está cerrado. En el caso de que haya al menos un despacho hijo abierto, el despacho padre aparece abierto. Mismo caso ocurre con la \textit{flag} de despacho interno.
 
 En la vista de despacho individuales, al entrar en un despacho, en la sección de información se agrega un nueva propiedad 'Id Despacho Padre' que, como dice el nombre, indica la ID del despacho padre. Al hacer click sobre este Id redireccionará a la vista del despacho padre en Despacho Múltiples.
-Al lado de esta ID, hay un botón que permite desvincular el despacho del despacho padre. 
-En el caso que el despacho no pertenezca a un despacho múltiple, se podrá ingresar la ID de un despacho padre para vincularlo a este. Solo se podrá vincular un despacho individual a un despacho múltiple si las propiedades del despacho múltiple coinciden con el despacho individual.
+Al lado de esta ID, hay un botón que permite desvincular el despacho del despacho padre (Figura \ref{fig:dm-remove-child}). 
+En el caso que el despacho no pertenezca a un despacho múltiple, se podrá ingresar la ID de un despacho padre para vincularlo a este (Figura \ref{fig:dm-add-indv}). Solo se podrá vincular un despacho individual a un despacho múltiple si las propiedades del despacho múltiple coinciden con el despacho individual.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{dm-add-indv}
+	\caption{\label{fig:dm-add-indv} Asignar despacho a un despacho múltiple. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{dm-remove-child}
+	\caption{\label{fig:dm-remove-child} Remover de despacho múltiple. Fuente: Elaboración propia.}
+\end{figure}
 
 \subsubsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
@@ -507,7 +551,7 @@ Esta nueva herramienta estará en el menú lateral de \textit{Operations} (Figur
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{history-view}
+	\includegraphics[width=0.8\textwidth]{history-view}
 	\caption{\label{fig:history-view} Vista de Comentario Múltiple. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -533,11 +577,23 @@ La tabla de productos tendrá lo siguiente:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{history-table-1}
-	\caption{\label{fig:history-view} Tabla de productos. Fuente: Elaboración propia.}
+	\includegraphics[width=0.8\textwidth]{history-table-1}
+	\caption{\label{fig:history-table-1} Tabla de productos. Fuente: Elaboración propia.}
 \end{figure}
 
-Al guardar los registros, si se entra a la vista de alguno de los productos ingresados, se mostrará la historía en la tabla de historial y según como se seleccionó en la tabla mostrará si está bloqueado o no (Figura *).
+Al guardar los registros, se abrirá un diálogo de confirmación para guardar la historia \ref{fig:history-create}. Si se entra a la vista de alguno de los productos ingresados, se mostrará la historía en la tabla de historial y según como se seleccionó en la tabla mostrará si está bloqueado o no (Figura \ref{fig:history-product}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{history-create}
+	\caption{\label{fig:history-create} Guardar historia. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{history-product}
+	\caption{\label{fig:history-product} Producto con historia registrada. Fuente: Elaboración propia.}
+\end{figure}
 \iffalse
 \subsubsection{CERTIFICADOS TESTBED}
 
@@ -599,8 +655,7 @@ Al seleccionar esta nueva configuración (Figura \ref{fig:water-view}), se mostr
               \item Impulsión
               \item Tranque
               \item Pozo
-          \end{itemize}
-    
+          \end{itemize}   
 \end{itemize}
 
 \begin{figure}[H]
