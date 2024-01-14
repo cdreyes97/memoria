@@ -1,34 +1,12 @@
 \secnumbersection{VALIDACIÓN DE LA SOLUCIÓN}
 
-Se debe validar la solución propuesta. Esto significa probar o demostrar que la solución propuesta es válida para el entorno donde fue planteada.
-
-Tradicionalmente es una etapa crítica, pues debe comprobarse por algún medio que vuestra propuesta es básicamente válida. En el caso de un desarrollo de software es la construcción y sus pruebas; en el caso de propuestas de modelos, guías o metodologías podrían ser desde la aplicación a un caso real hasta encuestas o entrevistas con especialistas; en el caso de mejoras de procesos u optimizaciones, podría ser comparar la situación actual (previa a la memoria) con la situación final (cuando la memoria está ya implementada) en base a un conjunto cuantitativo de indicadores o criterios.
-
-\subsection{EJEMPLO DE COMO CITAR TABLAS}
-
-Se colocó una tabla que se puede referenciar también desde el texto (Ver tabla \ref{table:coloquios}).
-
-\begin{table}[h]
-    \centering
-    \caption{\label{table:coloquios} Coloquios del Ciclo de Charlas Informática.} Fuente: Elaboración Propia.
-    \begin{tabular}{|p{7cm}|p{7cm}|}
-        \hline
-        Título Coloquio & Presentador, País \\
-        \hline
-        ``Sensible, invisible, sometimes tolerant, heterogeneous, decentralized and interoperable... and we still need to assure its quality...''' & Guilherme Horta Travassos, Brasil.\\
-        \hline
-        ``Dispersed Multiphase Flow Modeling: From Environmental to Industrial Applications''' & Orlando Ayala, EE.UU.\\
-        \hline
-        ``Líneas de Producto Software Dinámicas para Sistemas atentos el Contexto''' & Rafael Capilla, España.\\
-        \hline
-        ... & ... \\
-        \hline
-    \end{tabular}
-\end{table}
+\subsection{ADMIN DE DROPCONTROL}
 
 En la presente sección se presentarán las pruebas que validan los requerimientos de las herramientas/funcionalidades desarrolladas para las distintas aplicaciones de WiseConn.
 
 \subsubsection{CONFIGURADOR DE MAPA}
+
+\subsubsubsection{FUNCIONAMIENTO}
 
 Para poder entrar a esta herramienta se debe dirigir al \textit{Dashboard de campo} de \textit{Admin}, y en la sección de mapa hacer click sobre el ícono que muestra la figura \ref{fig:mapcfg-1}.
 
@@ -92,9 +70,18 @@ En el mapa se agregan los polígonos del archivo con un color celeste (Figura \r
 	\caption{\label{fig:mapcfg-cfg-map-node} Tablas de sectores y nodos al cargar un archivo.}
 \end{figure}
 
+\subsubsubsection{DATOS}
 
+En el año 2023, como muestra la figura \ref{fig:mapcfg-analytics-view} el configurador de mapa tuvo 769 vistas, con un total de 187 usuarios y con una retención de aproximadamente 3 minutos.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mapcfg-analytics-view}
+	\caption{\label{fig:mapcfg-analytics-view} Datos de vistas de la herramienta de configurador de mapa en el año 2023.}
+\end{figure}
 
 \subsubsection{GRAFICADOR LIBRE}
+
+\subsubsubsection{FUNCIONAMIENTO}
 
 Esta nueva herramienta implementada en la aplicación de \textit{Admin de DropControl} se encuentra en el menú lateral como muestra en la figura \ref{fig:menu-admin-graf}
 
@@ -189,6 +176,12 @@ Además, tiene la funcionalidad de exportar la tabla en formato .xlsx haciendo c
 	\caption{\label{fig:graf-table-1} Gráfico}
 \end{figure}
 
-\subsubsection{INTEGRADORES}
 
-\subsubsection{CERTIFICADOS TESTBED}
+\subsubsection{DATOS}
+
+En el año 2023, como muestra la figura \ref{fig:graf-analytics-view} el configurador de mapa tuvo 2947 vistas, con un total de 533 usuarios y con una retención de aproximadamente 1 minuto.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{graf-analytics-view}
+	\caption{\label{fig:graf-analytics-view} Datos de vistas de la herramienta de graficador libre en el año 2023.}
+\end{figure}
