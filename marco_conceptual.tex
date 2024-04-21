@@ -1,8 +1,5 @@
 \secnumbersection{MARCO CONCEPTUAL}
 
-Se debe describir la base conceptual o fundamentos en los que se basa tu memoria, es decir, todos los conceptos técnicos, metodologías, herramientas, etc. que están involucradas en la solución propuesta. En el fondo esta parte permite precisar y delimitar el problema, estableciendo definiciones para unificar conceptos y lenguaje y fijar relaciones con otros trabajos o soluciones encontradas por otros al mismo problema evitando así plagios o repetir errores ya conocidos o abordados por otros.
-
-En esta parte es importante relacionar estos conceptos con la memoria y es fundamental utilizar referencias bibliográficas (o de la web) recientes, por ejemplo \cite{gettelfinger2004will}.
 \subsection{CONCEPTOS TÉCNICOS}
 
 \subsubsection{\textit{SOFTWARE AS A SERVICE (SaaS)}} 
@@ -19,7 +16,7 @@ También conocido como \textit{client-side}, es el componente de la aplicación 
 
 \subsubsubsection{\textit{BACK-END}}
 
-En \textit{back-end} las preocupaciones son otras, por ejemplo, protección de APIs de ataques externos, autenticar usuarios, interacción con bases de datos y manejar solicitudes de usuarios. Los back-end frameworks son evaluados según sus métodos de programación, lenguajes que soporta e interfaces. También, proveen herramientas y plantillas que ayudan a los desarrolladores en varias tareas del desarrollo. \cite{webframedbws}
+En \textit{back-end} las preocupaciones son otras, por ejemplo, protección de APIs de ataques externos, autenticar usuarios, interacción con bases de datos y manejar solicitudes de usuarios. Los frameworks de back-end son evaluados según sus métodos de programación, lenguajes que soporta e interfaces. También, proveen herramientas y plantillas que ayudan a los desarrolladores en varias tareas del desarrollo. \cite{webframedbws}
 
 \subsubsection{\textit{APPLICATION PROGRAMING INTERFACE (API)}}
 
@@ -32,12 +29,12 @@ REST es una sigla que significa \textit{REpresentational State Transfer}, es un 
 \begin{itemize}
     \item \textbf{Arquitectura cliente-servidor:} La separación de responsabilidades es el principio detrás de esta restricción. Cuanto menos conoce el servidor del cliente, y viceversa, resulta más fácil el cambio de componentes.
     \item \textbf{Ausencia de estado:} La comunicación debe ser sin estado por naturaleza, es decir, cada petición del cliente al servidor debe contener solo la información necesaria para entender la petición y no puede tomar ventaja de ningún contexto almacenado en el servidor. Por esto, las sesiones se deben mantener en el cliente.
-    \item \textbf{Caché:} La data de una response a una petición debe estar implícita o explícitamente etiquetada como cacheable o no cacheable. Si las respuestas es cacheable, se pueden enviar respuestas cacheadas desde cualquier punto de la red sin necesidad que la petición llegue al servidor.
+    \item \textbf{Caché:} La data de una respuesta a una petición debe estar implícita o explícitamente etiquetada como cacheable o no cacheable. Si la respuesta es cacheable, se pueden enviar respuestas cacheadas desde cualquier punto de la red sin necesidad que la petición llegue al servidor.
     \item \textbf{Sistema por capas:} Tiene relación con la separación de responsabilidades y establece que un cliente debe conocer únicamente la capa a la que le está hablando.  Es decir, no debe saber qué bases de datos se está utilizando, cachés, proxies, etc.
     \item \textbf{Interfaz uniforme:} La principal característica que distingue la arquitectura REST de otras es el énfasis de una interfaz uniforme entre componentes, para que la información se transfiera de forma estandarizada. 
     \item \textbf{Código bajo demanda:} REST permite extender la funcionabilidad del cliente mediante la descarga y ejecución de código en forma de scripts. 
 \end{itemize}
-REST es un estilo de arquitectura no un estándar, es por esto, que las API REST suelen llamarse API RESTful, es decir, una API que sigue la arquitectura REST. Puede resultar complejo implementar todos los principios de REST en una API, por ello, el modelo de madurez de Richardson (Fowler, 2010) que describe cuanto se apega un servicio a las características de REST. Posee cuatro niveles:
+REST es un estilo de arquitectura no un estándar, es por esto, que las API REST suelen llamarse API RESTful, es decir, una API que sigue la arquitectura REST. Puede resultar complejo implementar todos los principios de REST en una API, por ello, el modelo de madurez de Richardson (Fowler, 2010) describe cuánto se apega un servicio a las características de REST. Posee cuatro niveles:
 \begin{itemize}
     \item \textbf{Nivel 0:} El servicio cuenta con una sola URI que acepta todo el rango de operaciones, con unos recursos poco definidos.
     \item \textbf{Nivel 1:} El servicio cuenta con varias URIs para distintos recursos. Necesita saber qué tipo de operación realizar a través de la URI o el payload.
@@ -48,13 +45,13 @@ Los servicios que alcancen el nivel 3 podrán ser considerados como API RESTful.
 
 \subsection{HERRAMIENTAS TECNOLÓGICAS}
 
-\subsubsection*{\textit{AMAZON WEB SERVICES (AWS)} }
+\subsubsection{\textit{AMAZON WEB SERVICES (AWS)} }
 
 Amazon Web Services\footnote{\href{https://aws.amazon.com/es/what-is-aws/}{¿Qué es AWS?}}, o AWS, es la plataforma en la nube más utilizada en el mundo, que cuenta con una cantidad de servicios y características ofreciendo desde tecnologías de infraestructura como cómputo, almacenamiento y bases de datos hasta tecnologías emergentes como aprendizaje automático e inteligencia artificial, data lakes e Internet of Things. Dentro de los servicios más importantes están:
 \begin{itemize}
     \item \textbf{EC2:} \textit{Amazon Elastic Compute Cloud} ofrece capacidad de computación con más de 500 instancias y la posibilidad de elegir procesador, almacenamiento, redes, sistema operativo y modelo de compra para ajustar a las necesidades del usuario.
-    \item \textbf{S3:} \textit{Amazon Simple Storage Service} es un servicio de almacenamiento de objetos que ofrece escalabilidad, disponibilidad de datos y un gran rendimiento. Por las clases de almacenamiento y características de administración fáciles de usar, es posible optimizar costos, organizar datos y configurar controles de acceso.
-    \item \textbf{RDS:} \textit{Amazon Relational Database Service} es una colección de servicios administrados que facilita las tareas de configuración, operación y escalado de una base de datos en la nube. Se puede elegir entre motores como Amazon Aurora, MySQL, PostgreSQL, MariaDB, SQL Server, entre otros.
+    \item \textbf{S3:} \textit{Amazon Simple Storage Service} es un servicio de almacenamiento de objetos que ofrece escalabilidad, disponibilidad de datos y un gran rendimiento. Dado que posee clases de almacenamiento y características de administración fáciles de usar, es posible optimizar costos, organizar datos y configurar controles de acceso.
+    \item \textbf{RDS:} \textit{Amazon Relational Database Service} es una colección de servicios que facilita las tareas de configuración, operación y escalamiento de una base de datos en la nube. Se puede elegir entre motores como Amazon Aurora, MySQL, PostgreSQL, MariaDB, SQL Server, entre otros.
     \item \textbf{Lambda:} Servicio informático sin servidor (serverless) y basado en eventos que permite ejecutar código para cualquier tipo de aplicación o servicio back-end sin la necesidad de servidores.
 \end{itemize}
 
@@ -64,15 +61,15 @@ JavaScript, o JS, es un lenguaje de programación orientado a objetos, utilizado
 
 \subsubsubsection{\textit{NODE.JS}}
 
-Node.js es un entorno en tiempo de ejecución asíncrono basado en eventos diseñada para desarrollar, mayormente, en server-side. Soporta el manejo de muchas conexiones al mismo tiempo. Node.js tiene propiedades que lo hacen escalable. Usa el motor V8 de Google para ejecutar código de JavaScript transformándolo en código máquina y optimiza mediante métodos complicados. \cite{webframedbws}
+Node.js es un entorno en tiempo de ejecución asíncrono basado en eventos diseñada para desarrollar, mayormente, en server-side. Soporta el manejo de muchas conexiones al mismo tiempo. Node.js tiene propiedades que lo hacen escalable. Usa el motor V8 de Google para ejecutar código de JavaScript transformándolo en código máquina y optimiza mediante métodos complejos. \cite{webframedbws}
 
 \subsubsubsection{\textit{REACTJS}}
 
-ReactJS es una biblioteca de JavaScript para el desarrollo de interfaces de usuarios dinámicas. Creado y mantenido por Facebook. Interfaces complejas pueden ser compuestas de piezas pequeñas, isoladas y reusables de código llamadas “componentes”. ReactJS usa JSX, preprocesador que agrega sintaxis XML a JavaScript, para la escritura simple de HTML. \cite{webframedbws}
+ReactJS es una biblioteca de JavaScript para el desarrollo de interfaces de usuarios dinámicas. Creado y mantenido por Facebook. Interfaces complejas pueden ser compuestas de piezas pequeñas, asiladas y reusables de código llamadas “componentes”. ReactJS usa JSX, preprocesador que agrega sintaxis XML a JavaScript, para la escritura simple de HTML. \cite{webframedbws}
 
 \subsubsection{\textit{JAVA}}
 
-Java\footnote{\href{https://www.ibm.com/cloud/learn/java-explained}{What is Java? | IBM}} es un lenguaje de programación orientado a objetos lanzado en el año 1995 por Sun Microsystems. Una de las mayores ventajas del desarrollo con Java es su portabilidad, independiente en que dispositivo se programe Java se podrá correr en otros dispositivos.
+Java\footnote{\href{https://www.ibm.com/cloud/learn/java-explained}{What is Java? | IBM}} es un lenguaje de programación orientado a objetos lanzado en el año 1995 por Sun Microsystems. Una de las mayores ventajas del desarrollo con Java es su portabilidad, independiente en que dispositivo se programe Java se puede correr en otros dispositivos.
 Java es una tecnología que consiste en el lenguaje de programación y una plataforma de software. Para crear aplicaciones con Java se necesita descargar el Java Development kit (JDK). Se escribe el código, luego un compilador lo transforma a Java bytecode que corre en la Java Virtual Machine (JVM). Cualquier sistema que soporte JVMs puede correr aplicaciones Java.
 
 \subsubsubsection{\textit{JAVASERVER FACES}}
@@ -98,7 +95,7 @@ En terreno, una red de nodos inteligentes se conectan a sensores y actuadores re
 
 \subsubsubsection{NETAFIM}
 NETAFIM\footnote{\href{https://www.netafim.com/en/}{NETAFIM}} es una empresa que provee soluciones de riego para la agricultura sustentable a nivel global, con presencia en más de 110 países.
-Dentro de los productos y soluciones que ofrece para el riego de presición estan:
+Dentro de los productos y soluciones que ofrece para el riego de presición están:
 \begin{itemize}
     \item \textbf{Goteros y líneas de goteo} 
     \item \textbf{Aspersores, microaspersores y emisores especiales}
@@ -110,7 +107,7 @@ Dentro de los productos y soluciones que ofrece para el riego de presición esta
 NETAFIM también ofrece \textit{Digital Farming} que permite un manejo más inteligente, rápido y preciso en la irrigación. Está compuesto de tres familias de productos: Sistemas de monitoreo y manejo de cultivos, controladores y sistemas de dosificación.
 Teniendo en cuenta todas las condiciones de suelo, clima, cultivo, medio ambiente y las condiciones hidráulicas, las soluciones alojadas en la nube presentan una imagen de la situación del campo en tiempo real y datos a los que puede acceder el productor a través del computador o dispositivo móvil. Esto permite a los agricultores administrar, controlar y optimizar el riego y la fertirrigación de acuerdo a las necesidades del cultivo.
 
-Dentro del \textit{Digital Farming} esta \textit{GrowSphere}\footnote{\href{https://www.netafim.com/en/digital-farming/}{\textit{GrowSphere}}}, que es el primer sistema operativo para el riego preciso. Una herramienta simple, intituiva y visual que ayuda a planear y ejecutar los planes de riego.
+Dentro del \textit{Digital Farming} está \textit{GrowSphere}\footnote{\href{https://www.netafim.com/en/digital-farming/}{\textit{GrowSphere}}}, que es el primer sistema operativo para el riego preciso (figura \ref{fig:netafim}). Una herramienta simple, intituiva y visual que ayuda a planear y ejecutar los planes de riego.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{netafim}
@@ -119,21 +116,21 @@ Dentro del \textit{Digital Farming} esta \textit{GrowSphere}\footnote{\href{http
 
 NETAFIM tiene 3 planes de servicio:
 \begin{itemize}
-    \item \textbf{\textit{Irrigation as a Service (IaaS)}:} El sistema de riego operada, mantenida y de propiedad de NETAFIM. 
-    \item \textbf{Operación y Mantenimiento:} NETAFIM opera y mantiene los sistemas de riego de tu propiedad.
+    \item \textbf{\textit{Irrigation as a Service (IaaS)}:} El sistema de riego es operado, mantenido y de propiedad de NETAFIM. 
+    \item \textbf{Operación y Mantenimiento:} NETAFIM opera y mantiene los sistemas de propiedad del usuario cliente.
     \item \textbf{Servicio Anual:} Un programa de soporte agronómico y técnico de los expertos de NETAFIM. Diagnostican las mejoras y el mantenimiento del sistema de riego, que es operado por el agricultor y de su propiedad.
 \end{itemize}
 
 \subsubsubsection{HORTAU}
 HORTAU\footnote{\href{https://hortau.com/es/}{HORTAU}} proporciona a los productores información en tiempo real sobre las condiciones del suelo y el clima para ayudarles a tomar decisiones informadas sobre el riego y la fertilización.
-Utiliza sondas de tensión matricial del suelo que envían información a una aplicación móvil, permitiendo al usuario monitorear el movimiento del agua y los nutrientes en todo perfil del suelo y determinar el momento y la cantidad adecuada de riego.
+Utiliza sondas de tensión matricial del suelo que envían información a una aplicación móvil, permitiendo al usuario monitorear el movimiento del agua y los nutrientes en todo perfil del suelo y determinar el momento y la cantidad adecuada de riego (figura \ref{fig:hortau}).
 HORTAU cuenta con más de 1300 granjas, 7000 estaciones y 20 años de experiencia en el rubro.
 
 Dentro de los servicios que ofrece HORTAU están:
 \begin{itemize}
     \item \textbf{Manejo de riego.}
     \item \textbf{Programación y asesoramiento.}
-    \item \textbf{Automatización del riego}
+    \item \textbf{Automatización del riego.}
     \item \textbf{Monitoreo de caudalímetros.}
     \item \textbf{Monitoreo de profundidad de pozo.}
     \item \textbf{Monitoreo de clima.}
@@ -142,18 +139,18 @@ Dentro de los servicios que ofrece HORTAU están:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{hortau}
-	\caption{\label{fig:netafim} \textit{Hortau}}
+	\caption{\label{fig:hortau} \textit{Hortau}}
 \end{figure}
 
 \subsubsubsection{MOTTECH}
-Mottech Water Solutions Ltd.\footnote{\href{https://mottech.com/}{Mottech Water Solutions Ltd.}} es un distribuidor de \textit{Motorola solutions}. Mottech ofrece soluciones de monitoreo y control remoto para diversos mercados y aplicaciones incluyendo riego agrícola, riego de césped y paisajismo, y distribución de agua.
+Mottech Water Solutions Ltd.\footnote{\href{https://mottech.com/}{Mottech Water Solutions Ltd.}} es un distribuidor de \textit{Motorola solutions}. Mottech ofrece soluciones de monitoreo y control remoto para diversos mercados y aplicaciones, incluyendo riego agrícola, riego de césped y paisajismo, y distribución de agua.
 
-Dentro del mercado del riego agrícola ofrece un  robusto y confiable, junto con el sistema de riego agrícola, permite el monitoreo y control para lograr un riego preciso y profesional, al mismo tiempo que se ahorra energía, mano de obra, costos de fertilizantes y agua.
+Dentro del mercado del riego agrícola ofrece una robusta y confiable solución, que incluye riego agrícola y su monitoreo y control, logrando un riego preciso y profesional que al mismo tiempo ahorra energía, mano de obra, costos de fertilizantes y agua.
 
 Mottech ofrece los siguientes productos y servicios:
 \begin{itemize}
     \item \textbf{\textit{Irrigation Control System (IRRInet)}:} Sistema basado en una infraestructura de comunicaciones robusta y eficiente que ofrece conectividad con las válvulas y sensores para un completo control.
     \item \textbf{\textit{Management \& Control}:} \textit{ICC PRO} server software y aplicación móvil que permite un acceso seguro para el manejo y control del agua en tiempo real.
-    \item \textbf{\textit{Controllers}:} Un catálogo de unidades de campo que cumplen con las necesidades de cualquier proyecto del cliente, incluyendo sitios sin servicio electrico.
-    \item \textbf{Productos complementarios:} Completa integración con el sistema \textit{IRRInet} para incremetar la funcionalidad. Dentro de los productos están: \textit{Smart card} para expandir la compatibilidad del senro, estación de clima integrado para el cambio automático de riego según las condiciones climáticas, por último, una máquina de fertirriego para aplicaciones costo-efectivas. 
+    \item \textbf{\textit{Controllers}:} Un catálogo de unidades de campo que cumplen con las necesidades de cualquier proyecto del cliente, incluyendo sitios sin servicio eléctrico.
+    \item \textbf{Productos complementarios:} Completa integración con el sistema \textit{IRRInet} para incrementar la funcionalidad. Dentro de los productos están: \textit{Smart card} para expandir la compatibilidad del sensor, estación de clima integrado para el cambio automático de riego según las condiciones climáticas y, por último, una máquina de fertirriego para aplicaciones costo-efectivas. 
 \end{itemize}
