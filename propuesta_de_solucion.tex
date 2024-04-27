@@ -3,15 +3,15 @@
 
 \subsection{DISEÑO DE LAS SOLUCIÓN}
 
-Entendiendo los problemas de los productos de software quue ofrece la empresa y las consecuencias que esto conlleva,
+Entendiendo los problemas que enfrenta la empresa WiseConn con algunos de los productos que ofrece y las consecuencias organizacionales que esto conlleva,
 se plantean nuevas herramientas de software y/o mejoras a herramientas existentes que ayuden a liberar carga y esfuerzo
-de ciertos procesos a las áreas de soporte y producción, además, darle al usuario cliente nuevas herramientas para que tenga un mejor flujo de trabajo.
+de ciertos procesos a las áreas de soporte y producción, además, de darle al usuario cliente nuevas herramientas para que tenga un mejor flujo de trabajo.
 Las nuevas funcionalidades serán implementadas en 3 productos de WiseConn: \textit{Admin} de DropControl, \textit{Operations} y \textit{Setup}.
 
 \subsubsection{ADMIN DE DROPCONTROL}
 
 Esta aplicación surge de la necesidad de los administradores de campos de poder gestionar los distintos elementos de los campos como los sectores, red de nodos, mapa, etc. de una manera rápida y sencilla.
-Dentro de la aplicación se puede hacer:
+Dentro de la aplicación un administrador puede realizar:
 
 \begin{itemize}
     \item Visualizar en mapa los campos de la cuenta.
@@ -33,20 +33,20 @@ En la aplicación \textit{DropControl}, el usuario tiene a su disposición el ma
 \end{figure}
 
 Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
-Para poder configurar este mapa se puede hacer de dos maneras:
+Para poder configurar este mapa existen dos maneras:
 \begin{enumerate}
     \item En la aplicación \textit{Admin de DropControl}, ingresar de manera individual a cada sector/nodo y agregar su respectivo polígono/punto de manera individual.
     \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o puntos para sus respectivos sectores y/o nodos.
 \end{enumerate}
-Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asginar los polígonos/puntos respectivos.
-En la segunda opción existen problemas como el tiempo que demora el área de soporte en tomar el ticket y realize la confgiruación y/o
-que las instrucciones no están bien indicadas llevando a que esta configuración requiera varios tickets para que se haga como el usuario cliente quiera.
+Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asignar los polígonos/puntos respectivos.
+En la segunda opción existen problemas como el tiempo que demora el área de soporte en tomar el ticket y realizar la configuración y/o
+que las instrucciones no estén bien indicadas, llevando a que esta configuración requiera varios tickets para que se haga lo que el; cliente usuario necesita.
 
 Es por esto que se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario cliente sea el que
 configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/puntos a sus respectivos sectores/nodos.
-Junto con esto, tambien se agrega la funcionalidad de poder descargar el mapa de su campo en formato .kmz.
+Junto con esto, también se agrega la funcionalidad de descargar el mapa de su campo en formato .kmz.
 
-Esta nueva herramienta se encontrará en la vista del campo, en el mapa del campo se encontrarán dos botones (en la posisción que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato .kmz y otro botón para poder entrar al configurador de mapa.
+Esta nueva herramienta se encontrará en la vista del campo; en el mapa del campo se encontrarán dos botones (en la posición que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato .kmz y, otro botón, para poder entrar al configurador de mapa.
 
 \begin{figure}[H]
 	\centering
@@ -54,9 +54,9 @@ Esta nueva herramienta se encontrará en la vista del campo, en el mapa del camp
 	\caption{\label{fig:mapcfg-farm} Posición de botones de descarga de mapa y configurador de mapa.}
 \end{figure}
 
-Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato .kmz. El usuario descargando el mapa, le permite poder hacer cambios en ese archivo en aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
+Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato .kmz. El usuario podrá hacer cambios en ese archivo con aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
 
-Al entrar en el configurador de mapa esta vista se divide en 2 secciones (figura \ref{fig:mapcfg-esquema}): Tabla de sectores/nodos y el mapa.
+Al entrar en el configurador de mapa, esta vista se divide en 2 secciones (figura \ref{fig:mapcfg-esquema}): Tabla de sectores/nodos y el mapa.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-esquema}
@@ -68,14 +68,14 @@ En la tabla de sectores/nodos (figura \ref{fig:mapcfg-tables-exameple}) se compo
 \begin{itemize}
     \item \textbf{Botones:}
           \begin{itemize}
-              \item En la parte superior izquierda estan los botónes para cambiar entre la tabla de sectores y nodos.
+              \item En la parte superior izquierda están los botones para cambiar entre la tabla de sectores y nodos.
               \item En el lado opuesto, se encuentra el botón de 'Cargar Archivo' que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.
           \end{itemize}
-    \item Tabla:  
+    \item \textbf{Tabla:}  
     \begin{itemize}
         \item La tabla muestra los sectores o nodos, según lo seleccionado.
-        \item En primera instancia contiene dos columnas, la primera con el nombre del sector/nodo y la segunda es una columnna de acciones, con un botón que sirve para centrar el sector/nodo en el mapa. 
-        \item Además, la tabla es paginada permitiendo al usuario elegir cuantos elementos mostrar por página.
+        \item En primera instancia contiene dos columnas, la primera con el nombre del sector/nodo y, la segunda es una columnna de acciones, con un botón que sirve para centrar el sector/nodo en el mapa. 
+        \item Además, la tabla es paginada permitiendo al usuario elegir cuántos elementos mostrar por página.
     \end{itemize}
 \end{itemize}
 
@@ -86,7 +86,7 @@ En la tabla de sectores/nodos (figura \ref{fig:mapcfg-tables-exameple}) se compo
 \end{figure}
 
 
-Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo (...). Si esta seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
+Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo. Si está seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-zone-pre}
@@ -108,7 +108,7 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
         \end{itemize}
     \end{itemize}
     \item En el mapa se agregan los polígonos/puntos del archivo cargado previamente. Para los polígonos se muestran como en la figura \ref{fig:mapcfg-zone-loaded}, mientras que los nodos como en la figura \ref{fig:mapcfg-node-loaded}.
-    \item Por último, debajo de la tabla se muestra el botón para guardar los cambios hechos en el mapa, al hacer click sobre este se abrirá un diálogo de confirmación que al ser aceptado se guardarán los cambios y la herramienta volverá al estado en que no había un archivo cargado.
+    \item Por último, debajo de la tabla se muestra el botón para guardar los cambios hechos en el mapa, al hacer click sobre este se abrirá un diálogo de confirmación que al ser aceptado, se guardarán los cambios y la herramienta volverá al estado en que no había un archivo cargado.
 \end{itemize}
 
 \begin{figure}[H]
@@ -169,31 +169,6 @@ Para la acción de centrar un sector/nodo en el mapa, los polígonos/puntos se v
 
 Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.
 
-\iffalse
-\subsubsection{ALINEADOR DE IMÁGENES}
-
-Una de las herramientas que ofrece \textit{DropControl} es el análisis de imágenes utilizando
-el índice de vegetación de diferencia normalizada o NDVI\footnote{\href{https://eos.com/es/make-an-analysis/ndvi/}{NDVI: Índice De Vegetación De Diferencia Normalizada}} por sus siglas en inglés. Para obtener estas imágenes satelitales
-se utilizan otros proveedores y se muestran en \textit{DropControl} con \textit{Google Maps}, pero no todas las imágenes tienen
-las mismas coordenadas en \textit{Google Maps} por lo que se verán desalineadas. Esto se hace mandando un ticket al área de soporte
-y son ellos lo que se encargan de alinear la imagen.
-
-La solución para este problema se plantea una nueva herramienta para la aplicación de \textit{Admin de DropControl} en la que
-se puedan alinear las imágenes satelitales a \textit{Google Maps}.
-
-Esta nueva herramienta se encontrará en la sección de 'Proveedores Externos'. (Explicar un poco como funciona esta herramienta.). Al hacer click sobre un proveedor externo se abre un diálogo con información de este, si tiene fecha de 'Último vuelo', tendrá disponible el botón de 'Alinear imágen' el cual redireccionará a la herramienta en cuestión.
-
-En esta herramienta contiene un mapa del campo, en Google Maps, con polígonos determinando los sectores de este. Sobre el mapa estará la imagen satelital del proveedor externo, el cual se podrá mover para que el usuario pueda alinearlo con el mapa de Google Maps.
-En el mapa se pueden hacer las siguientes acciones:
-\begin{itemize}
-    \item Haciendo CTRL + click sobre la imágen satelital del proveedor externo, se puede mover la imagen.
-    \item En la esquina superior derecha del mapa se encuentra un \textit{slider} de opacidad de la imagen, para poder contrastar mejor la imagen satelital con el mapa.
-\end{itemize}
-
-Cuando el usuario logre alinear la imágen como el desee, debe hacer click en el botón 'Guardar' el cual abrirá un diálogo de confirmación para confirmar los cambios.
-
-Los cambios se verán reflejados en la herramienta de análisis de imágenes en DropControl.
-\fi
 \subsubsubsection{GRAFICADOR LIBRE}
 
 Como se explicó anteriormente, el plan gratuito que ofrece \textit{Wiseconn} sirve como punto de entrada a las herramientas
@@ -201,7 +176,7 @@ de pago de \textit{DropControl}. Sin embargo, el plan gratuito ofrece muy pocas 
 implicando poca retención de los usuarios y no se cumplen con las especificaciones comerciales.
 
 Los usuarios clientes de plan de pago tienen a su disposición un graficador en la aplicación de \textit{DropControl} (figura \ref{fig:graf-drop-classic}), en el cual
-se pueden graficar los datos enviados por los nodos en los campos dentro de un rango de tiempo.
+se pueden graficar los datos enviados por los nodos en los campos, dentro de un rango de tiempo.
 Caso contrario ocurre para los usuarios clientes de plan gratuito, los cuales no poseen esta herramienta y
 no pueden visualizar los datos de sus nodos.
 
@@ -222,7 +197,7 @@ Esta nueva herramienta se podrá acceder en el menú de \textit{Admin de DropCon
 	\caption{\label{fig:menu-admin-graf1} Graficador Libre en el menú de \textit{Admin}}
 \end{figure}
 
-El graficador libre tendrá el siguiente esquema mostrado en la figura \ref*{fig:graf-esquema}
+El graficador libre tendrá el esquema mostrado en la figura \ref*{fig:graf-esquema}
 
 \begin{figure}[H]
 	\centering
@@ -239,7 +214,7 @@ En la tabla de sensores es donde se seleccionan los sensores que se quieren desp
               \item Selector de nodos.
               \item Selector de sensores.
               \item Selector de color.
-              \item Botón para eliminar fila (Aparece cuando se tiene más de una fila).
+              \item Botón para eliminar fila (aparece cuando se tiene más de una fila).
           \end{enumerate}
     \item Botón para agregar una fila vacía.
 \end{itemize}
@@ -261,7 +236,7 @@ Para agregar nuevas filas a la tabla de sensores existen 3 formas.
 \begin{enumerate}
     \item Haciendo click en el botón de `Agregar fila` que está en la esquina superior derecha de la tabla.
     \item Al escoger un nodo, al lado del selector aparecerá un botón con el signo `+` (figura \ref{fig:graf-table}). Al hacer click en ese botón agregará una nueva fila con el nodo siguiente en la lista seleccionado.
-    \item Al escoger un sensor, al lado del selector aparecerá un botón con el signo `+` (figura \ref{fig:graf-table}). Al hacer click en ese botón agregará una nueva fila con el nodo seleccionado en la fila anterior junto al sensor siguiente en la lista.
+    \item Al escoger un sensor, al lado del selector aparecerá un botón con el signo `+` (figura \ref{fig:graf-table}). Al hacer click en ese botón agregará una nueva fila con el nodo seleccionado en la fila anterior, junto al sensor siguiente en la lista.
 \end{enumerate}
 
 En cuanto al selector de rango de fecha (figura \ref{fig:graf-chart-daterange-example}), se podrá escoger un máximo de los últimos 90 días. Además, existirán rangos predeterminados para que el usuario pueda escoger:
@@ -278,31 +253,31 @@ Para esto se utilizará el componente \textit{DateRangePicker} de \textit{Syncfu
 	\includegraphics[width=0.8\textwidth]{graf-chart-daterange-example}
 	\caption{\label{fig:graf-chart-daterange-example} Ejemplo de componente \textit{DateRangePicker}. Fuente: Elaboración propia.}
 \end{figure}
-Respecto al gráfico, se utilizará \textit{Highcharts Stock}\footnote{\href{https://www.highcharts.com/docs/stock/understanding-highcharts-stock}{Understanding Highcharts Stock}} para poder desplegar los datos. Cada serie del gráfico representa un sensor que se escogió en la tabla de sensores. La serie tendra un formato de nombre [Nodo]-[Sensor].
+Respecto al gráfico, se utilizará \textit{Highcharts Stock}\footnote{\href{https://www.highcharts.com/docs/stock/understanding-highcharts-stock}{Understanding Highcharts Stock}} para poder desplegar los datos. Cada serie del gráfico representa un sensor que se escogió en la tabla de sensores (figura \ref{fig:graf-chart-example}). La serie tendrá un formato de nombre [Nodo]-[Sensor].
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{graf-chart-example}
 	\caption{\label{fig:graf-chart-example} Ejemplo de gráfico. Fuente: Elaboración propia.}
 \end{figure}
 
-Pasar el puntero por encima de las series, mostrará un \textit{tooltip} con el dato de las series (figura \ref{fig:graf-chart-tooltip}).
+Al pasar el puntero por encima de las series, se mostrará un \textit{tooltip} con el dato de las series (figura \ref{fig:graf-chart-tooltip}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graf-chart-tooltip}
 	\caption{\label{fig:graf-chart-tooltip} \textit{Tooltip}. Fuente: Elaboración propia.}
 \end{figure}
-Al estar usando \textit{Highcharts Stock}, nos permite realizar las siguientes acciones:
+El estar usando \textit{Highcharts Stock}, nos permite realizar las siguientes acciones:
 \begin{itemize}
-    \item Se podrá hacer zoom, ya sea, de forma manual seleccionado el rango en el gráfico o haciendo click en las opciones para ver rangos de 7, 30, 60 días en la esquina superior izquierda (dependiendo del rango de fechas seleccionado). También se podrá usar el \textit{navigator}\footnote{\href{https://www.highcharts.com/docs/stock/navigator}{Highcharts Stock Navigator}} que proporciona la librería
+    \item Se podrá hacer zoom, ya sea, de forma manual, seleccionado el rango en el gráfico o haciendo click en las opciones para ver rangos de 7, 30, 60 días en la esquina superior izquierda (dependiendo del rango de fechas seleccionado). También se podrá usar el \textit{navigator}\footnote{\href{https://www.highcharts.com/docs/stock/navigator}{Highcharts Stock Navigator}} que proporciona la biblioteca.
     \item Esconder/mostrar series del gráfico haciendo click en la leyenda de la serie.
 \end{itemize}
 
-Por último tenemos la tabla de datos del gráfico (figura \ref{fig:graf-chart-table-example}), para esto se utilizará el componente \textit{Grid}\textit{Syncfusion}\footnote{\href{https://ej2.syncfusion.com/react/documentation/grid/getting-started}{Syncfusion: Grid}} de \textit{Syncfusion}, que nos permite agregar la acción de \textit{Sorting} por columna y exportar la tabla en formato .xls.
+Por último tenemos la tabla de datos del gráfico (figura \ref{fig:graf-chart-table-example}), para esto se utilizará el componente \textit{Grid}\textit{Syncfusion}\footnote{\href{https://ej2.syncfusion.com/react/documentation/grid/getting-started}{Syncfusion: Grid}} de \textit{Syncfusion}, que permite agregar la acción de \textit{Sorting} por columna y exportar la tabla en formato .xls.
 La tabla tiene las siguientes propiedades:
 \begin{itemize}
     \item La primera columna corresponde a la fecha y las columnas siguientes corresponden a las combinaciones de nodos/sensores seleccionados.
-    \item La tabla es paginada y se puede cambiar el número de filas que se pueden mostrar por cada página.
-    \item La tabla se ordena por fecha del dato, el cual se puede cambiar el orden haciendo click en el header de la columna.
+    \item La tabla es paginada y se puede cambiar el número de filas a mostrar por cada página.
+    \item La tabla se ordena por fecha del dato, se puede cambiar el orden ascendente/descendente, haciendo click en el header de la columna.
     \item En la esquina superior derecha habrá un botón con el cual se podrá descargar la tabla en formato .xls.
 \end{itemize}
 
@@ -314,7 +289,7 @@ La tabla tiene las siguientes propiedades:
 
 \subsubsection{OPERATIONS}
 
-El área de producción se encarga del ensamblado y testeo del hardware de WiseConn junto con el su inventario y despachos de estos. Para llevar registro de todo esto se utiliza la aplicación de \textit{Operations}
+El área de producción se encarga del ensamblado y testeo del hardware de WiseConn, junto con el su inventario y despachos de estos. Para llevar registro de todo esto se utiliza la aplicación de \textit{Operations}
 
 En \textit{Operations} se puede hacer:
 
@@ -328,7 +303,7 @@ En \textit{Operations} se puede hacer:
 \subsubsubsection{DESPACHOS MÚLTIPLES}
 
 En \textit{Operations}, como se mencionó anteriormente, se administran los despachos de los distintos productos de hardware que ofrece \textit{WiseConn}.
-La sección de despachos (figura \ref{fig:dm-mantenedor-indv}) se compone de una tabla que contiene los despachos, valga la redundancia, creados. La tabla contiene botónes de acciones de crear, editar, eliminar y exportar a CSV en el \textit{header} y \textit{footer} de este, además, en la parte izquierda del \textit{header} existe un filtro de rango de fecha. 
+La sección de despachos (figura \ref{fig:dm-mantenedor-indv}) se compone de una tabla que contiene los despachos existentes. La tabla contiene botónes de acciones de crear, editar, eliminar y exportar a CSV en el \textit{header} y \textit{footer} de este, además, en la parte izquierda del \textit{header} existe un filtro de rango de fecha. 
 Para las acciones de ver, eliminar y cerrar es necesario primero seleccionar una fila de la tabla para que se habilite el botón.
 De igual manera, existen filtros por columnas como se ve en la figura \ref{fig:dm-mantenedor-indv-filters}.
 
@@ -344,7 +319,7 @@ De igual manera, existen filtros por columnas como se ve en la figura \ref{fig:d
 	\caption{\label{fig:dm-mantenedor-indv-filters} Filtros por columna. Fuente: Elaboración propia.}
 \end{figure}
 
-Al hacer click en el botón crear se abre un siguiente formulario (figura \ref{fig:dm-create-indv-form}) para ingresar las propiedades:
+Al hacer click en el botón crear, se abre un siguiente formulario (figura \ref{fig:dm-create-indv-form}) para ingresar las propiedades:
 \begin{itemize}
     \item Fecha de salida
     \item Fecha de activación
@@ -387,7 +362,7 @@ La vista del despacho contiene las siguientes secciones:
     \end{itemize}
 \end{itemize}
 
-En la vista de un despacho se pueden editar las propiedades de este como muestra en la figura \ref{fig:dm-indv-edit}, haciendo click sobre el dato se cambiará a un input correspondiente al tipo de dato (fecha, texto, select, etc.). Agregar productos y accesorios y descargar un reporte.
+En la vista de un despacho se pueden editar las propiedades de este, como muestra en la figura \ref{fig:dm-indv-edit}, haciendo click sobre el dato se cambiará a un input correspondiente al tipo de dato (fecha, texto, select, etc.). También es posible agregar productos y accesorios y descargar un reporte.
 
 \begin{figure}[H]
 	\centering
@@ -396,7 +371,7 @@ En la vista de un despacho se pueden editar las propiedades de este como muestra
 \end{figure}
 Existen casos en que no todos los productos deben estar en un mismo despacho y se crean despachos apartes para estos, con el mismo destino y fecha de despacho.
 Como en \textit{Operations} el despacho es individual, no existe una forma de agrupar estos despachos que comparten propiedades. Por esto, se plantea crear la funcionalidad de 'Despacho múltiples'. 
-Los despachos múltiples tendrán una sección aparte en \textit{Operations}, en el menú lateral los despachos se dividen entre individuales y múltiples.
+Los despachos múltiples tendrán una sección aparte en \textit{Operations}, en el menú lateral los despachos se dividirán entre individuales y múltiples.
 
 Al entrar a la sección de despachos múltiples, se muestra la tabla de los despachos múltiples (figura \ref{fig:dm-mantenedor-mult}) que contiene:
 \begin{itemize}
@@ -406,9 +381,9 @@ Al entrar a la sección de despachos múltiples, se muestra la tabla de los desp
         \item \textbf{Fecha de salida} (Ordenable)
         \item \textbf{Destino} (con filtro de texto)
         \item \textbf{Observación}
-        \item \textbf{Estado} (Con filtro seleccionado el estado Abierto/Cerrado/Todos)
+        \item \textbf{Estado} (con filtro seleccionado el estado Abierto/Cerrado/Todos)
     \end{itemize}
-    \item Botónes de acción en \textit{header} y \textit{footer} para crear, ver y eliminar despacho.
+    \item Botónes de acción en \textit{header} y \textit{footer} para: crear, ver y eliminar despacho.
     \begin{itemize}
         \item \textbf{Crear:} Abre el formulario para crear un despacho múltiple.
         \item \textbf{Ver:} Al seleccionar una fila de la tabla, que corresponde a un despacho, hacer click en esta acción lleva a la vista del despacho múltiple.
@@ -428,9 +403,9 @@ En el formulario de creación (figura \ref{fig:dm-create-multi-form}) se ingresa
     \item Fecha de salida
     \item Destino
     \item País Destino
-    \item Observación (Propia del despacho padre)
+    \item Observación (propia del despacho padre)
     \item Despacho interno \textit{flag}    
-    \item Número de despachos.
+    \item Número de despachos
 \end{itemize}
 
 \begin{figure}[H]
@@ -471,7 +446,7 @@ Al entrar a la vista de un despacho múltiple (figura \ref{fig:dm-view}) se ver�
     \end{itemize}
     \item Lado derecho:
     \begin{itemize}
-        \item Detalle de despachos: Tabla que muestra los despachos hijos. En el \textit{header} de la tabla tiene botónes para crear un nuevo despacho (Se abre un formulario con las propiedades del despacho individual) y para cerrar todos los despachos.
+        \item Detalle de despachos: Tabla que muestra los despachos hijos. En el \textit{header} de la tabla tiene botones para crear un nuevo despacho (se abre un formulario con las propiedades del despacho individual) y para cerrar todos los despachos.
         \item Detalle de series: Tabla que muestra todas las series de los productos ingresados a los despacho hijos.
     \end{itemize}
 \end{itemize}
@@ -497,7 +472,7 @@ En la vista del despacho múltiple, en la tabla de despachos, se pueden cerrar t
 	\caption{\label{fig:dm-create-indv-full} Crear despachos desde la tabla. Fuente: Elaboración propia.}
 \end{figure}
 
-Las siguientes propiedades del Despacho Múltiple padre son heredadas por los despachos hijos, por lo que, al editar una de estas propiedades, ya sea desde el despacho padre o del despacho hijo, se actualizarán para los demás despachos hijos y/o padre.
+Las siguientes propiedades del Despacho Múltiple padre son heredadas por los despachos hijos, por lo que, al editar una de estas propiedades, ya sea desde el despacho padre o del despacho hijo, se actualizarán para los demás despachos hijos y/o padre:
 \begin{itemize}
     \item Fecha de salida.
     \item Destino.
@@ -528,7 +503,7 @@ Los despachos múltiples ayudarán a mantener agrupados despachos que comparten 
 
 \subsubsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
-El área de producción al hacer el testeo del hardware y si existe un fallo se debe dejar el registro en el historial del producto en \textit{Operations}.
+El área de producción al hacer el testeo del hardware y si existe un fallo, se debe dejar el registro en el historial del producto en \textit{Operations}.
 Cada producto tiene asociado un historial, las historias del historial se pueden agregar de forma manual o de forma automática realizando ciertas acciones como agregar un producto a un despacho.
 Los tipos de historia que se pueden crear de forma manual son:
 \begin{itemize}
@@ -541,9 +516,9 @@ Para las historias de fallo, se debe ingresar el tipo de falla.
 
 Debido a que se hacen pruebas a muchos productos, el ir agregando el registro a cada producto de manera individual tomaría mucho tiempo para los trabajadores.
 
-Es por esto que se plantea hacer una nueva herramienta en \textit{Operations} que permita poder hacer una actualización masiva de productos para poder agregar registros al historial de los productos y bloquearlos si es necesario.
+Es por esto que se plantea hacer una nueva herramienta en \textit{Operations} que permita poder hacer una actualización masiva de productos para agregar registros al historial de los productos y bloquearlos si es necesario.
 
-Esta nueva herramienta estará en el menú lateral de \textit{Operations} (figura \ref{fig:history-menu}). Esta herramienta (figura \ref{fig:history-view}) consta de dos secciones: Tabla de productos y formulario de registro.
+Esta nueva herramienta estará en el menú lateral de \textit{Operations} (figura \ref{fig:history-menu}). Esta herramienta (figura \ref{fig:history-view}) consta de dos secciones: Formulario de registro (lado izquierdo) y tabla de productos (lado derecho).
 
 \begin{figure}[H]
 	\centering
@@ -557,7 +532,7 @@ Esta nueva herramienta estará en el menú lateral de \textit{Operations} (figur
 	\caption{\label{fig:history-view} Vista de Comentario Múltiple. Fuente: Elaboración propia.}
 \end{figure}
 
-El formulario de registro contiene:
+El formulario de registro contiene (figura \ref{fig:history-form}):
 \begin{itemize}
     \item Un \textit{TextArea} para ingresar un comentario.
     \item Selector \textit{dropdown} para el tipo de historia.
@@ -565,7 +540,13 @@ El formulario de registro contiene:
     \item Botón para guardar los registros.
 \end{itemize}
 
-La tabla de productos tendrá lo siguiente:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{history-form}
+	\caption{\label{fig:history-form} Formulario de registro. Fuente: Elaboración propia.}
+\end{figure}
+
+La tabla de productos tendrá lo siguiente (figura \ref{fig:history-table-1}):
 
 \begin{itemize}
     \item Un input donde se ingresará la serie del producto a ingresar.
@@ -573,7 +554,8 @@ La tabla de productos tendrá lo siguiente:
     \begin{enumerate}
         \item Serie del producto.
         \item Checkbox para (des)bloquear el producto.
-        \item Si se escoge tipo de historia de fallo en el formulario, se mostrará un nueva columna para indicar si el producto está reparado o no, con un \textit{checkbox} (figura \ref{fig:history-view}).
+        \item Si se escoge tipo de historia de fallo en el formulario, se mostrará un nueva columna para indicar si el producto está reparado o no, con un \textit{checkbox}.
+        \item Botón para eliminar el producto de la tabla.
     \end{enumerate}    
 \end{itemize}
 
@@ -583,7 +565,7 @@ La tabla de productos tendrá lo siguiente:
 	\caption{\label{fig:history-table-1} Tabla de productos. Fuente: Elaboración propia.}
 \end{figure}
 
-Al guardar los registros, se abrirá un diálogo de confirmación para guardar la historia \ref{fig:history-create}. Si se entra a la vista de alguno de los productos ingresados, se mostrará la historía en la tabla de historial y según como se seleccionó en la tabla mostrará si está bloqueado o no (figura \ref{fig:history-product}).
+Al guardar los registros, se abrirá un diálogo de confirmación para guardar la historia (figura \ref{fig:history-create}). Si se entra a la vista de alguno de los productos ingresados, se mostrará la historía en la tabla de historial y según como se seleccionó en la tabla mostrará si está bloqueado o no (figura \ref{fig:history-product}).
 
 \begin{figure}[H]
 	\centering
@@ -611,7 +593,7 @@ Los trabajadores para acceder a los certificados testbed...
 Teniendo esto en cuenta, se plantea implementar un modo que agregue al historial del producto testeado un registro junto con el certificado Testbed en \textit{Operations}.
 
 En \textit{Operations}, los productos tienen un historial de movimientos, acciones (creación, ingreso a despacho, etc.), registro de fallos/arreglos, entre otros.
-Un registro en el historial contiene el tipo de historia, fecha, usuario y descripción. Dentro de los tipos de historia estan:
+Un registro en el historial contiene el tipo de historia, fecha, usuario y descripción. Dentro de los tipos de historia están:
 \begin{itemize}
     \item Fallo Pre-Producción
     \item Fallo Post-Producción
@@ -641,14 +623,14 @@ Teniendo estas historias de certificados, se agregará una restricción en los d
 \subsubsubsection{CONFIGURADOR DE FUENTES}
 
 Una de las herramientas más recientes que se ofrece en \textit{DropControl} es el Análisis de Fuentes. En esta herramienta se pueden visualizar las distintas fuentes de agua de un campo como el tranque, canal, equipo de riego e impulsión.
-Para mostrar las fuentes de agua en la herramienta, se deben hacer las configuraciones de las fuentes de agua y las conexiones entre ellas en la aplicación de \textit{SETUP}.
+Para mostrar las fuentes de agua en la herramienta, se deben realizar las configuraciones de las fuentes de agua y las conexiones entre ellas en la aplicación de \textit{SETUP}.
 
-Para realizar estas configuraciones se decidió crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregarán las configuraciones de la respectiva fuente de agua.
+Para realizar estas configuraciones se decidió crear un configurador gráfico, donde se agregan 'nodos' a una 'pizarra'. Estos nodos tienen puertos de entrada y salida, donde se conectaran con los demás fuentes de agua. Al hacer click sobre sobre estos nodos, se abrirá un formulario donde se agregan las configuraciones de la respectiva fuente de agua.
 
-Esta configuración tendrá una segunda fase donde luego de guardar los cambios del configurador gráfico, se podrá configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
+Esta configuración tiene una segunda fase, donde luego de guardar los cambios del configurador gráfico, se puede configurar las coordenadas de las fuentes de agua de forma manual o haciendo click en el mapa.
 
-Este configurador gráfico estará disponible como una configuración en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
-Al seleccionar esta nueva configuración (figura \ref{fig:water-view}), se mostrará una `pizarra` en el cual se realizará la configuración de fuentes del campo mediante la creación de un diagrama. El diagrama los siguientes elementos (figura \ref{fig:water-nodes-board}):
+Este configurador gráfico está disponible en la configuración \textit{Wizard} de \textit{SETUP}, en el paso de `Otras configuraciones` existirá una opción de configuración bajo el nombre `Configuración de fuentes`.
+Al seleccionar esta nueva configuración (figura \ref{fig:water-view}), se despliega una `pizarra` en la cual se puede realizar la configuración de fuentes del campo, mediante la creación de un diagrama. El diagrama los siguientes elementos (figura \ref{fig:water-nodes-board}):
 \begin{itemize}
     \item \textbf{Metrahidráulicas (Fuentes de agua):} Estos serían los nodos del diagrama. Dentro de las metrahidráulicas disponibles están:
           \begin{itemize}
@@ -680,7 +662,7 @@ Las restricciones de conexión se muestran en la figura \ref{fig:water-connectio
 	\caption{\label{fig:water-connections} Sección de Comentario Múltiple en el menú. Fuente: Elaboración propia.}
 \end{figure}
 
-La conexión entre metahidraulica se conoce como 'Conexiones Metrahidráulica'. Esta conexión es la flecha que se muestra en la figura \ref{fig:water-conexion-mh}.
+La conexión entre metahidráulica se conoce como 'Conexiones Metrahidráulica'. Esta conexión es la flecha que se muestra en la figura \ref{fig:water-conexion-mh}.
 
 \begin{figure}[H]
 	\centering
@@ -688,8 +670,8 @@ La conexión entre metahidraulica se conoce como 'Conexiones Metrahidráulica'. 
 	\caption{\label{fig:water-conexion-mh} Conexión Metrahidráulica. Fuente: Elaboración propia.}
 \end{figure}
 
-Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estos. Al hacer click se abrirá un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
-Los formularios de cada elemento:
+Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estas. Al hacer click se abre un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
+Los formularios de cada elemento son:
 \begin{itemize}
     \item Canal (figura \ref{fig:water-canal-form})
     \item Equipo (figura \ref{fig:water-canal-form})
@@ -713,7 +695,7 @@ Los formularios de cada elemento:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{water-impulsion-form}
-	\caption{\label{fig:water-impulsion-form} Formulario Canal. Fuente: Elaboración propia.}
+	\caption{\label{fig:water-impulsion-form} Formulario Impulsión. Fuente: Elaboración propia.}
 \end{figure}
 
 \begin{figure}[H]
@@ -728,7 +710,7 @@ Los formularios de cada elemento:
 	\caption{\label{fig:water-pozo-form} Formulario Pozo. Fuente: Elaboración propia.}
 \end{figure}
 
-Existen 2 propiedades que está en todos los formularios, los campos de \textit{Inports} y \textit{Outports}. Esta propiedad indica el número de entradas y salidas de la fuente (figura \ref{fig:water-node-ports}).
+Existen 2 propiedades que están en todos los formularios, los campos de \textit{Inports} y \textit{Outports}. Esta propiedad indica el número de entradas y salidas de la fuente (figura \ref{fig:water-node-ports}).
 
 \begin{figure}[H]
 	\centering
@@ -736,7 +718,7 @@ Existen 2 propiedades que está en todos los formularios, los campos de \textit{
 	\caption{\label{fig:water-node-ports} Entradas y salidas de una fuente. Fuente: Elaboración propia.}
 \end{figure}
 
-También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas que esten conectadas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidraulica (figura \ref{fig:water-conexion-form}).
+También, las entradas y salidas tienen propiedades al igual que las metrahidráulicas. Haciendo click derecho sobre las entradas/salidas que estén conectadas, aparece un formulario para asignar las propiedades de la entrada/salida de la metahidráulica (figura \ref{fig:water-conexion-form}).
 
 \begin{figure}[H]
 	\centering
@@ -744,7 +726,7 @@ También, las entradas y salidas tienen propiedades al igual que las metrahidrá
 	\caption{\label{fig:water-conexion-form} Formulario Entrada/Salida. Fuente: Elaboración propia.}
 \end{figure}
 
-Para poder eliminar ya sea una fuente o conexión, se debe pasar el cursor por sobre el elemento para que aparezca un ícono como se muestran en las figuras \ref{fig:water-delete} y \ref{fig:water-delete-connection}.
+Para poder eliminar, ya sea una fuente o conexión, se debe pasar el cursor por sobre el elemento para que aparezca un ícono como se muestran en las figuras \ref{fig:water-delete} y \ref{fig:water-delete-connection}.
 
 \begin{figure}[H]
 	\centering
@@ -758,7 +740,7 @@ Para poder eliminar ya sea una fuente o conexión, se debe pasar el cursor por s
 	\caption{\label{fig:water-delete-connection} Eliminación Conexión Metrahidráulica. Fuente: Elaboración propia.}
 \end{figure}
 
-Cuando una entrada/salida tiene un caudalimetro asignado, este tiene un color rojo, como muestra en la figura \ref{fig:water-port-caudal}.
+Cuando una entrada/salida tiene un caudalímetro asignado, este tiene un color rojo, como muestra en la figura \ref{fig:water-port-caudal}.
 
 \begin{figure}[H]
 	\centering
@@ -766,12 +748,12 @@ Cuando una entrada/salida tiene un caudalimetro asignado, este tiene un color ro
 	\caption{\label{fig:water-port-caudal} Asignación caudalimetro en entrada. Fuente: Elaboración propia.}
 \end{figure}
 
-Para poder realizar este diagrama, se utilizará la librería de \textit{JavaScript}, \textit{JointJS}\footnote{\href{https://www.jointjs.com/}{JointJS}}. 
-Esta libreria permite la creación de diagramas meidante objetos \textit{JSON}, esto nos ayuda a poder crear y cargar diagramas de una forma más sencilla. Además, esta librería soporta atributos \textit{custom}, lo que nos permite poder guardar los datos de los formularios en los \textit{json} de los elementos.
-Otro beneficio de esta librería, es la facilidad del trabajo con las entradas y salidas de las fuentes (\textit{ports}\footnote{\href{https://resources.jointjs.com/tutorial/ports}{JointJS: Working with Ports}}) para poder agregar/eliminar \textit{ports}, asignar las propiedades del formulario.
+Para poder realizar este diagrama, se utiliza la biblioteca de \textit{JavaScript}, \textit{JointJS}\footnote{\href{https://www.jointjs.com/}{JointJS}}. 
+Esta biblioteca permite la creación de diagramas mediante objetos \textit{JSON}, esto ayuda a poder crear y cargar diagramas de una forma más sencilla. Además, esta biblioteca soporta atributos \textit{custom}, lo que permite guardar los datos de los formularios en los \textit{json} de los elementos.
+Otro beneficio de esta librería, es la facilidad del trabajo con las entradas y salidas de las fuentes (\textit{ports}\footnote{\href{https://resources.jointjs.com/tutorial/ports}{JointJS: Working with Ports}}) para poder agregar/eliminar \textit{ports}, asignar las propiedades del formulario, entre otras.
 
-Al guardar los cambios se entrará a otra configuración para asignar las coordenadas de las metrahidráulicas.
-En esta configuración se tiene un mapa junto a una tabla de las fuentes (figura \ref{fig:water-map-view}). La tabla tiene las siguientes columnas:
+Al guardar los cambios se entra a otra configuración para asignar las coordenadas de las metrahidráulicas.
+En esta configuración se tiene un mapa junto a una tabla de las fuentes de agua (figura \ref{fig:water-map-view}). La tabla tiene las siguientes columnas:
 \begin{enumerate}
     \item Fuente de agua.
     \item Coordenadas.
@@ -798,7 +780,7 @@ En esta configuración se tiene un mapa junto a una tabla de las fuentes (figura
 
 Para ingresar las coordenadas de cada fuente, se pueden hacer de dos formas:
 \begin{itemize}
-    \item Al hacer click en la acción de editar, la fila permitirá editar el nombre de la fuente ye ingresar las coordenadas de forma manual, vease figura \ref{fig:water-map-edit}.    
+    \item Al hacer click en la acción de editar, la fila permitirá editar el nombre de la fuente e ingresar las coordenadas de forma manual, vease figura \ref{fig:water-map-edit}.    
     \item Al hacer click en la acción crear, se mostrará un tooltip que indica que se tiene que hacer click en un lugar del mapa. Al seleccionar el lugar en el mapa se agregará un punto en el mapa y se asignarán las coordenadas a la fuente (figura \ref{fig:water-map-create}).
 \end{itemize}
 
@@ -820,7 +802,7 @@ Al tener las coordenadas asignadas a cada fuente, hacer click en siguiente para 
 
 \subsubsection{STACK DE TECNOLOGÍAS}
 
-Para el desarrollo en las distintas aplicaciones se tienen los correspondientes \textit{stack} de tecnologías.
+Para el desarrollo en las distintas aplicaciones se tienen los siguientes \textit{stack} de tecnologías:
 
 \begin{itemize}
     \item \textbf{\textit{Admin} de \textit{DropControl}}
