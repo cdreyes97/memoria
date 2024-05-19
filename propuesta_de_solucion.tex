@@ -661,8 +661,10 @@ Las restricciones de conexión se muestran en la figura \ref{fig:water-connectio
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{water-connections}
-	\caption{\label{fig:water-connections} Sección de Comentario Múltiple en el menú. Fuente: Elaboración propia.}
+	\caption{\label{fig:water-connections} Restricciones de conexiones. Fuente: Elaboración propia.}
 \end{figure}
+
+Si bien se permite conexiones entre metrahidráulicas del mismo tipo, no se puede hacer una conexión a si mismo.
 
 La conexión entre metahidráulica se conoce como 'Conexiones Metrahidráulicas'. Esta conexión es la flecha que se muestra en la figura \ref{fig:water-conexion-mh}.
 
@@ -670,6 +672,20 @@ La conexión entre metahidráulica se conoce como 'Conexiones Metrahidráulicas'
 	\centering
 	\includegraphics[width=0.8\textwidth]{water-conexion-mh}
 	\caption{\label{fig:water-conexion-mh} Conexión Metrahidráulica. Fuente: Elaboración propia.}
+\end{figure}
+
+Cuando una conexión es válida, al arrastrar la flecha desde el \textit{output} de una metahidráulica hacia otra, la flecha se pegará al \textit{input} de la metahidráulica y resaltará (figura \ref{fig:water-valid-connection}). Caso contrario, cuando se arrastra la flecha hacia el \textit{input} de una metahidráulica y esta no se pega, indica que es una conexión no válida (figura \ref{fig:water-invalid-connection}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{water-valid-connection}
+	\caption{\label{fig:water-valid-connection} Conexión Metrahidráulica válida. Fuente: Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{water-invalid-connection}
+	\caption{\label{fig:water-invalid-connection} Conexión Metrahidráulica no válida. Fuente: Elaboración propia.}
 \end{figure}
 
 Además de hacer el diagrama, las metrahidráulicas tiene sus propias propiedades, las cuales se pueden asignar haciendo click derecho sobre estas. Al hacer click se abre un formulario al lado de la pizarra con las propiedades de la metrahidráulica escogida.
@@ -742,7 +758,7 @@ Para poder eliminar, ya sea una fuente o conexión, se debe pasar el cursor por 
 	\caption{\label{fig:water-delete-connection} Eliminación Conexión Metrahidráulica. Fuente: Elaboración propia.}
 \end{figure}
 
-Cuando una entrada/salida tiene un caudalímetro asignado, este tiene un color rojo, como muestra en la figura \ref{fig:water-port-caudal}.
+Cuando una entrada/salida tiene un caudalímetro o un sensor de volumen acumulado asignado, este tiene un color rojo, como muestra en la figura \ref{fig:water-port-caudal}.
 
 \begin{figure}[H]
 	\centering
