@@ -213,7 +213,7 @@ Los parámetros previos al 'Número de despachos' son los parámetros del despac
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{validation-op-dm/form-create-1.png.png}
+	\includegraphics[width=1\textwidth]{validation-op-dm/form-create-1.png}
 	\caption{\label{fig:op-form-create-1} Formulario de creación de Despacho Múltiple}
 \end{figure}
 
@@ -221,7 +221,7 @@ El parámetros 'Número de despachos' indica, valga la redundancia, el número d
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{validation-op-dm/form-create-2.png.png}
+	\includegraphics[width=1\textwidth]{validation-op-dm/form-create-2.png}
 	\caption{\label{fig:op-form-create-2} Formulario de creación de Despacho Múltiple con 3 despachos}
 \end{figure}
 
@@ -262,7 +262,35 @@ En el formulario, si se selecciona el tipo de historial 'Fallo PreProducción' o
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{validation-op-cm/tabla-productos-reparado-col.png}
-	\caption{\label{fig:op-tabla-productos-reparado-col-cm} Comentario Múltiple: Tipos de historia}
+	\caption{\label{fig:op-tabla-productos-reparado-col-cm} Comentario Múltiple: Tabla productos - Columna reparado}
+\end{figure}
+
+En la figura \ref{fig:op-test-1-cm} se ve el formulario completo. Al hacer click en guardar se mostrará un diálogo de confirmación (figura \ref{fig:op-test-1-confirm-cm}). Cuando se confirmen los cambios, se agregarán las historias a los productos correspondientes y se muestra un \textit{toast} que confirma el guardado (figura \ref{fig:op-test-1-finish-cm}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{validation-op-cm/test-1.png}
+	\caption{\label{fig:op-test-1-cm} Comentario Múltiple: Formulario completo.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{validation-op-cm/test-1-confirm.png}
+	\caption{\label{fig:op-test-1-confirm-cm} Comentario Múltiple: Confirmar cambios.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{validation-op-cm/test-1-finish.png}
+	\caption{\label{fig:op-test-1-finish-cm} Comentario Múltiple: Historias registradas.}
+\end{figure}
+
+Los cambios reflejados en los productos se muestra en la figura \ref{fig:op-test-1-products-cm}, en la tabla de historias se encuentra la historia que se agregó, junto a si se marcó como reparada o no, y en la información del producto si este se marcó como bloqueado.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{validation-op-cm/test-1-products.png}
+	\caption{\label{fig:op-test-1-products-cm} Comentario Múltiple: Productos después del registro de historias.}
 \end{figure}
 
 \subsection{SETUP}
