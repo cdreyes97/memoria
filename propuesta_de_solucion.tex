@@ -618,6 +618,27 @@ En el historial del producto, la historia de certificados mostrará en la descri
 Teniendo estas historias de certificados, se agregará una restricción en los despachos, el cuál no se permitirá ingresar un producto que no tenga un certificado testbed.
 \fi
 
+\subsubsection{DROPCONTROL}
+
+\textit{DropControl} es el software principal de \textit{WiseConn}, en el cual el usuario puede operar, monitorear y gestionar múltiples procesos agrícolas en los campos.
+Dentro de las herramientas disponibles están:
+\begin{itemize}
+    \item \textbf{Programación de Riego y Fertirriego}
+    \SubItem{Herramienta para programación de riego y fertirriego, sistemas de filtrado y VDF.}
+    \SubItem{Reportes de riego, nutrición por equipo y sectores de riego.}
+    \SubItem{Integración de amplia gama de sensores y actuadores.}
+    \item \textbf{Análisis de Clima}
+    \SubItem{Datos climatológicos (horas frío, grados día, Et0, entre otros).}
+    \SubItem{Reportes de Balance Hídrico}
+    \SubItem{Integra servicios de pronóstico de clima.}
+    \item \textbf{Graficador Libre}
+    \SubItem{Comparación de múltiples variables entre sí y contraste con temporadas pasadas.}
+    \SubItem{Generar plantillas de gráficos.}
+    \SubItem{Descarga de gráficos en formato PDF y extraer datos en Excel}
+    \item \textbf{Análisis de Imágenes}
+\end{itemize}
+
+\iffalse
 \subsubsection{SETUP}
 
 \textit{SETUP} es una herramienta interna utilizada por el área de soporte en donde se realizan configuraciones de cuentas, campos, sectores, usuarios, entre otros.
@@ -815,6 +836,8 @@ Para ingresar las coordenadas de cada fuente, se pueden hacer de dos formas:
 \end{figure}
 
 Al tener las coordenadas asignadas a cada fuente, hacer click en siguiente para guardar.
+\fi
+
 
 \subsection{ENTORNO DE TRABAJO}
 
@@ -837,13 +860,20 @@ Para el desarrollo en las distintas aplicaciones se tienen los siguientes \texti
         \item Base de Datos: \textit{MySQL}
         \item Hosting: \textit{AWS EC2}
     \end{itemize}
-    \item \textbf{\textit{SETUP}}
+    \item \textbf{\textit{DropControl}}
+    \begin{itemize}
+        \item Framework: \textit{React.js}
+        \item IDE: VS Code
+        \item Base de Datos: \textit{PostgreSQL}
+        \item Hosting: \textit{AWS EC2}
+    \end{itemize}
+    \iffalse\item \textbf{\textit{SETUP}}
     \begin{itemize}
         \item Framework: JavaServer Faces, Primefaces
         \item IDE: Eclipse
         \item Base de Datos: \textit{PostgreSQL}
         \item Hosting: \textit{AWS EC2}
-    \end{itemize}
+    \end{itemize}\fi
 \end{itemize}
 
 \iffalse
