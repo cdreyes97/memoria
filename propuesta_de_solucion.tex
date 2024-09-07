@@ -621,7 +621,7 @@ Teniendo estas historias de certificados, se agregará una restricción en los d
 \subsubsection{DROPCONTROL}
 
 \textit{DropControl} es el software principal de \textit{WiseConn}, en el cual el usuario puede operar, monitorear y gestionar múltiples procesos agrícolas en los campos.
-Dentro de las herramientas disponibles están:
+Algunas de las herramientas disponibles están\footnote{\href{https://wiseconn.com/cl/nuestra-solucion/}{\textit{WiseConn: Nuestra Solución.}}}:
 \begin{itemize}
     \item \textbf{Programación de Riego y Fertirriego}
     \SubItem{Herramienta para programación de riego y fertirriego, sistemas de filtrado y VDF.}
@@ -634,9 +634,88 @@ Dentro de las herramientas disponibles están:
     \item \textbf{Graficador Libre}
     \SubItem{Comparación de múltiples variables entre sí y contraste con temporadas pasadas.}
     \SubItem{Generar plantillas de gráficos.}
-    \SubItem{Descarga de gráficos en formato PDF y extraer datos en Excel}
+    \SubItem{Descarga de gráficos en formato PDF y extraer datos en Excel.}
     \item \textbf{Análisis de Imágenes}
+    \SubItem{Servicio de imágenes satelitales y áreas organizadas por sector de riego.}
+    \SubItem{Compara imágenes de NDVI\footnote{\href{https://eos.com/es/make-an-analysis/ndvi/}{NDVI: Índice De Vegetación De Diferencia Normalizada}} (sigla en inglés de Índice de vegetación de diferencia normalizada) de Sentinel-2\footnote{\href{https://www.esa.int/Space_in_Member_States/Spain/SENTINEL_2}{SENTINEL 2}} entre los diferentes sectores del campo con diferentes fechas.}    
 \end{itemize}
+
+\subsubsubsection{FÓRMULAS}
+
+Dentro de \textit{DropControl} existe la herramienta de \textit{Dashboard Libre}, el cual asimila a una pizarra organizada en cuadrillas en el cual se pueden crear y organizar \textit{widgets}.
+Los \textit{widgets} disponibles son:
+\begin{itemize}
+    \item \textbf{Gráfico}: Gráfico de variables seleccionadas por el usuario. Dentro de los aspectos configurables están: agrupación de los datos, configuración de ejes y anotaciones en el gráfico.
+    \item \textbf{Tabla}: Tabla de variables seleccionadas por el usuario. Dentro de los aspectos configurables están la agrupación de los datos.
+    \item \textbf{Número}:
+    \item \textbf{Gráfico de Suelo}: Gráfico de solo variables de suelo, dentro de las que están la humedad, temperatura en distintas profundidades.
+    \item \textbf{Tabla de Riegos}: Tabla que muestra las horas de riego en un tiempo determinado en los campos y equipos de riego seleccionado por el usuario.
+\end{itemize}
+\iffalse Agregar imagen de ejemplo de un dashboard y sus widgets \fi
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=0.8\textwidth]{}
+	\caption{}
+\end{figure}
+
+En \textit{DropControl} cada campo tiene su sistema de unidades asignado según el país del campo. Existen casos en que el usuario quiere ver ciertos datos en otras unidades (ejemplo, ver el volumen de riego en litros en lugar de galones), pero el cambiar las unidades del campo provocaría errores en estimaciones y/o cálculos de riego, es por esto que para estos casos se crean sensores 'virtuales', los cuales toman los datos de otro sensor y transforman los datos según el requerimiento.
+El proceso de creación de estos sensores virtuales...
+
+Es por esto que en la herramienta de \textit{Dashboard Libre}, para los \textit{widgets} de gráfico y tabla, se decide implementar una configuración de fórmulas en donde el usuario podrá realizar operaciones utilizando las variables seleccionadas para hacer conversión de unidades y/o crear nuevas variables.
+Para esta nueva configuración se toma inspiración de \textit{Amazon CloudWatch}\footnote{\href{https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/using-metric-math.html}{\textit{Amazon CloudWatch}: Uso de la calculadora de métricas}}, que permite añadir expresiones matemáticas a un gráfico de métricas de \textit{CloudWatch}.
+
+En los formularios de creación/edición de los \textit{widgets} de gráfico y tabla se agrega una nueva pestaña con el título de 'Fórmulas', el formulario de esta sección constará de una tabla que contendrá lo siguiente:
+\begin{itemize}
+    \item ID de la formula.
+    \item \textit{Toogle} para mostrar el resultado de la fórmula en la tabla/gráfico.
+    \item \textit{Input} para ingresar el nombre de la fórmula.
+    \item \textit{Input} para ingresar la fórmula. Al lado del \textit{input} habrá un botón que desplegará una lista con las variables, fórmulas, operadores, números, separadores de decimales y funciones.
+    \item \textit{Input} para ingresar la unidad.
+    \item \textit{Input} para ingresar la cantidad de decimales a mostrar.
+    \item Selector de color (solo gráfico).
+    \item Tipo: línea, barra o apilado (solo gráfico).
+    \item Posición del eje (solo gráfico).
+    \item Botón para eliminar la fórmula de la tabla.
+    \item En el \textit{footer}, un botón para agregar una nueva fila.
+\end{itemize}
+
+El formato de las formulas será de la siguiente manera:
+\begin{itemize}
+    \item Las variables seleccionadas se representaran de la forma D\{ID variable\}.
+    \item Se podrán referenciar fórmulas de la misma tabla de la forma F\{ID fórmula\}.
+    \item Los operadores serán + (suma), - (resta), * (multiplicación), \\ (división) y ^ (potencia).
+    \item Los números no pueden tener separador de miles.
+    \item El separador de decimales puede ser con punto o coma.
+    \item Dentro de las funciones soportadas están: ...
+\end{itemize}
+
+Dentro de los requisitos que debe tener la fórmula para que sea válida:
+\begin{itemize}
+    \item La fórmula debe tener al menos una variable o referencia a una fórmula.
+    \item No pueden existir referencias circulares al hacer referencias a otras fórmulas.
+    \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget}.    
+    \item No tener ningún caracter inválido.
+\end{itemize}
+
+El cálculo de las fórmulas se realizará en el navegador utilizando el objeto \textit{Function}\footnote{\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function}{\textit{Function}}} para poder crear 
+El proceso del cálculo de las formulas será el siguiente:
+\begin{enumerate}
+    \item Se obtiene los datos de las variables del \textit{backend}. Los datos de cada sensor vienen en un \textit{array} de objetos de \textit{date} (fecha) y \textit{value} (valor).
+    \item Parsear la fórmula:
+    \SubItem{Reemplazar las comas por punto (separador de decimales).}
+    \SubItem{Reemplazar las funciones por las funciones de la librería \textit{Math} de \textit{JavaScript}}
+    \SubItem{Se obtienen las variables y fórmulas referenciadas.}
+    \SubItem{Con el constructor \textbf{Function()}\footnote{\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function}{\textit{Function}}} creamos la función que hará el cálculo de la fórmula donde los argumentos de la función serán las variables y fórmulas referenciadas y la función será la fórmula parseada.}
+    \SubItem{En el caso de tener múltiples fórmulas con fórmulas referenciadas, se hace un ordenamiente con el algoritmo \textit{Topological Sort} para obtener el orden de fórmulas a calcular. Con esto primero calculámos las fórmulas sin referencias primero y luego las que contienen referencias}
+    \SubItem{Se obtienen los datos de las variables referenciadas de la respuesta del punto 1. Luego se guarda en un objeto para ser reutlizadas por las demás fórmulas}
+    \SubItem{En el caso de tener fórmulas referenciadas, se obtienen los datos objeto donde se van guardando los resultados de las fórmulas para ser reutilizadas por las demás fórmulas.}
+    \SubItem{Se itera sobre los \textit{arrays} de datos para obtener las fechas y se guardan en un \textit{Set}}
+    \SubItem{Se itera sobre el \textit{Set} de fechas. Por cada fecha se obtiene el dato de cada variable/fórmula y se ejecuta la función con la fórmula. En el caso en que en una variable no exista la fecha, no se realiza el cálculo y se continua con la siguiente fecha.}
+    \SubItem{Se guarda el resultado de la fórmula.}
+    \SubItem{Al terminar el cálculo de todas las fórmulas, se crea la serie para el gráfico o columna para la tabla (dependiendo del \textit{widget}).}
+\end{enumerate}
+
+Como se muestra en el proceso del cálculo, el cálculo de hace fecha a fecha de los datos. Si las variables tienen datos desfasados el cálculo no dará resultado, es por esto que en la pestaña de configuración el usuario debe cambiar la agrupación de datos de la variable para que las fechas de los datos coincidan.
 
 \iffalse
 \subsubsection{SETUP}
