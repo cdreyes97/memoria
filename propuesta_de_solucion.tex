@@ -168,7 +168,7 @@ Para la acción de centrar un sector/nodo en el mapa, los polígonos/puntos se v
 \end{figure}
 
 Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.
-
+\iffalse
 \subsubsubsection{GRAFICADOR LIBRE}
 
 Como se explicó anteriormente, el plan gratuito que ofrece \textit{Wiseconn} sirve como punto de entrada a las herramientas
@@ -578,6 +578,7 @@ Al guardar los registros, se abrirá un diálogo de confirmación para guardar l
 	\includegraphics[width=0.8\textwidth]{history-product}
 	\caption{\label{fig:history-product} Producto con historia registrada. Fuente: Elaboración propia.}
 \end{figure}
+\fi
 \iffalse
 \subsubsection{CERTIFICADOS TESTBED}
 
@@ -652,11 +653,6 @@ Los \textit{widgets} disponibles son:
     \item \textbf{Tabla de Riegos}: Tabla que muestra las horas de riego en un tiempo determinado en los campos y equipos de riego seleccionado por el usuario.
 \end{itemize}
 \iffalse Agregar imagen de ejemplo de un dashboard y sus widgets \fi
-\begin{figure}[H]
-    \centering
-	\includegraphics[width=0.8\textwidth]{}
-	\caption{}
-\end{figure}
 
 En \textit{DropControl} cada campo tiene su sistema de unidades asignado según el país del campo. Existen casos en que el usuario quiere ver ciertos datos en otras unidades (ejemplo, ver el volumen de riego en litros en lugar de galones), pero el cambiar las unidades del campo provocaría errores en estimaciones y/o cálculos de riego, es por esto que para estos casos se crean sensores 'virtuales', los cuales toman los datos de otro sensor y transforman los datos según el requerimiento.
 El proceso de creación de estos sensores virtuales...
@@ -683,7 +679,7 @@ El formato de las formulas será de la siguiente manera:
 \begin{itemize}
     \item Las variables seleccionadas se representaran de la forma D\{ID variable\}.
     \item Se podrán referenciar fórmulas de la misma tabla de la forma F\{ID fórmula\}.
-    \item Los operadores serán + (suma), - (resta), * (multiplicación), \\ (división) y ^ (potencia).
+    \item Los operadores serán + (suma), \- (resta), \* (multiplicación), \\ (división) y \^ (potencia).
     \item Los números no pueden tener separador de miles.
     \item El separador de decimales puede ser con punto o coma.
     \item Dentro de las funciones soportadas están: ...
@@ -692,12 +688,20 @@ El formato de las formulas será de la siguiente manera:
 Dentro de los requisitos que debe tener la fórmula para que sea válida:
 \begin{itemize}
     \item La fórmula debe tener al menos una variable o referencia a una fórmula.
-    \item No pueden existir referencias circulares al hacer referencias a otras fórmulas.
+    \item No pueden existir referencias circulares\footnote{\href{https://en.wikipedia.org/wiki/Circular_reference}{\textit{Wikipedia - Circular Reference}}} al hacer referencias a otras fórmulas. Esto puede provocar un \textit{loop} y puede afectar el navegador del usuario.
     \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget}.    
     \item No tener ningún caracter inválido.
 \end{itemize}
 
-El cálculo de las fórmulas se realizará en el navegador utilizando el objeto \textit{Function}\footnote{\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function}{\textit{Function}}} para poder crear 
+Para el caso de las referencias circulares, se utilizará \textit{Topological sorting}\footnote{\href{https://en.wikipedia.org/wiki/Topological_sorting}{\textit{Wikipedia - Topological Sorting}}} utilizando el algoritmo de \textit{Depth-first search}\footnote{\href{https://en.wikipedia.org/wiki/Depth-first_search}{\textit{Wikipedia - Depth-first search}}}.
+Este algortimo también servirá para obtener el orden en el que las fórmulas deben ser calculadas.
+
+La implementación de \textit{Topological sort} será de la siguiente manera:
+\begin{enumerate}
+    \item Construir el gráfo de dependencia, es decir, un objeto donde la llave será la ID de la fórmula y el valor será un array con las IDs de las fórmulas referenciadas.
+    \item Con el grafo de dependecia, aplicamos \textit{Topological sort} con \textit{Depth-first search}. En el caso de que exista una referencia circular retornará un error con el ID de la formula, caso contrario, entrega un array con el orden de las fórmulas para calcular.
+\end{enumerate}
+
 El proceso del cálculo de las formulas será el siguiente:
 \begin{enumerate}
     \item Se obtiene los datos de las variables del \textit{backend}. Los datos de cada sensor vienen en un \textit{array} de objetos de \textit{date} (fecha) y \textit{value} (valor).
@@ -716,6 +720,8 @@ El proceso del cálculo de las formulas será el siguiente:
 \end{enumerate}
 
 Como se muestra en el proceso del cálculo, el cálculo de hace fecha a fecha de los datos. Si las variables tienen datos desfasados el cálculo no dará resultado, es por esto que en la pestaña de configuración el usuario debe cambiar la agrupación de datos de la variable para que las fechas de los datos coincidan.
+\iffalse agregar foto de settings\fi
+
 
 \iffalse
 \subsubsection{SETUP}
