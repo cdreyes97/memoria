@@ -665,6 +665,10 @@ El proceso de creación de estos sensores virtuales...
 Es por esto que en la herramienta de \textit{Dashboard Libre}, para los \textit{widgets} de gráfico y tabla, se decide implementar una configuración de fórmulas en donde el usuario podrá realizar operaciones utilizando las variables seleccionadas para hacer conversión de unidades y/o crear nuevas variables.
 Para esta nueva configuración se toma inspiración de \textit{Amazon CloudWatch}\footnote{\href{https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/using-metric-math.html}{\textit{Amazon CloudWatch}: Uso de la calculadora de métricas}}, que permite añadir expresiones matemáticas a un gráfico de métricas de \textit{CloudWatch}.
 
+Se implementará solo en los \textit{widgets} de gráfico y tabla, ya que, utilizan el mismo componente y dependiendo de si es un \textit{widget} de tabla o gráfico muestra ciertos \textit{inputs} en la pestaña de \textbf{Ajustes} como muestra en la figura ... . Además, en el formulario de gráfico, tiene una pestaña extra de \textbf{Configuración de Ejes} (figura ...), en el cual se pueden configurar \textbf{plotlines/plotbands} y configurar los ejes. Además, el formulario de gráfico permite una previsualización con el botón \textbf{Previsualizar} (figura ...).
+\iffalse imágenes con los formularios con sus diferencias \fi
+\iffalse previsualización gráfico \fi
+
 En los formularios de creación/edición de los \textit{widgets} de gráfico y tabla se agrega una nueva pestaña con el título de 'Fórmulas', el formulario de esta sección constará de una tabla que contendrá lo siguiente:
 \begin{itemize}
     \item ID de la formula.
@@ -725,7 +729,7 @@ El proceso del cálculo de las formulas será el siguiente:
 \end{enumerate}
 
 Como se muestra en el proceso del cálculo, el cálculo de hace fecha a fecha de los datos. Si las variables tienen datos desfasados el cálculo no dará resultado, es por esto que en la pestaña de \textbf{Ajustes} el usuario debe cambiar la resolución de datos de las variables para que las fechas de los datos coincidan, como se muestra en la figura \ref{fig:dash-settings-res}.
-\iffalse agregar foto de settings\fi
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{widget-formulas/dash-settings-res}
