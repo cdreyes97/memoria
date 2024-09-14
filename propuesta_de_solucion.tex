@@ -643,16 +643,21 @@ Algunas de las herramientas disponibles están\footnote{\href{https://wiseconn.c
 
 \subsubsubsection{FÓRMULAS}
 
-Dentro de \textit{DropControl} existe la herramienta de \textit{Dashboard Libre}, el cual asimila a una pizarra organizada en cuadrillas en el cual se pueden crear y organizar \textit{widgets}.
+Dentro de \textit{DropControl} existe la herramienta de \textit{Dashboard Libre} (Figura \ref{fig:dash-example}), el cual asimila a una pizarra organizada en cuadrillas en el cual se pueden crear y organizar \textit{widgets}.
 Los \textit{widgets} disponibles son:
 \begin{itemize}
     \item \textbf{Gráfico}: Gráfico de variables seleccionadas por el usuario. Dentro de los aspectos configurables están: agrupación de los datos, configuración de ejes y anotaciones en el gráfico.
     \item \textbf{Tabla}: Tabla de variables seleccionadas por el usuario. Dentro de los aspectos configurables están la agrupación de los datos.
-    \item \textbf{Número}:
+    \item \textbf{Número}: Muestra el valor (último dato, promedio, suma, mínimo o máximo) de una variable seleccionada dentro de un periodo seleccionado.
     \item \textbf{Gráfico de Suelo}: Gráfico de solo variables de suelo, dentro de las que están la humedad, temperatura en distintas profundidades.
     \item \textbf{Tabla de Riegos}: Tabla que muestra las horas de riego en un tiempo determinado en los campos y equipos de riego seleccionado por el usuario.
 \end{itemize}
-\iffalse Agregar imagen de ejemplo de un dashboard y sus widgets \fi
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{widget-formulas/ejemplo-dash-normal}
+	\caption{\label{fig:dash-example} Ejemplo de Dashboard Libre. Fuente: Elaboración propia.}
+\end{figure}
 
 En \textit{DropControl} cada campo tiene su sistema de unidades asignado según el país del campo. Existen casos en que el usuario quiere ver ciertos datos en otras unidades (ejemplo, ver el volumen de riego en litros en lugar de galones), pero el cambiar las unidades del campo provocaría errores en estimaciones y/o cálculos de riego, es por esto que para estos casos se crean sensores 'virtuales', los cuales toman los datos de otro sensor y transforman los datos según el requerimiento.
 El proceso de creación de estos sensores virtuales...
@@ -719,8 +724,13 @@ El proceso del cálculo de las formulas será el siguiente:
     \SubItem{Al terminar el cálculo de todas las fórmulas, se crea la serie para el gráfico o columna para la tabla (dependiendo del \textit{widget}).}
 \end{enumerate}
 
-Como se muestra en el proceso del cálculo, el cálculo de hace fecha a fecha de los datos. Si las variables tienen datos desfasados el cálculo no dará resultado, es por esto que en la pestaña de configuración el usuario debe cambiar la agrupación de datos de la variable para que las fechas de los datos coincidan.
+Como se muestra en el proceso del cálculo, el cálculo de hace fecha a fecha de los datos. Si las variables tienen datos desfasados el cálculo no dará resultado, es por esto que en la pestaña de \textbf{Ajustes} el usuario debe cambiar la resolución de datos de las variables para que las fechas de los datos coincidan, como se muestra en la figura \ref{fig:dash-settings-res}.
 \iffalse agregar foto de settings\fi
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{widget-formulas/dash-settings-res}
+	\caption{\label{fig:dash-settings-res} Resolución de datos en formulario de gráfico/tabla. Fuente: Elaboración propia.}
+\end{figure}
 
 \iffalse
 \subsubsection{SETUP}
