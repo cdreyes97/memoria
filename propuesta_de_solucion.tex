@@ -696,12 +696,17 @@ El formato de las formulas será de la siguiente manera:
 
 Dentro de los requisitos que debe tener la fórmula para que sea válida:
 \begin{itemize}
+    \item Debe contener solo caracteres válidos, es decir, la formula debe contener:
+        \SubItem{Números. Si son números decimales se debe usar separador de decimales ya sea punto o coma. Los números no deben contener separados de miles.} 
+        \SubItem{Operadores matemáticos: + (suma), \- (resta), \* (multiplicación), \\ (división) y \^ (potencia).}
+        \SubItem{Paréntesis.}
+        \SubItem{Funciones soportadas.}
     \item La fórmula debe tener al menos una variable o referencia a una fórmula.
     \item No pueden existir referencias circulares\footnote{\href{https://en.wikipedia.org/wiki/Circular_reference}{\textit{Wikipedia - Circular Reference}}} al hacer referencias a otras fórmulas. Esto puede provocar un \textit{loop} y puede afectar el navegador del usuario.
-    \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget}.    
-    \item No tener ningún caracter inválido.
+    \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget}.        
 \end{itemize}
 
+Para ver si la fórmula es válida, se utilizará una expresión regular para ver si la fórmula tiene caracteres válidos (figura ...).
 Para el caso de las referencias circulares, se utilizará \textit{Topological sorting}\footnote{\href{https://en.wikipedia.org/wiki/Topological_sorting}{\textit{Wikipedia - Topological Sorting}}} utilizando el algoritmo de \textit{Depth-first search}\footnote{\href{https://en.wikipedia.org/wiki/Depth-first_search}{\textit{Wikipedia - Depth-first search}}}.
 Este algortimo también servirá para obtener el orden en el que las fórmulas deben ser calculadas.
 
@@ -723,12 +728,13 @@ El proceso del cálculo de las formulas será el siguiente:
     \SubItem{Se obtienen los datos de las variables referenciadas de la respuesta del punto 1. Luego se guarda en un objeto para ser reutlizadas por las demás fórmulas}
     \SubItem{En el caso de tener fórmulas referenciadas, se obtienen los datos objeto donde se van guardando los resultados de las fórmulas para ser reutilizadas por las demás fórmulas.}
     \SubItem{Se itera sobre los \textit{arrays} de datos para obtener las fechas y se guardan en un \textit{Set}}
-    \SubItem{Se itera sobre el \textit{Set} de fechas. Por cada fecha se obtiene el dato de cada variable/fórmula y se ejecuta la función con la fórmula. En el caso en que en una variable no exista la fecha, no se realiza el cálculo y se continua con la siguiente fecha.}
+    \SubItem{Se itera sobre el \textit{Set} de fechas. Por cada fecha se obtiene el dato de cada variable/fórmula y se ejecuta la función con la fórmula. En el caso en que en una variable no exista la fecha, no se realiza el cálculo y se continua con la siguiente fecha. En el caso de que en una fecha de resultado de tipo \textit{\textbf{NaN}}, \textit{\textbf{Infinity}} o \textit{\textbf{-Infinity}} se guarda el resultado como \textbf{\textit{null}}.}    
     \SubItem{Se guarda el resultado de la fórmula.}
     \SubItem{Al terminar el cálculo de todas las fórmulas, se crea la serie para el gráfico o columna para la tabla (dependiendo del \textit{widget}).}
 \end{enumerate}
 
 Como se muestra en el proceso del cálculo, el cálculo de hace fecha a fecha de los datos. Si las variables tienen datos desfasados el cálculo no dará resultado, es por esto que en la pestaña de \textbf{Ajustes} el usuario debe cambiar la resolución de datos de las variables para que las fechas de los datos coincidan, como se muestra en la figura \ref{fig:dash-settings-res}.
+Esto también se utilza para validar la fórmula, evaluando las fórmulas con valor 1 en todas las variables. En el caso que la fórmula no entregue un resultado de tipo \textbf{\textit{number}} de \textit{JavaScript}, la fórmula es considerada inválida.
 
 \begin{figure}[H]
 	\centering

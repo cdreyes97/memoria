@@ -335,6 +335,25 @@ Se puede ingresar la fórmula completamente a mano o con el botón al lado del \
 Se ingresa la fórmula para convertir desde \textit{Fahrenheit} a \textit{Celsius}.
 \iffalse formula \fi
 
+Hacemos clic en el botón \textbf{Previsualizar}, esperamos a que muestre el gráfico en la parte superior del formulario, tomamos un punto como muestra en la figura ... y comparamos.
+\iffalse formula previsualizada 
+\iffalse formula con punto seleccionado
+\begin{figure}[H]	
+	\caption{\label{fig:formula-comparison} Comparación de fórmula. Fuente: Elaboración propia.}
+\end{figure}
+\fi
+
+Dentro de las validaciones del formularios están:
+\begin{itemize}
+    \item Debe contener solo caracteres válidos, es decir, la formula debe contener (figura ...): 
+        \SubItem{Números. Si son números decimales se debe usar separador de decimales ya sea punto o coma. Los números no deben contener separados de miles.} 
+        \SubItem{Operadores matemáticos: + (suma), \- (resta), \* (multiplicación), \\ (división) y \^ (potencia).}
+        \SubItem{Paréntesis.}
+        \SubItem{Funciones soportadas.}
+    \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura ...).
+    \item No pueden existir referencias circulares al hacer referencias a otras fórmulas (figura ...).
+    \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget} (figura ...).        
+\end{itemize}
 \iffalse
 \subsection{SETUP}
 
