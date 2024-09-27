@@ -285,7 +285,7 @@ La tabla tiene las siguientes propiedades:
 	\centering
 	\includegraphics[width=0.8\textwidth]{graf-chart-table-example}
 	\caption{\label{fig:graf-chart-table-example} Ejemplo de tabla de datos. Fuente: Elaboración propia.}
-\end{figure}
+\end{figure}\fi
 
 \subsubsection{OPERATIONS}
 
@@ -299,7 +299,7 @@ En \textit{Operations} se puede hacer:
     \item Administrar despachos de productos.
     \item Llevar el inventario de los productos y los estados de estos, gracias a que cada producto tiene asociado un historial.
 \end{itemize}
-
+\iffalse
 \subsubsubsection{DESPACHOS MÚLTIPLES}
 
 En \textit{Operations}, como se mencionó anteriormente, se administran los despachos de los distintos productos de hardware que ofrece \textit{WiseConn}.
@@ -499,7 +499,7 @@ En el caso que el despacho no pertenezca a un despacho múltiple, se podrá ingr
 	\caption{\label{fig:dm-remove-child} Remover de despacho múltiple. Fuente: Elaboración propia.}
 \end{figure}
 
-Los despachos múltiples ayudarán a mantener agrupados despachos que comparten ciertas propiedades y poder manejarlas en un mismom lugar.
+Los despachos múltiples ayudarán a mantener agrupados despachos que comparten ciertas propiedades y poder manejarlas en un mismom lugar.\fi
 
 \subsubsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
@@ -578,7 +578,7 @@ Al guardar los registros, se abrirá un diálogo de confirmación para guardar l
 	\includegraphics[width=0.8\textwidth]{history-product}
 	\caption{\label{fig:history-product} Producto con historia registrada. Fuente: Elaboración propia.}
 \end{figure}
-\fi
+
 \iffalse
 \subsubsection{CERTIFICADOS TESTBED}
 
@@ -655,7 +655,7 @@ Los \textit{widgets} disponibles son:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{widget-formulas/ejemplo-dash-normal}
+	\includegraphics[width=1\textwidth]{widget-formulas/ejemplo-dash-normal}
 	\caption{\label{fig:dash-example} Ejemplo de Dashboard Libre. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -665,9 +665,28 @@ El proceso de creación de estos sensores virtuales...
 Es por esto que en la herramienta de \textit{Dashboard Libre}, para los \textit{widgets} de gráfico y tabla, se decide implementar una configuración de fórmulas en donde el usuario podrá realizar operaciones utilizando las variables seleccionadas para hacer conversión de unidades y/o crear nuevas variables.
 Para esta nueva configuración se toma inspiración de \textit{Amazon CloudWatch}\footnote{\href{https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/using-metric-math.html}{\textit{Amazon CloudWatch}: Uso de la calculadora de métricas}}, que permite añadir expresiones matemáticas a un gráfico de métricas de \textit{CloudWatch}.
 
-Se implementará solo en los \textit{widgets} de gráfico y tabla, ya que, utilizan el mismo componente y dependiendo de si es un \textit{widget} de tabla o gráfico muestra ciertos \textit{inputs} en la pestaña de \textbf{Ajustes} como muestra en la figura ... . Además, en el formulario de gráfico, tiene una pestaña extra de \textbf{Configuración de Ejes} (figura ...), en el cual se pueden configurar \textbf{plotlines/plotbands} y configurar los ejes. Además, el formulario de gráfico permite una previsualización con el botón \textbf{Previsualizar} (figura ...).
-\iffalse imágenes con los formularios con sus diferencias \fi
-\iffalse previsualización gráfico \fi
+Se implementará solo en los \textit{widgets} de gráfico y tabla, ya que, utilizan el mismo componente y dependiendo de si es un \textit{widget} de tabla o gráfico muestra ciertos \textit{inputs} en la pestaña de \textbf{Ajustes} como muestra en la figuras \ref{fig:variables-table-diff} y \ref{fig:ajustes-table-diff}. Además, en el formulario de gráfico, tiene una pestaña extra de \textbf{Configuración de Ejes} (figura \ref{fig:axis-config-table}), en el cual se pueden configurar \textbf{plotlines/plotbands} y configurar los ejes. Además, el formulario de gráfico permite una previsualización con el botón \textbf{Previsualizar} (figura \ref{fig:preview-grafico}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/variables-table-diff}
+	\caption{\label{fig:variables-table-diff} Diferencias formulario de variables en \textit{widget} de gráfico y tabla. Fuente: Elaboración propia.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/ajustes-table-diff}
+	\caption{\label{fig:ajustes-table-diff} Diferencias formulario de ajustes en \textit{widget} de gráfico y tabla. Fuente: Elaboración propia.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/axis-config-table}
+	\caption{\label{fig:axis-config-table} Formulario para configuración de ejes, solo presente en \textit{widget} de gráfico. Fuente: Elaboración propia.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/preview-grafico}
+	\caption{\label{fig:preview-grafico} Previsualización en formulario de\textit{widget} de gráfico. Fuente: Elaboración propia.}
+\end{figure}
 
 En los formularios de creación/edición de los \textit{widgets} de gráfico y tabla se agrega una nueva pestaña con el título de 'Fórmulas', el formulario de esta sección constará de una tabla que contendrá lo siguiente:
 \begin{itemize}
@@ -688,7 +707,7 @@ El formato de las formulas será de la siguiente manera:
 \begin{itemize}
     \item Las variables seleccionadas se representaran de la forma D\{ID variable\}.
     \item Se podrán referenciar fórmulas de la misma tabla de la forma F\{ID fórmula\}.
-    \item Los operadores serán + (suma), \- (resta), \* (multiplicación), \\ (división) y \^ (potencia).
+    \item Los operadores serán '+' (suma), '-' (resta), '*' (multiplicación), '/' (división) y '\^{}' (potencia).
     \item Los números no pueden tener separador de miles.
     \item El separador de decimales puede ser con punto o coma.
     \item Dentro de las funciones soportadas están: ...
@@ -698,7 +717,7 @@ Dentro de los requisitos que debe tener la fórmula para que sea válida:
 \begin{itemize}
     \item Debe contener solo caracteres válidos, es decir, la formula debe contener:
         \SubItem{Números. Si son números decimales se debe usar separador de decimales ya sea punto o coma. Los números no deben contener separados de miles.} 
-        \SubItem{Operadores matemáticos: + (suma), \- (resta), \* (multiplicación), \\ (división) y \^ (potencia).}
+        \SubItem{Operadores matemáticos: '+' (suma), '-' (resta), '*' (multiplicación), '/' (división) y '\^{}' (potencia).}
         \SubItem{Paréntesis.}
         \SubItem{Funciones soportadas.}
     \item La fórmula debe tener al menos una variable o referencia a una fórmula.
@@ -706,7 +725,7 @@ Dentro de los requisitos que debe tener la fórmula para que sea válida:
     \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget}.        
 \end{itemize}
 
-Para ver si la fórmula es válida, se utilizará una expresión regular para ver si la fórmula tiene caracteres válidos (figura ...).
+Para ver si la fórmula es válida, se utilizará una expresión regular para ver si la fórmula tiene caracteres válidos.
 Para el caso de las referencias circulares, se utilizará \textit{Topological sorting}\footnote{\href{https://en.wikipedia.org/wiki/Topological_sorting}{\textit{Wikipedia - Topological Sorting}}} utilizando el algoritmo de \textit{Depth-first search}\footnote{\href{https://en.wikipedia.org/wiki/Depth-first_search}{\textit{Wikipedia - Depth-first search}}}.
 Este algortimo también servirá para obtener el orden en el que las fórmulas deben ser calculadas.
 
