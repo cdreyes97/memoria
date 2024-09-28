@@ -188,7 +188,7 @@ En el año 2023, como muestra la figura \ref{fig:graf-analytics-view} el configu
 \fi
 
 \subsection{OPERATIONS}
-
+\iffalse
 \subsubsection{DESPACHOS MÚLTIPLES}
 
 Entrando a la herramienta de \textit{Operations}, en el menú lateral, abrir la sección de Despachos y se encuentran las opciones de 'Individuales' y 'Múltiples' (Figura \ref{fig:op-menu}).
@@ -224,6 +224,7 @@ El parámetros 'Número de despachos' indica, valga la redundancia, el número d
 	\includegraphics[width=1\textwidth]{validation-op-dm/form-create-2.png}
 	\caption{\label{fig:op-form-create-2} Formulario de creación de Despacho Múltiple con 3 despachos}
 \end{figure}
+\fi
 
 \subsubsection{ACTUALIZACIÓN MASIVA DE PRODUCTOS}
 
@@ -301,7 +302,7 @@ Primero se debe acceder a la herramienta de \textbf{Dashboard Libre} en el menú
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{widget-formulas/dashboard-libre-menu}
+	\includegraphics[width=0.5\textwidth]{widget-formulas/dashboard-libre-menu}
 	\caption{\label{fig:dash-libre-menu} \textbf{Dashboard Libre} en el nuevo \textbf{DropControl}. Fuente: Elaboración propia.}
 \end{figure}
 
@@ -309,7 +310,7 @@ Seleccionar o crear un \textit{dashboard}. Entrar al modo edición en la esquina
 \iffalse foto con paso de como entrar al modo edicion \fi
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{widget-formulas/entrar-modo-edicion.png}
+	\includegraphics[width=0.8\textwidth]{widget-formulas/entrar-modo-edicion.png}
 	\caption{\label{fig:entrar-modo-edicion} Entrar a modo edición. Elaboración propia.}
 \end{figure}
 
@@ -321,7 +322,7 @@ Al estar en modo edición, para acceder a los formularios de \textit{widget} de 
 \iffalse pasos para ingresar al formulario de ambas formas \fi
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{widget-formulas/opciones-crear.png}
+	\includegraphics[width=0.8\textwidth]{widget-formulas/opciones-crear.png}
 	\caption{\label{fig:opciones-crear} Crear \textit{widget} nuevo. Elaboración propia.}
 \end{figure}
 \begin{figure}[H]
@@ -395,15 +396,31 @@ Crearemos una segunda formula para una segunda variable de temperatura que conve
 
 Dentro de las validaciones del formularios están:
 \begin{itemize}
-    \item Debe contener solo caracteres válidos, es decir, la formula debe contener (figura ...): 
+    \item Debe contener solo caracteres válidos, es decir, la formula debe contener (figura \ref{invalid-formula}): 
         \SubItem{Números. Si son números decimales se debe usar separador de decimales ya sea punto o coma. Los números no deben contener separados de miles.} 
         \SubItem{Operadores matemáticos: '+' (suma), '-' (resta), '*' (multiplicación), '/' (división) y '\^{}' (potencia).}
         \SubItem{Paréntesis.}
         \SubItem{Funciones soportadas.}
-    \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura ...).
+    \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura \ref{invalid-formula}).
     \item No pueden existir referencias circulares al hacer referencias a otras fórmulas (figura ...).
-    \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget} (figura ...).        
+    \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget} (figura \ref{fig:invalid-variables}).        
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/invalid-formula.png}
+	\caption{\label{fig:invalid-formula} Fórmula inválida: caracter inválido. Elaboración propia.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/no-references.png}
+	\caption{\label{fig:invalid-formula} Fórmula inválida: Sin referencias a variables o fórmulas. Elaboración propia.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/invalid-variables.png}
+	\caption{\label{fig:invalid-variables} Fórmula inválida: Variable referenciada no existe. Elaboración propia.}
+\end{figure}
 \iffalse
 \subsection{SETUP}
 
