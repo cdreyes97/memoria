@@ -402,7 +402,7 @@ Dentro de las validaciones del formularios están:
         \SubItem{Paréntesis.}
         \SubItem{Funciones soportadas.}
     \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura \ref{invalid-formula}).
-    \item No pueden existir referencias circulares al hacer referencias a otras fórmulas (figura ...).
+    \item No pueden existir referencias circulares al hacer referencias a otras fórmulas (figura \ref{fig:circular-reference}).
     \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget} (figura \ref{fig:invalid-variables}).        
 \end{itemize}
 
@@ -420,6 +420,12 @@ Dentro de las validaciones del formularios están:
 	\centering
 	\includegraphics[width=1\textwidth]{widget-formulas/invalid-variables.png}
 	\caption{\label{fig:invalid-variables} Fórmula inválida: Variable referenciada no existe. Elaboración propia.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/circular-reference.png}
+	\caption{\label{fig:circular-reference} Fórmula inválida: Referencia circular. Elaboración propia.}
 \end{figure}
 \iffalse
 \subsection{SETUP}
