@@ -305,41 +305,78 @@ Primero se debe acceder a la herramienta de \textbf{Dashboard Libre} en el menú
 	\caption{\label{fig:dash-libre-menu} \textbf{Dashboard Libre} en el nuevo \textbf{DropControl}. Fuente: Elaboración propia.}
 \end{figure}
 
-Seleccionar o crear un \textit{dashboard}. Entrar al modo edición como muestra en la figura \ref{}
+Seleccionar o crear un \textit{dashboard}. Entrar al modo edición en la esquina superior derecha como muestra en la figura \ref{fig:entrar-modo-edicion}.
 \iffalse foto con paso de como entrar al modo edicion \fi
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/entrar-modo-edicion.png}
+	\caption{\label{fig:entrar-modo-edicion} Entrar a modo edición. Elaboración propia.}
+\end{figure}
 
 Al estar en modo edición, para acceder a los formularios de \textit{widget} de tabla y/o gráfico existen 2 opciones:
 \begin{itemize}
-	\item Crear un nuevo \textit{widget} (figura ).
-	\item Editar un \textit{widget} existente (figura).
+	\item Crear un nuevo \textit{widget} haciendo clic en el botón 'Crear...' en la esquina superior derecha (figura \ref{fig:opciones-crear}).
+	\item Editar un \textit{widget} existente haciendo clic en el ícono de lápiz en la parte superior del \textit{widget} (figura \ref{fig:editar-widget}).
 \end{itemize}
 \iffalse pasos para ingresar al formulario de ambas formas \fi
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/opciones-crear.png}
+	\caption{\label{fig:opciones-crear} Crear \textit{widget} nuevo. Elaboración propia.}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/editar-widget.png}
+	\caption{\label{fig:editar-widget} Editar \textit{widget} existente. Elaboración propia.}
+\end{figure}
 
 Se utilizará el formulario de gráfico para el paso a paso. Para este caso tenemos una variable de temperatura en unidad \textit{Fahrenheit} el cual vamos a convertir a \textit{Celsius}.
-Entramos a la pestaña de fórmulas (figura ...).
+Al entrar al formulario del \textit{widget} entramos a la pestaña de fórmulas (figura \ref{fig:pestana-formulas}).
 \iffalse ingresar a formulas \fi
-Primero rellenamos y seleccionamos todos los \textit{inputs} y dejamos el \textit{input} de fórmula para el final. Como muestra la figura ..., la fórmula tendrá:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/pestana-formulas.png}
+	\caption{\label{fig:pestana-formulas} Editar \textit{widget} existente. Elaboración propia.}
+\end{figure}
+Primero rellenamos y seleccionamos todos los \textit{inputs} y dejamos el \textit{input} de fórmula para el final. Como muestra la figura \ref{fig:primer-relleno-formula}, la fórmula tendrá:
 \begin{itemize}
 	\item Nombre: \textbf{\textit{Celsius}}.
-	\item Unidad: 
+	\item Unidad: ºC
 	\item \# Decimales: 3.
-	\item Color:
+	\item Color: Rojo
 	\item Tipo: Línea.
 	\item Posición de eje: Derecha.
 \end{itemize}
 \iffalse relleno de inputs \fi
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/primer-relleno-formula.png}
+	\caption{\label{fig:primer-relleno-formula} Relleno de \textit{inputs}. Elaboración propia.}
+\end{figure}
 
-Se puede ingresar la fórmula completamente a mano o con el botón al lado del \textit{input}. En la figura ... muestra la lista al hacer clic en el botón a lado del \textit{input} de formula.
+Se puede ingresar la fórmula completamente a mano o con el botón al lado del \textit{input}. En la figura \ref{fig:lista-boton} muestra la lista al hacer clic en el botón a lado del \textit{input} de formula.
 \iffalse lista de boton \fi
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/lista-boton.png}
+	\caption{\label{fig:lista-boton} Lista al hacer clic en el botón a lado del \textit{input} de formula. Elaboración propia.}
+\end{figure}
 
-Se ingresa la fórmula para convertir desde \textit{Fahrenheit} a \textit{Celsius}.
+Se ingresa la fórmula para convertir desde \textit{Fahrenheit} a \textit{Celsius} (figura \ref{fig:formula-ingresada}).
 \iffalse formula \fi
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/formula-ingresada.png}
+	\caption{\label{fig:formula-ingresada} Formula de conversión de Fahrenheit a Celsius ingresada en el formulario. Elaboración propia.}
+\end{figure}
 
-Hacemos clic en el botón \textbf{Previsualizar}, esperamos a que muestre el gráfico en la parte superior del formulario, tomamos un punto como muestra en la figura ... y comparamos.
+Hacemos clic en el botón \textbf{Previsualizar}, esperamos a que muestre el gráfico en la parte superior del formulario, tomamos un punto como muestra en la figura \ref{fig:formula-preview} y comparamos un punto.
 \iffalse formula previsualizada \fi
 \iffalse formula con punto seleccionado
-\begin{figure}[H]	
-	\caption{\label{fig:formula-comparison} Comparación de fórmula. Fuente: Elaboración propia.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{widget-formulas/formula-preview.png}
+	\caption{\label{fig:formula-preview} Previsualización de fórmula en el gráfico. Elaboración propia.}
 \end{figure}
 \fi
 
@@ -349,7 +386,7 @@ Dentro de las validaciones del formularios están:
 \begin{itemize}
     \item Debe contener solo caracteres válidos, es decir, la formula debe contener (figura ...): 
         \SubItem{Números. Si son números decimales se debe usar separador de decimales ya sea punto o coma. Los números no deben contener separados de miles.} 
-        \SubItem{Operadores matemáticos: + (suma), \- (resta), \* (multiplicación), \\ (división) y \^ (potencia).}
+        \SubItem{Operadores matemáticos: '+' (suma), '-' (resta), '*' (multiplicación), '/' (división) y '\^{}' (potencia).}
         \SubItem{Paréntesis.}
         \SubItem{Funciones soportadas.}
     \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura ...).
