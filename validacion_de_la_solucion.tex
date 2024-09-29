@@ -371,7 +371,7 @@ Se ingresa la fórmula para convertir desde \textit{Fahrenheit} a \textit{Celsiu
 	\caption{\label{fig:formula-ingresada} Formula de conversión de Fahrenheit a Celsius ingresada en el formulario. Elaboración propia.}
 \end{figure}
 
-Hacemos clic en el botón \textbf{Previsualizar}, esperamos a que muestre el gráfico en la parte superior del formulario, tomamos un punto como muestra en la figura \ref{fig:formula-preview} y comparamos un punto.
+Hacemos clic en el botón \textbf{Previsualizar}, esperamos a que muestre el gráfico en la parte superior del formulario, tomamos un punto como muestra en la figura \ref{fig:formula-preview} y comparamos un punto (figura \ref{fig:formula-comparison}).
 \iffalse formula previsualizada \fi
 \iffalse formula con punto seleccionado \fi
 \begin{figure}[H]
@@ -379,6 +379,21 @@ Hacemos clic en el botón \textbf{Previsualizar}, esperamos a que muestre el gr�
 	\includegraphics[width=1\textwidth]{widget-formulas/formula-preview.png}
 	\caption{\label{fig:formula-preview} Previsualización de fórmula en el gráfico. Elaboración propia.}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{equation}
+		\begin{split}
+			C &= (F - 32) * (5/9) \\
+			C &= (76.85 - 32) * (5/9) \\
+			C &= (44.85) * (5/9) \\
+			C &= (44.85) * (5/9) \\
+			C &\approx 24.917
+		\end{split}
+	\end{equation}
+	\caption{\label{fig:formula-comparison} Conversión de \textit{Fahrenheit} a \textit{Celsius}. Elaboración propia.}
+\end{figure}
+
 
 \iffalse agregar referencia a formulas \fi
 Crearemos una segunda formula para una segunda variable de temperatura que convertiremos de Fahrenheit a Celsius como se muestra en la figura \ref{fig:dos-variables}. Luego, creamos una tercera fórmula con la suma de las fórmulas 1 y 2 (figura \ref{fig:suma-variables})
@@ -394,14 +409,22 @@ Crearemos una segunda formula para una segunda variable de temperatura que conve
 	\caption{\label{fig:suma-variables} Referencia a fórmulas: Suma de 2 fórmulas. Elaboración propia.}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\begin{equation}
+		F3 = F1 + F2 = 24.861 + 24.728 = 49.589		
+	\end{equation}
+	\caption{\label{fig:formula-comparison} Suma de fórmulas. Elaboración propia.}
+\end{figure}
+
 Dentro de las validaciones del formularios están:
 \begin{itemize}
-    \item Debe contener solo caracteres válidos, es decir, la formula debe contener (figura \ref{invalid-formula}): 
+    \item Debe contener solo caracteres válidos, es decir, la formula debe contener (figura \ref{fig:invalid-formula}): 
         \SubItem{Números. Si son números decimales se debe usar separador de decimales ya sea punto o coma. Los números no deben contener separados de miles.} 
         \SubItem{Operadores matemáticos: '+' (suma), '-' (resta), '*' (multiplicación), '/' (división) y '\^{}' (potencia).}
         \SubItem{Paréntesis.}
         \SubItem{Funciones soportadas.}
-    \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura \ref{invalid-formula}).
+    \item La fórmula debe tener al menos una variable o referencia a una fórmula (figura \ref{fig:no-references}).
     \item No pueden existir referencias circulares al hacer referencias a otras fórmulas (figura \ref{fig:circular-reference}).
     \item Las variables y fórmulas referenciadas en la fórmula deben existir en el \textit{widget} (figura \ref{fig:invalid-variables}).        
 \end{itemize}
@@ -414,7 +437,7 @@ Dentro de las validaciones del formularios están:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{widget-formulas/no-references.png}
-	\caption{\label{fig:invalid-formula} Fórmula inválida: Sin referencias a variables o fórmulas. Elaboración propia.}
+	\caption{\label{fig:no-references} Fórmula inválida: Sin referencias a variables o fórmulas. Elaboración propia.}
 \end{figure}
 \begin{figure}[H]
 	\centering

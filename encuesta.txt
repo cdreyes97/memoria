@@ -1,0 +1,148 @@
+
+
+
+
+
+
+Gemini
+Consulta las últimas novedades en el Centro de Privacidad de las Aplicaciones de GeminiSe abre en una ventana nueva
+
+Conversación con Gemini
+
+necesito crear una encuesta sobre unas funcionalidades implementadas en algunas aplicaciones, que debo preguntar?
+
+
+Mostrar versiones
+
+
+¡Excelente! Crear una encuesta para evaluar funcionalidades implementadas en una aplicación es una excelente manera de obtener valiosa retroalimentación de los usuarios. Aquí te presento algunas preguntas que puedes incluir, agrupadas por temas clave:
+
+Usabilidad y facilidad de uso:
+
+¿Con qué facilidad encontraste la nueva funcionalidad?
+¿Te resultó intuitiva de usar?
+¿La encontraste útil para tus tareas habituales?
+¿Hubo algún momento en el que te sentiste confundido o frustrado al usarla?
+¿Qué tan fácil fue completar las tareas que querías realizar con esta nueva funcionalidad?
+Satisfacción y valor percibido:
+
+¿En qué medida esta nueva funcionalidad ha mejorado tu experiencia general con la aplicación?
+¿Crees que esta funcionalidad agrega valor a la aplicación?
+¿Recomendarías esta nueva funcionalidad a otros usuarios?
+¿Qué tan satisfecho estás con el desempeño de esta nueva funcionalidad?
+Características específicas y sugerencias:
+
+¿Qué aspectos de esta nueva funcionalidad te gustaron más?
+¿Qué aspectos de esta nueva funcionalidad te gustaron menos?
+¿Hay alguna característica adicional que te gustaría ver en esta funcionalidad?
+¿Hay algún cambio que sugerirías para mejorar esta funcionalidad?
+Preguntas abiertas:
+
+¿Tienes algún comentario adicional sobre esta nueva funcionalidad?
+¿Hay algo más que quieras compartir con nosotros?
+Consideraciones adicionales:
+
+Escala de Likert: Utiliza una escala de Likert (por ejemplo, del 1 al 5) para las preguntas de satisfacción y facilidad de uso. Esto te permitirá cuantificar las respuestas y realizar análisis estadísticos.
+Preguntas demográficas: Incluye preguntas demográficas (edad, género, frecuencia de uso de la aplicación, etc.) para segmentar los resultados y comprender mejor las preferencias de diferentes grupos de usuarios.
+Preguntas sobre el contexto de uso: Pregunta en qué situaciones los usuarios utilizan la nueva funcionalidad para entender mejor cómo se integra en sus flujos de trabajo.
+Longitud de la encuesta: Evita encuestas demasiado largas para mantener la atención de los usuarios.
+Ejemplo de encuesta:
+
+En una escala del 1 al 5 (1=Nada, 5=Mucho), por favor indica:
+
+¿Con qué facilidad encontraste la nueva función de búsqueda avanzada?
+¿Qué tan útil te resultó para encontrar la información que buscabas?
+¿Recomendarías esta nueva función a un amigo?
+¿Cuál es la característica adicional que más te gustaría ver en la búsqueda avanzada?
+
+[Campo de texto abierto]
+
+¿Tienes algún otro comentario sobre esta nueva función?
+
+[Campo de texto abierto]
+
+Recuerda adaptar estas preguntas a las características específicas de tu aplicación y a las funcionalidades que estás evaluando.
+
+Herramientas para crear encuestas:
+
+Existen numerosas herramientas en línea para crear y distribuir encuestas, como:
+
+Google Forms: Gratuita y fácil de usar.
+SurveyMonkey: Ofrece una amplia variedad de plantillas y opciones de personalización.
+Typeform: Destaca por su diseño atractivo y experiencia de usuario.
+¡Espero que esta información te sea útil! Si tienes alguna otra pregunta, no dudes en consultarme.
+
+¿Te gustaría que te ayude a crear una encuesta más específica para tu aplicación?
+
+
+
+
+
+
+
+algunas de estas funcionalidades implican traspasar ciertos procesos a los usuarios para quitar carga al área de soporte, que preguntas serian las adecuadas?
+
+
+
+Mostrar versiones
+
+
+¡Excelente punto! Al transferir ciertos procesos a los usuarios, es fundamental evaluar si esta nueva dinámica está facilitando sus tareas o generando más frustración. Aquí te presento algunas preguntas clave para incorporar a tu encuesta:
+
+Preguntas enfocadas en la autogestión de procesos:
+Facilidad de uso:
+¿Consideras que la nueva funcionalidad te permite resolver tus problemas de forma más autónoma?
+¿Te resultó fácil encontrar la información necesaria para completar el proceso por tu cuenta?
+¿Encontraste algún obstáculo al intentar realizar el proceso sin la ayuda del soporte técnico?
+Eficiencia:
+¿Cuánto tiempo te tomó resolver tu problema utilizando la nueva funcionalidad en comparación con antes?
+¿Crees que la nueva funcionalidad te ahorra tiempo?
+Satisfacción:
+¿Estás satisfecho con la solución que encontraste al utilizar la nueva funcionalidad?
+¿Te sientes empoderado al poder resolver tus propios problemas?
+Preferencias:
+¿Preferirías seguir contactando al soporte técnico para este tipo de problemas o te sientes cómodo resolviéndolos por tu cuenta?
+¿Qué tipo de soporte adicional te gustaría recibir al utilizar esta nueva funcionalidad? (por ejemplo, tutoriales, videos, chat en vivo)
+Preguntas sobre la carga de trabajo del usuario:
+Esfuerzo:
+¿Consideras que la nueva funcionalidad te exige un mayor esfuerzo para resolver tus problemas?
+¿Te parece que la nueva funcionalidad complica algunos procesos?
+Claridad de las instrucciones:
+¿Las instrucciones proporcionadas para utilizar la nueva funcionalidad son claras y fáciles de entender?
+¿Crees que falta alguna información importante en las instrucciones?
+Preguntas sobre la percepción del usuario respecto al soporte técnico:
+Confianza:
+¿Te sientes seguro de poder resolver tus problemas por tu cuenta utilizando la nueva funcionalidad?
+¿Crees que la nueva funcionalidad disminuye la necesidad de contactar al soporte técnico?
+Percepción del soporte técnico:
+¿Cómo valorarías la atención recibida por el soporte técnico antes de implementar esta nueva funcionalidad?
+¿Crees que la nueva funcionalidad ha afectado la calidad del servicio del soporte técnico?
+Ejemplo de pregunta con escala de Likert:
+
+En una escala del 1 al 5 (1=Nada, 5=Mucho), ¿qué tan fácil te resultó resolver [problema específico] utilizando la nueva funcionalidad?
+Ejemplo de pregunta abierta:
+
+¿Qué sugerencias tienes para mejorar la nueva funcionalidad y hacer que la resolución de problemas sea aún más sencilla?
+Consideraciones adicionales:
+
+Segmenta tus preguntas: Si has implementado varias funcionalidades, segmenta tus preguntas para evaluar cada una de ellas por separado.
+Contextualiza: Pide a los usuarios que te proporcionen ejemplos concretos de situaciones en las que han utilizado la nueva funcionalidad.
+Mide el impacto: Compara los resultados de la encuesta con datos anteriores sobre la cantidad de tickets de soporte y el tiempo de resolución para evaluar el impacto real de la nueva funcionalidad.
+Al incluir este tipo de preguntas en tu encuesta, podrás obtener una visión más completa sobre cómo los usuarios perciben la transferencia de procesos y si esta decisión está resultando beneficiosa tanto para ellos como para tu equipo de soporte.
+
+¿Te gustaría que te ayude a elaborar una encuesta más específica para tu caso? No dudes en compartir más detalles sobre las funcionalidades que has implementado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gemini puede mostrar información imprecisa (incluidos datos sobre personas), así que comprueba sus respuestas. Tu privacidad y las aplicaciones de GeminiSe abre en una ventana nueva
+
