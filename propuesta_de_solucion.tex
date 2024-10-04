@@ -43,10 +43,10 @@ En la segunda opción existen problemas como el tiempo que demora el área de so
 que las instrucciones no estén bien indicadas, llevando a que esta configuración requiera varios tickets para que se haga lo que el; cliente usuario necesita.
 
 Es por esto que se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario cliente sea el que
-configure el mapa, subiendo su archivo \textit{.kmz} o \textit{.kml} y asignando los polígonos/marcadores a sus respectivos sectores/nodos.
-Junto con esto, también se agrega la funcionalidad de descargar el mapa de su campo en formato \textit{.kmz}.
+configure el mapa, subiendo su mapa en un archivo con formato \textit{.kmz} o \textit{.kml} y asignando los polígonos/marcadores a sus respectivos sectores/nodos.
+Junto con esto, también se agrega la funcionalidad de descargar el mapa de su campo en formato \textit{.kml}.
 
-¿Por qué usar formato \textit{.kmz}/\textit{.kml}? \textit{KML} (\textit{Keyhole Markup Language}) es un formato de archivo basado en \textit{XML} que se utiliza para mostrar datos geográficos en navegadores basados en la tierra, como \textit{Google Earth}. Un archivo \textit{KMZ}\footnote{\href{https://developers.google.com/kml/documentation/kmzarchives?hl=es-419}{Archivos KMZ}} está formado por un archivo \textit{KML} (doc.kml) y otros archivos comprimidos en un archivo zip.
+¿Por qué usar formato \textit{.kmz}/\textit{.kml}? \textit{KML}\footnote{\href{https://pro.arcgis.com/es/pro-app/latest/help/data/kml/what-is-kml-.htm}{¿Qué es KML?}} (\textit{Keyhole Markup Language}) es un formato de archivo basado en \textit{XML} que se utiliza para mostrar datos geográficos en navegadores basados en la tierra, como \textit{Google Earth}. Un archivo \textit{KMZ}\footnote{\href{https://developers.google.com/kml/documentation/kmzarchives?hl=es-419}{Archivos KMZ}} está formado por un archivo \textit{KML} (doc.kml) y otros archivos comprimidos en un archivo zip.
 
 En la figura \ref{fig:ejemplo_kml} se puede apreciar un ejemplo básico de un archivo \textit{KML}. Los polígonos estan en el tag \texttt{<Polygon>}, mientras que los marcadores están en el tag \texttt{<Point>}.
 \begin{figure}[H]
@@ -54,45 +54,47 @@ En la figura \ref{fig:ejemplo_kml} se puede apreciar un ejemplo básico de un ar
     \begin{lstlisting}[language=XML, frame=single]
         <?xml version="1.0" encoding="UTF-8"?>
         <kml>
-        <Document>
-            <name>Test file</name>                        
-            <Placemark>
-                <name>Polígono</name>
-                <styleUrl>#s1</styleUrl>
-                <Polygon>
-                    <outerBoundaryIs>
-                        <LinearRing>
+            <Document>
+                <name>Test file</name>                        
+                <Folder>
+                    <name>Carpeta</name>
+                    <open>1</open>
+                    <Placemark>
+                        <name>Polígono</name>
+                        <styleUrl>#s1</styleUrl>
+                        <Polygon>
+                            <outerBoundaryIs>
+                                <LinearRing>
+                                    <coordinates>
+                                        -119.4543294743033,
+                                        35.75022332932038,
+                                        0 -119.4501211374852,
+                                        35.75018426465995,
+                                        0 -119.4500004479587
+                                    </coordinates>
+                                </LinearRing>
+                            </outerBoundaryIs>
+                        </Polygon>
+                    </Placemark>            
+                    <Placemark>
+                        <name>Marcador</name>
+                        <Point>
                             <coordinates>
-                                -119.4543294743033,
-                                35.75022332932038,
-                                0 -119.4501211374852,
-                                35.75018426465995,
-                                0 -119.4500004479587
+                                -119.445217337381,
+                                35.75365570663719,
+                                0
                             </coordinates>
-                        </LinearRing>
-                    </outerBoundaryIs>
-                </Polygon>
-            </Placemark>            
-            <Placemark>
-                <name>Marcador</name>
-                <Point>
-                    <coordinates>
-                        -119.445217337381,
-                        35.75365570663719,
-                        0
-                    </coordinates>
-                </Point>
-            </Placemark>            
-        </Document>
+                        </Point>
+                    </Placemark>   
+                </Folder>         
+            </Document>
         </kml>        
     \end{lstlisting}
-    \caption{Ejemplo de estructura KML para una librería. Fuente: Elaboración propia.}
+    \caption{Ejemplo básico de archivo \textit{KML}. Fuente: Elaboración propia.}
     \label{fig:ejemplo_kml}
 \end{figure}
 
-
 Esta nueva herramienta se encontrará en la vista del campo; en el mapa del campo se encontrarán dos botones (en la posición que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato \textit{.kmz} y, otro botón, para poder entrar al configurador de mapa.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-farm}
@@ -100,7 +102,131 @@ Esta nueva herramienta se encontrará en la vista del campo; en el mapa del camp
 \end{figure}
 
 Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato \textit{.kml}. El usuario podrá hacer cambios en ese archivo con aplicaciones que permitan la extensión \textit{.kml} (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
-
+Para crear el archivo del mapa: 
+\begin{enumerate}
+    \item Obtenemos el \textit{JSON} del mapa del campo (\ref{fig:ejemplo-mapa-json}).
+    \item En una variable, que sera nombrada desde este momento \textit{kmlData}, guardaremos el contenido del archivo \textit{KML} en formato \textit{string}. Primero guardamos el inicio del archivo que contiene el nombre de este que será el nombre del campo.
+    \item Si el \textit{JSON} del mapa contiene sectores, se crea la carpeta sectores en \textit{kmlData} con el tag \texttt{<Folder>} con el nombre \textbf{Sectores} y dentro de esta carpeta se crearán los polígonos por cada sector.
+    \item Se repite el paso 3 con los nodos.
+    \item Con \textit{kmlData}, se crea un objeto \textit{Blob}\footnote{href{https://developer.mozilla.org/es/docs/Web/API/Blob}{Blob}} de tipo \textit{application/vnd.google-earth.kml+xml} para poder descargar el archivo.
+    \item El contenido del archivo se muestra en la figura \ref{fig:ejemplo_export}.
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}[language=XML, frame=single]
+        {
+            "zoom": 1,
+            "bounds": {
+                "northEast": {
+                    "lat": -29.90524234338656,
+                    "lng": -71.24490155790566
+                },
+                "southWest": {
+                    "lat": -85.79336698341737,
+                    "lng": 18.729730784756175
+                }
+            },
+            "position": {
+                "lat": -59.95262131012406,
+                "lng": -71.26186932870023
+            },
+            "nodos": {
+                "[nodoId]": {
+                    "lat": -90,
+                    "lng": -71.27026921524383
+                },
+            },
+            "sectores": {
+                "[sectorId]": {
+                    "path": [
+                        {
+                            "lat": -29.91689674272094,
+                            "lng": -71.26038235351966
+                        },
+                        {
+                            "lat": -29.91735543438763,
+                            "lng": -71.25778410494456
+                        },
+                        {
+                            "lat": -29.915107113054372,
+                            "lng": -71.2573237726045
+                        },
+                        {
+                            "lat": -29.915288548605176,
+                            "lng": -71.25993685139193
+                        }
+                    ],
+                    "bounds": {
+                        "northEast": {
+                            "lat": -29.915107113054372,
+                            "lng": -71.2573237726045
+                        },
+                        "southWest": {
+                            "lat": -29.91735543438763,
+                            "lng": -71.26038235351966
+                        }
+                    }
+                },
+            },
+            "configurado": true
+        }     
+    \end{lstlisting}
+    \caption{Ejemplo de JSON de un mapa de un campo. Fuente: Elaboración propia.}
+    \label{fig:ejemplo-mapa-json}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}[language=XML, frame=single]
+        <?xml version="1.0" encoding="UTF-8"?>
+            <kml xmlns="http://www.opengis.net/kml/2.2">
+                <Document>
+                    <Style id="s1">
+                        <LineStyle>
+                            <color>7f00ff00</color>
+                            <width>4</width>
+                        </LineStyle>
+                        <PolyStyle>
+                            <color>7f00ff00</color>
+                            <colorMode>normal</colorMode>
+                            <fill>1</fill>
+                            <outline>1</outline>
+                        </PolyStyle>
+                    </Style>
+                    <name>Campo</name>
+                    <Folder>
+                        <name>Sectores</name>                        
+                        <Placemark>
+                            <styleUrl>#s1</styleUrl>
+                            <name>Sector</name>
+                            <Polygon>
+                                <outerBoundaryIs>
+                                    <LinearRing>
+                                        <coordinates>
+                                            ...
+                                        </coordinates>
+                                    </LinearRing>
+                                </outerBoundaryIs>
+                            </Polygon>
+                        </Placemark>
+                    </Folder>
+                    <Folder>
+                        <name>Nodos</name>
+                        <Placemark>
+                            <name>Nodo</name>
+                            <Point>
+                                <coordinates>
+                                    ...
+                                </coordinates>
+                            </Point>
+                        </Placemark>                        
+                    </Folder>
+                </Document>
+            </kml>
+    \end{lstlisting}
+    \caption{Ejemplo de archivo de un mapa de un campo. Fuente: Elaboración propia.}
+    \label{fig:ejemplo_export}
+\end{figure}
+\iffalse
 Al entrar en el configurador de mapa, esta vista se divide en 2 secciones (figura \ref{fig:mapcfg-esquema}): Tabla de sectores/nodos y el mapa.
 \begin{figure}[H]
 	\centering
@@ -212,7 +338,7 @@ Para la acción de centrar un sector/nodo en el mapa, los polígonos/marcadores 
 	\caption{\label{fig:mapcfg-node-loaded-center} Marcador cargado centrado en el mapa}
 \end{figure}
 
-Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.
+Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.\fi
 \iffalse
 \subsubsubsection{GRAFICADOR LIBRE}
 
