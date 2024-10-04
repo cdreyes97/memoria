@@ -32,18 +32,18 @@ En la aplicación \textit{DropControl}, el usuario tiene a su disposición el ma
 	\caption{\label{fig:mapa-dropcontrol} \textit{Dashboard} de Campo - DropControl}
 \end{figure}
 
-Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los puntos para los nodos.
+Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los polígonos para marcar los sectores del campo y los marcadores para los nodos.
 Para poder configurar este mapa existen dos maneras:
 \begin{enumerate}
-    \item En la aplicación \textit{Admin de DropControl}, ingresar de manera individual a cada sector/nodo y agregar su respectivo polígono/punto de manera individual.
-    \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o puntos para sus respectivos sectores y/o nodos.
+    \item En la aplicación \textit{Admin de DropControl}, ingresar de manera individual a cada sector/nodo y agregar su respectivo polígono/marcador de manera individual.
+    \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o marcadores para sus respectivos sectores y/o nodos.
 \end{enumerate}
-Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asignar los polígonos/puntos respectivos.
+Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asignar los polígonos/marcadores respectivos.
 En la segunda opción existen problemas como el tiempo que demora el área de soporte en tomar el ticket y realizar la configuración y/o
 que las instrucciones no estén bien indicadas, llevando a que esta configuración requiera varios tickets para que se haga lo que el; cliente usuario necesita.
 
 Es por esto que se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario cliente sea el que
-configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/puntos a sus respectivos sectores/nodos.
+configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/marcadores a sus respectivos sectores/nodos.
 Junto con esto, también se agrega la funcionalidad de descargar el mapa de su campo en formato .kmz.
 
 Esta nueva herramienta se encontrará en la vista del campo; en el mapa del campo se encontrarán dos botones (en la posición que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato .kmz y, otro botón, para poder entrar al configurador de mapa.
@@ -69,7 +69,7 @@ En la tabla de sectores/nodos (figura \ref{fig:mapcfg-tables-exameple}) se compo
     \item \textbf{Botones:}
           \begin{itemize}
               \item En la parte superior izquierda están los botones para cambiar entre la tabla de sectores y nodos.
-              \item En el lado opuesto, se encuentra el botón de 'Cargar Archivo' que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y puntos para asignar.
+              \item En el lado opuesto, se encuentra el botón de 'Cargar Archivo' que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y marcadores para asignar.
           \end{itemize}
     \item \textbf{Tabla:}  
     \begin{itemize}
@@ -102,12 +102,12 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
         \item Se agrega una columna nueva al medio, que contiene un dropdown con los polígonos o nodos (según la tabla seleccionada) del archivo que se cargó recientemente (figura \ref{fig:mapcfg-add-zone-full}).
         \item En la columna de acciones:
         \begin{itemize}        
-            \item Cuando un sector/nodo tiene un polígono/punto previamente asignado, tiene las acciones de centrar en el mapa y descartar polígono/punto.
-            \item Al descartar un polígono/punto previamente asignado, el botón de descartar se reemplaza por el botón de volver a polígono/punto original.
-            \item Para sectores/nodos que tengan asignados polígonos/puntos, tienen disponible el botón para centrar en el mapa.
+            \item Cuando un sector/nodo tiene un polígono/marcador previamente asignado, tiene las acciones de centrar en el mapa y descartar polígono/marcador.
+            \item Al descartar un polígono/marcador previamente asignado, el botón de descartar se reemplaza por el botón de volver a polígono/marcador original.
+            \item Para sectores/nodos que tengan asignados polígonos/marcadores, tienen disponible el botón para centrar en el mapa.
         \end{itemize}
     \end{itemize}
-    \item En el mapa se agregan los polígonos/puntos del archivo cargado previamente. Para los polígonos se muestran como en la figura \ref{fig:mapcfg-zone-loaded}, mientras que los nodos como en la figura \ref{fig:mapcfg-node-loaded}.
+    \item En el mapa se agregan los polígonos/marcadores del archivo cargado previamente. Para los polígonos se muestran como en la figura \ref{fig:mapcfg-zone-loaded}, mientras que los nodos como en la figura \ref{fig:mapcfg-node-loaded}.
     \item Por último, debajo de la tabla se muestra el botón para guardar los cambios hechos en el mapa, al hacer click sobre este se abrirá un diálogo de confirmación que al ser aceptado, se guardarán los cambios y la herramienta volverá al estado en que no había un archivo cargado.
 \end{itemize}
 
@@ -132,15 +132,15 @@ Al cargar un archivo, las secciones cambian. En la tabla de sectores/nodos ocurr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-node-loaded}
-	\caption{\label{fig:mapcfg-node-loaded} Punto cargado en el mapa}
+	\caption{\label{fig:mapcfg-node-loaded} Marcador cargado en el mapa}
 \end{figure}
 
-Para la acción de centrar un sector/nodo en el mapa, los polígonos/puntos se verán de la siguiente forma:
+Para la acción de centrar un sector/nodo en el mapa, los polígonos/marcadores se verán de la siguiente forma:
 \begin{itemize}
     \item Sector previamente asignado (figura \ref{fig:mapcfg-zone-pre-center}).
     \item Nodo previamente asignado (figura \ref{fig:mapcfg-node-pre-center}).
     \item Polígono cargado (figura \ref{fig:mapcfg-zone-loaded-center}).
-    \item Punto cargado (figura \ref{fig:mapcfg-node-loaded-center}).
+    \item Marcador cargado (figura \ref{fig:mapcfg-node-loaded-center}).
 \end{itemize}
 
 \begin{figure}[H]
@@ -164,7 +164,7 @@ Para la acción de centrar un sector/nodo en el mapa, los polígonos/puntos se v
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{mapcfg-node-loaded-center}
-	\caption{\label{fig:mapcfg-node-loaded-center} Punto cargado centrado en el mapa}
+	\caption{\label{fig:mapcfg-node-loaded-center} Marcador cargado centrado en el mapa}
 \end{figure}
 
 Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.
