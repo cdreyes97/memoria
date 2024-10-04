@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Test file</name>
+	<open>1</open>
+	<Style id="s1">
+		<LineStyle>
+			<color>7f00ff00</color>
+			<width>4</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>7f00ff00</color>
+		</PolyStyle>
+	</Style>
+	<Folder>
+		<name>Sectores</name>
+		<open>1</open>
+		<Placemark>
+			<name>Polígono</name>
+			<styleUrl>#s1</styleUrl>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-119.4543294743033,35.75022332932038,0 -119.4501211374852,35.75018426465995,0 -119.4500004479587,35.76086639675775,0 -119.4542590048994,35.7608866953442,0 -119.4543294743033,35.75022332932038,0 -119.4543294743033,35.75022332932038,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Nodos</name>
+		<open>1</open>
+		<Placemark>
+			<name>Marcador</name>
+			<Point>
+				<coordinates>-119.445217337381,35.75365570663719,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

@@ -36,17 +36,62 @@ Para mostrar el mapa se utiliza la api de \textit{Google Maps} y se utilizan los
 Para poder configurar este mapa existen dos maneras:
 \begin{enumerate}
     \item En la aplicación \textit{Admin de DropControl}, ingresar de manera individual a cada sector/nodo y agregar su respectivo polígono/marcador de manera individual.
-    \item Enviar un ticket al área de soporte con un archivo con formato .kmz o .kml que contiene los polígonos y/o marcadores para sus respectivos sectores y/o nodos.
+    \item Enviar un ticket al área de soporte con un archivo con formato \textit{.kmz} o \textit{.kml} que contiene los polígonos y/o marcadores para sus respectivos sectores y/o nodos.
 \end{enumerate}
 Para la primera opción, si el campo tiene demasiados sectores/nodos conllevará mucho tiempo en asignar los polígonos/marcadores respectivos.
 En la segunda opción existen problemas como el tiempo que demora el área de soporte en tomar el ticket y realizar la configuración y/o
 que las instrucciones no estén bien indicadas, llevando a que esta configuración requiera varios tickets para que se haga lo que el; cliente usuario necesita.
 
 Es por esto que se plantea una herramienta en la aplicación de \textit{Admin de DropControl} para que el usuario cliente sea el que
-configure el mapa, subiendo su archivo .kmz o .kml y asignando los polígonos/marcadores a sus respectivos sectores/nodos.
-Junto con esto, también se agrega la funcionalidad de descargar el mapa de su campo en formato .kmz.
+configure el mapa, subiendo su archivo \textit{.kmz} o \textit{.kml} y asignando los polígonos/marcadores a sus respectivos sectores/nodos.
+Junto con esto, también se agrega la funcionalidad de descargar el mapa de su campo en formato \textit{.kmz}.
 
-Esta nueva herramienta se encontrará en la vista del campo; en el mapa del campo se encontrarán dos botones (en la posición que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato .kmz y, otro botón, para poder entrar al configurador de mapa.
+¿Por qué usar formato \textit{.kmz}/\textit{.kml}? \textit{KML} (\textit{Keyhole Markup Language}) es un formato de archivo basado en \textit{XML} que se utiliza para mostrar datos geográficos en navegadores basados en la tierra, como \textit{Google Earth}. Un archivo \textit{KMZ}\footnote{\href{https://developers.google.com/kml/documentation/kmzarchives?hl=es-419}{Archivos KMZ}} está formado por un archivo \textit{KML} (doc.kml) y otros archivos comprimidos en un archivo zip.
+
+En la figura \ref{fig:ejemplo_kml} se puede apreciar un ejemplo básico de un archivo \textit{KML}. Los polígonos estan en el tag \texttt{<Polygon>}, mientras que los marcadores están en el tag \texttt{<Point>}.
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}[language=XML, frame=single]
+        <?xml version="1.0" encoding="UTF-8"?>
+        <kml>
+        <Document>
+            <name>Test file</name>                        
+            <Placemark>
+                <name>Polígono</name>
+                <styleUrl>#s1</styleUrl>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <coordinates>
+                                -119.4543294743033,
+                                35.75022332932038,
+                                0 -119.4501211374852,
+                                35.75018426465995,
+                                0 -119.4500004479587
+                            </coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>            
+            <Placemark>
+                <name>Marcador</name>
+                <Point>
+                    <coordinates>
+                        -119.445217337381,
+                        35.75365570663719,
+                        0
+                    </coordinates>
+                </Point>
+            </Placemark>            
+        </Document>
+        </kml>        
+    \end{lstlisting}
+    \caption{Ejemplo de estructura KML para una librería. Fuente: Elaboración propia.}
+    \label{fig:ejemplo_kml}
+\end{figure}
+
+
+Esta nueva herramienta se encontrará en la vista del campo; en el mapa del campo se encontrarán dos botones (en la posición que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato \textit{.kmz} y, otro botón, para poder entrar al configurador de mapa.
 
 \begin{figure}[H]
 	\centering
@@ -54,7 +99,7 @@ Esta nueva herramienta se encontrará en la vista del campo; en el mapa del camp
 	\caption{\label{fig:mapcfg-farm} Posición de botones de descarga de mapa y configurador de mapa.}
 \end{figure}
 
-Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato .kmz. El usuario podrá hacer cambios en ese archivo con aplicaciones que permitan la extensión .kmz (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
+Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato \textit{.kml}. El usuario podrá hacer cambios en ese archivo con aplicaciones que permitan la extensión \textit{.kml} (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
 
 Al entrar en el configurador de mapa, esta vista se divide en 2 secciones (figura \ref{fig:mapcfg-esquema}): Tabla de sectores/nodos y el mapa.
 \begin{figure}[H]
@@ -69,7 +114,7 @@ En la tabla de sectores/nodos (figura \ref{fig:mapcfg-tables-exameple}) se compo
     \item \textbf{Botones:}
           \begin{itemize}
               \item En la parte superior izquierda están los botones para cambiar entre la tabla de sectores y nodos.
-              \item En el lado opuesto, se encuentra el botón de 'Cargar Archivo' que, como indica el nombre, es para poder subir el archivo .kmz o .kml que contiene los polígonos y marcadores para asignar.
+              \item En el lado opuesto, se encuentra el botón de 'Cargar Archivo' que, como indica el nombre, es para poder subir el archivo \textit{.kmz} o \textit{.kml} que contiene los polígonos y marcadores para asignar.
           \end{itemize}
     \item \textbf{Tabla:}  
     \begin{itemize}
