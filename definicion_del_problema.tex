@@ -29,6 +29,7 @@ El hardware ha sido especialmente diseñado por la empresa para el monitoreo y c
 	\item \textbf{RF-M1:} Nodo de monitoreo de campo. Permite obtener información de variables agroclimáticas, variables de suelo, sensores de riego y variables de planta.
 	\item \textbf{RF-X1:} Nodo de monitoreo y control de campo. Permite el control y monitoreo de válvulas, monitoreo de campo, control de la estación de bombeo, control de fertirriego, control PID y automatización remota.
 	\item \textbf{RF-C1:} Nodo de control de caseta de riego. Permite el control y monitoreo de casetas de riego, válvulas, retrolavados e inyección de fertilizantes y pH, monitoreo y control de variadores de frecuencia y automatización industrial remota.
+	\item \textbf{RF-V1:} Nodo de control diseñado para controlar válvulas, solenoides latch, monitorear flujo, detectar presión y otras condiciones de campo con un uso mínimo de energía.
 \end{itemize}
 
 \subsubsection{SOFTWARE}
@@ -43,7 +44,7 @@ Para estos servicios se ofrecen planes, cuyos factores diferenciales son esencia
 Wiseconn también tiene software interno utilizado por trabajadores de distintas áreas de la empresa como soporte y producción, para hacer configuraciones avanzadas de campos o temas productivos como manejo de inventarios, lotes, despachos, etc. Dentro de estos softwares están:
 \begin{itemize}
     \item \textbf{Operations:} Plataforma para la gestión de lotes y despacho de productos.
-    \iffalse\item \textbf{Setup:} Plataforma de configuración paso a paso. Provee herramientas de gestión para cuentas, campos y usuarios con el fin de crear y organizar los permisos a usar en DropControl o en el mismo Setup.\fi
+    \item \textbf{Setup:} Plataforma de configuración paso a paso. Provee herramientas de gestión para cuentas, campos y usuarios con el fin de crear y organizar los permisos a usar en DropControl o en el mismo Setup.
 \end{itemize}
 
 \subsection{PRESENCIA EN EL MERCADO}
@@ -63,7 +64,7 @@ WiseConn está presente a lo largo de más de 1000 campos en países como Chile,
 \subsubsection{DESCRIPCIÓN}
 En la actualidad, el usuario cliente no tiene completo acceso para realizar ciertas configuraciones en los campos debe recurrir al área de soporte mandando un ticket con la configuración a realizar. Algunas de estas configuraciones son procesos que consumen mucho tiempo y esfuerzo para los trabajadores de soporte. Esto puede significar una carga innecesaria y/o un aumento en el personal para poder llevar a cabo estos procesos en un tiempo razonable. Por el lado del usuario cliente, genera un descontento debido a la alta espera por la configuración.
 En los procesos productivos, las herramientas de softwares son limitadas y los trabajadores deben hacer pasos extras innecesarios para poder realizar la tarea correspondiente. Debido a esto, se pueden generar algunos errores y retrasos en producción.
-Como se explicó anteriormente, Wiseconn ofrece planes gratuitos y de pago. En el caso del plan gratuito, este habilita un punto de entrada para aquellos usuarios que no están dispuestos a realizar pagos recurrentes. Sin embargo, existen limitaciones para el usuario cliente debido a la baja cantidad de funcionalidades y/o herramientas disponibles, lo que impide poder entregar condiciones mínimas al usuario que cumplan con las especificaciones comerciales. Además, puede influir en la poca retención de usuarios y/o que estos no se cambien a un plan de pago.
+\iffalse Como se explicó anteriormente, Wiseconn ofrece planes gratuitos y de pago. En el caso del plan gratuito, este habilita un punto de entrada para aquellos usuarios que no están dispuestos a realizar pagos recurrentes. Sin embargo, existen limitaciones para el usuario cliente debido a la baja cantidad de funcionalidades y/o herramientas disponibles, lo que impide poder entregar condiciones mínimas al usuario que cumplan con las especificaciones comerciales. Además, puede influir en la poca retención de usuarios y/o que estos no se cambien a un plan de pago.\fi
 
 \subsubsection{ACTORES}
 Dentro de los actores está, primero, el usuario cliente que utiliza y/o paga los servicios que ofrece Wiseconn para la gestión de riego de sus campos. Segundo, los trabajadores de Wiseconn del área de soporte y producción que utilizan los softwares internos para la realización de sus respectivas tareas.
@@ -83,14 +84,14 @@ En la parte superior, se presentan los efectos que puede generar este problema c
 
 \subsubsection{OBJETIVO GENERAL}
 
-Análisis, diseño e implementación de herramientas de software que faciliten tareas a usuarios y mejoren procesos para un escalamiento global de servicios de WiseConn, para así, poder reducir tiempo y esfuerzo en los trabajadores de distintas áreas de la empresa, como también, reducir la brecha asociadas a los cobros de servicios SaaS.
+Análisis, diseño e implementación de herramientas de software que faciliten tareas a usuarios y mejoren procesos para un escalamiento global de servicios de WiseConn, para así, poder reducir tiempo y esfuerzo en los trabajadores de distintas áreas de la empresa.
 
 \subsubsection{OBJETIVOS ESPECÍFICOS}
 \begin{itemize}
-    \item Realizar un análisis de los procesos de producción que más cargan y esfuerzo generan, como también de funcionalidades/herramientas necesarias para el plan gratuito.
+    \item Realizar un análisis de los procesos de producción y/o soporte que más cargan y esfuerzo generan.\iffalse, como también de funcionalidades/herramientas necesarias para el plan gratuito.\fi
     \item A partir del análisis previo, diseñar las herramientas de software correspondientes para los servicios de WiseConn.
     \item Implementación de las herramientas de software en los servicios de WiseConn correspondientes.
 \end{itemize}
 
 \subsubsection{ALCANCE DE LA SOLUCIÓN}
-Al finalizar esta memoria se espera reducir los tiempos y esfuerzos en las áreas de soporte y producción de la empresa, ya sea, mejorando herramientas internas o transfiriendo tareas/procesos al usuario cliente. También, ayudar a reducir la brecha de cobros en servicios SaaS con alternativas gratuitas de ciertas funcionalidades, lo que permitiría que el plan gratuito de Wiseconn cumpla con las especificaciones comerciales.
+Al finalizar esta memoria se espera reducir los tiempos y esfuerzos de ciertos procesos en las áreas de soporte y producción de la empresa, ya sea, mejorando herramientas internas o transfiriendo tareas/procesos al usuario cliente. \iffalse También, ayudar a reducir la brecha de cobros en servicios SaaS con alternativas gratuitas de ciertas funcionalidades, lo que permitiría que el plan gratuito de Wiseconn cumpla con las especificaciones comerciales.\fi
