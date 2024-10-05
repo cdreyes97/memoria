@@ -817,7 +817,7 @@ Los \textit{widgets} disponibles son:
 \end{figure}
 
 En \textit{DropControl} cada campo tiene su sistema de unidades asignado según el país del campo. Existen casos en que el usuario quiere ver ciertos datos en otras unidades (ejemplo, ver el volumen de riego en litros en lugar de galones), pero el cambiar las unidades del campo provocaría errores en estimaciones y/o cálculos de riego, es por esto que para estos casos se crean sensores 'virtuales', los cuales toman los datos de otro sensor y transforman los datos según el requerimiento.
-El proceso de creación de estos sensores virtuales...
+El proceso de creación de estos sensores virtuales.... Además, la creación de sensores virtuales implica que se guarda
 
 Es por esto que en la herramienta de \textit{Dashboard Libre}, para los \textit{widgets} de gráfico y tabla, se decide implementar una configuración de fórmulas en donde el usuario podrá realizar operaciones utilizando las variables seleccionadas para hacer conversión de unidades y/o crear nuevas variables.
 Para esta nueva configuración se toma inspiración de \textit{Amazon CloudWatch}\footnote{\href{https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/using-metric-math.html}{\textit{Amazon CloudWatch}: Uso de la calculadora de métricas}}, que permite añadir expresiones matemáticas a un gráfico de métricas de \textit{CloudWatch}.
@@ -917,6 +917,8 @@ Esto también se utilza para validar la fórmula, evaluando las fórmulas con va
 	\includegraphics[width=0.8\textwidth]{widget-formulas/dash-settings-res}
 	\caption{\label{fig:dash-settings-res} Resolución de datos en formulario de gráfico/tabla. Fuente: Elaboración propia.}
 \end{figure}
+
+Si bien el problema principal es la visualización de datos en otras unidades, esta nueva funcionalidad le dará más libertades al usuario de realizar distintas operaciones sobre los datos de sus sensores.
 
 \iffalse
 \subsubsection{SETUP}
