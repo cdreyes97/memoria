@@ -52,43 +52,43 @@ En la figura \ref{fig:ejemplo_kml} se puede apreciar un ejemplo básico de un ar
 \begin{figure}[H]
     \centering
     \begin{lstlisting}[language=XML, frame=single]
-        <?xml version="1.0" encoding="UTF-8"?>
-        <kml>
-            <Document>
-                <name>Test file</name>                        
-                <Folder>
-                    <name>Carpeta</name>
-                    <open>1</open>
-                    <Placemark>
-                        <name>Polígono</name>
-                        <styleUrl>#s1</styleUrl>
-                        <Polygon>
-                            <outerBoundaryIs>
-                                <LinearRing>
-                                    <coordinates>
-                                        -119.4543294743033,
-                                        35.75022332932038,
-                                        0 -119.4501211374852,
-                                        35.75018426465995,
-                                        0 -119.4500004479587
-                                    </coordinates>
-                                </LinearRing>
-                            </outerBoundaryIs>
-                        </Polygon>
-                    </Placemark>            
-                    <Placemark>
-                        <name>Marcador</name>
-                        <Point>
-                            <coordinates>
-                                -119.445217337381,
-                                35.75365570663719,
-                                0
-                            </coordinates>
-                        </Point>
-                    </Placemark>   
-                </Folder>         
-            </Document>
-        </kml>        
+    <?xml version="1.0" encoding="UTF-8"?>
+    <kml>
+        <Document>
+            <name>Test file</name>                        
+            <Folder>
+                <name>Carpeta</name>
+                <open>1</open>
+                <Placemark>
+                    <name>Polígono</name>
+                    <styleUrl>#s1</styleUrl>
+                    <Polygon>
+                        <outerBoundaryIs>
+                            <LinearRing>
+                                <coordinates>
+                                    -119.4543294743033,
+                                    35.75022332932038,
+                                    0 -119.4501211374852,
+                                    35.75018426465995,
+                                    0 -119.4500004479587
+                                </coordinates>
+                            </LinearRing>
+                        </outerBoundaryIs>
+                    </Polygon>
+                </Placemark>            
+                <Placemark>
+                    <name>Marcador</name>
+                    <Point>
+                        <coordinates>
+                            -119.445217337381,
+                            35.75365570663719,
+                            0
+                        </coordinates>
+                    </Point>
+                </Placemark>   
+            </Folder>         
+        </Document>
+    </kml>        
     \end{lstlisting}
     \caption{Ejemplo básico de archivo \textit{KML}. Fuente: Elaboración propia.}
     \label{fig:ejemplo_kml}
@@ -97,79 +97,42 @@ En la figura \ref{fig:ejemplo_kml} se puede apreciar un ejemplo básico de un ar
 Esta nueva herramienta se encontrará en la vista del campo; en el mapa del campo se encontrarán dos botones (en la posición que muestra la figura \ref{fig:mapcfg-farm}): Un botón para la descarga del mapa en formato \textit{.kmz} y, otro botón, para poder entrar al configurador de mapa.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{mapcfg-farm}
+	\includegraphics[width=1\textwidth]{mapcfg-farm}
 	\caption{\label{fig:mapcfg-farm} Posición de botones de descarga de mapa y configurador de mapa.}
 \end{figure}
 
 Al hacer click en el botón de descarga del mapa, se descargará, valga la redundancia, el mapa del campo en un archivo con formato \textit{.kml}. El usuario podrá hacer cambios en ese archivo con aplicaciones que permitan la extensión \textit{.kml} (ejemplo, Google Earth) y después cargarlo en el configurador de mapa y actualizar sus sectores y/o nodos en el mapa del campo.
 Para crear el archivo del mapa: 
 \begin{enumerate}
-    \item Obtenemos el \textit{JSON} del mapa del campo (\ref{fig:ejemplo-mapa-json}).
+    \item Obtenemos el \textit{JSON} del mapa del campo (figura \ref{fig:ejemplo-mapa-json}).
     \item En una variable, que sera nombrada desde este momento \textit{kmlData}, guardaremos el contenido del archivo \textit{KML} en formato \textit{string}. Primero guardamos el inicio del archivo que contiene el nombre de este que será el nombre del campo.
     \item Si el \textit{JSON} del mapa contiene sectores, se crea la carpeta sectores en \textit{kmlData} con el tag \texttt{<Folder>} con el nombre \textbf{Sectores} y dentro de esta carpeta se crearán los polígonos por cada sector.
     \item Se repite el paso 3 con los nodos.
-    \item Con \textit{kmlData}, se crea un objeto \textit{Blob}\footnote{href{https://developer.mozilla.org/es/docs/Web/API/Blob}{Blob}} de tipo \textit{application/vnd.google-earth.kml+xml} para poder descargar el archivo.
+    \item Con \textit{kmlData}, se crea un objeto \textit{Blob}\footnote{\href{https://developer.mozilla.org/es/docs/Web/API/Blob}{Blob}} de tipo \textit{application/vnd.google-earth.kml+xml} para poder descargar el archivo.
     \item El contenido del archivo se muestra en la figura \ref{fig:ejemplo_export}.
 \end{enumerate}
 \begin{figure}[H]
     \centering
-    \begin{lstlisting}[language=XML, frame=single]
-        {
-            "zoom": 1,
-            "bounds": {
-                "northEast": {
-                    "lat": -29.90524234338656,
-                    "lng": -71.24490155790566
-                },
-                "southWest": {
-                    "lat": -85.79336698341737,
-                    "lng": 18.729730784756175
-                }
-            },
-            "position": {
-                "lat": -59.95262131012406,
-                "lng": -71.26186932870023
-            },
-            "nodos": {
-                "[nodoId]": {
-                    "lat": -90,
-                    "lng": -71.27026921524383
-                },
-            },
-            "sectores": {
-                "[sectorId]": {
-                    "path": [
-                        {
-                            "lat": -29.91689674272094,
-                            "lng": -71.26038235351966
-                        },
-                        {
-                            "lat": -29.91735543438763,
-                            "lng": -71.25778410494456
-                        },
-                        {
-                            "lat": -29.915107113054372,
-                            "lng": -71.2573237726045
-                        },
-                        {
-                            "lat": -29.915288548605176,
-                            "lng": -71.25993685139193
-                        }
-                    ],
-                    "bounds": {
-                        "northEast": {
-                            "lat": -29.915107113054372,
-                            "lng": -71.2573237726045
-                        },
-                        "southWest": {
-                            "lat": -29.91735543438763,
-                            "lng": -71.26038235351966
-                        }
-                    }
-                },
-            },
-            "configurado": true
-        }     
+    \begin{lstlisting}[language=XML, frame=single, basicstyle=\ttfamily\small]
+    {
+        "zoom": 1,
+        "bounds": {
+            ...
+        },
+        "position": {
+            ...
+        },
+        "nodos": {
+            "[nodoId]": { lat, lng }
+        },
+        "sectores": {
+            "[sectorId]": {
+                "path": [ { lat, lng } ],
+                "bounds": {...}
+            }
+        },
+        "configurado": true
+    }     
     \end{lstlisting}
     \caption{Ejemplo de JSON de un mapa de un campo. Fuente: Elaboración propia.}
     \label{fig:ejemplo-mapa-json}
@@ -177,56 +140,52 @@ Para crear el archivo del mapa:
 \begin{figure}[H]
     \centering
     \begin{lstlisting}[language=XML, frame=single]
-        <?xml version="1.0" encoding="UTF-8"?>
-            <kml xmlns="http://www.opengis.net/kml/2.2">
-                <Document>
-                    <Style id="s1">
-                        <LineStyle>
-                            <color>7f00ff00</color>
-                            <width>4</width>
-                        </LineStyle>
-                        <PolyStyle>
-                            <color>7f00ff00</color>
-                            <colorMode>normal</colorMode>
-                            <fill>1</fill>
-                            <outline>1</outline>
-                        </PolyStyle>
-                    </Style>
-                    <name>Campo</name>
-                    <Folder>
-                        <name>Sectores</name>                        
-                        <Placemark>
-                            <styleUrl>#s1</styleUrl>
-                            <name>Sector</name>
-                            <Polygon>
-                                <outerBoundaryIs>
-                                    <LinearRing>
-                                        <coordinates>
-                                            ...
-                                        </coordinates>
-                                    </LinearRing>
-                                </outerBoundaryIs>
-                            </Polygon>
-                        </Placemark>
-                    </Folder>
-                    <Folder>
-                        <name>Nodos</name>
-                        <Placemark>
-                            <name>Nodo</name>
-                            <Point>
-                                <coordinates>
-                                    ...
-                                </coordinates>
-                            </Point>
-                        </Placemark>                        
-                    </Folder>
-                </Document>
-            </kml>
+    <?xml version="1.0" encoding="UTF-8"?>
+        <kml xmlns="http://www.opengis.net/kml/2.2">
+            <Document>
+                <Style id="s1">
+                    <LineStyle>
+                        ...
+                    </LineStyle>
+                    <PolyStyle>
+                        ...
+                    </PolyStyle>
+                </Style>
+                <name>Campo</name>
+                <Folder>
+                    <name>Sectores</name>                        
+                    <Placemark>
+                        <styleUrl>#s1</styleUrl>
+                        <name>Sector</name>
+                        <Polygon>
+                            <outerBoundaryIs>
+                                <LinearRing>
+                                    <coordinates>
+                                        ...
+                                    </coordinates>
+                                </LinearRing>
+                            </outerBoundaryIs>
+                        </Polygon>
+                    </Placemark>
+                </Folder>
+                <Folder>
+                    <name>Nodos</name>
+                    <Placemark>
+                        <name>Nodo</name>
+                        <Point>
+                            <coordinates>
+                                ...
+                            </coordinates>
+                        </Point>
+                    </Placemark>                        
+                </Folder>
+            </Document>
+        </kml>
     \end{lstlisting}
     \caption{Ejemplo de archivo de un mapa de un campo. Fuente: Elaboración propia.}
     \label{fig:ejemplo_export}
 \end{figure}
-\iffalse
+
 Al entrar en el configurador de mapa, esta vista se divide en 2 secciones (figura \ref{fig:mapcfg-esquema}): Tabla de sectores/nodos y el mapa.
 \begin{figure}[H]
 	\centering
@@ -256,6 +215,24 @@ En la tabla de sectores/nodos (figura \ref{fig:mapcfg-tables-exameple}) se compo
 	\caption{\label{fig:mapcfg-tables-exameple} Ejemplo tabla de sectores y nodos. Fuente: Elaboración propia.}
 \end{figure}
 
+Cada fila de la tabla de sectores/nodos se presenta con un objeto \textit{JSON} como los muestra la figura \ref{}
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}[frame=single, basicstyle=\ttfamily\small]
+    {
+        key,
+        id, // ID de sector/nodo
+        nombre,
+        originalCoord, // polígono/macador original de sector/nodo
+        coord, // aqui se almacenará el polígono/marcador 
+               // nuevo para el sector/nodo
+        reAssign, // boolean que indica que se hizo 
+                 //  un cambio en el sector/nodo
+    }     
+    \end{lstlisting}
+    \caption{\textit{JSON} que representa una fila en la tabla de sectores/nodos. Fuente: Elaboración propia.}
+    \label{fig:ejemplo-mapa-json}
+\end{figure}
 
 Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo. Si está seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
 \begin{figure}[H]
@@ -338,7 +315,16 @@ Para la acción de centrar un sector/nodo en el mapa, los polígonos/marcadores 
 	\caption{\label{fig:mapcfg-node-loaded-center} Marcador cargado centrado en el mapa}
 \end{figure}
 
-Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.\fi
+Para finalizar, al hacer click en el botón 'Guardar', se abrirá un diálogo de confirmación para confirmar, valga la redundancia, los cambios hechos y guardarlos.
+
+El proceso de actualización del mapa será de la siguiente forma:
+\begin{enumerate}
+    \item Se obtienen los sectores/nodos que sufrieron cambios (tienen la variable \textbf{\textit{reAssign}} en \textbf{\textit{true}}).
+    \item Se recalcula la posición en el mapa.
+    \item Se modifica \textit{JSON} del mapa con las coordenadas nuevas.
+    \item Se hace el cambio en la base de datos.
+\end{enumerate}
+
 \iffalse
 \subsubsubsection{GRAFICADOR LIBRE}
 
