@@ -234,6 +234,26 @@ Cada fila de la tabla de sectores/nodos se presenta con un objeto \textit{JSON} 
     \label{fig:ejemplo-mapa-json}
 \end{figure}
 
+Para poder cargar un archivo \textit{KMZ}/\textit{KML} se deberá hacer clic en el botón 'Cargar Archivo' para seleccionar el archivo. Si el archivo que se sube es un archivo \textit{KMZ}, este se descomprimirá para obtener el archivo \texttt{doc.kml} que contiene los datos geográficos. Se utilizará una librería para poder \textit{parsear} el contenido a un \textit{array} de objetos \textit{\textbf{GeoJSON}} (figura \ref{}) y así poder obtener los polígonos y marcadores.
+
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}[frame=single, basicstyle=\ttfamily\small]
+        {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [125.6, 10.1]
+            },
+            "properties": {
+              "name": "Dinagat Islands"
+            }
+        }     
+    \end{lstlisting}
+    \caption{Estructura de un objeto \textit{GeoJSON}. Fuente: \href{https://geojson.org/}{geojson.org}.}
+    \label{fig:ejemplo-geojson}
+\end{figure}
+
 Respecto al mapa, este muestra los sectores y/o nodos que estaban previamente asignados, los sectores los muestra con un color verde (figura \ref{fig:mapcfg-zone-pre}), mientras que los nodos los muestra con su ícono respectivo. Si está seleccionada la tabla de sectores en el mapa se muestran solo los polígonos, mismo caso con la tabla de nodos.
 \begin{figure}[H]
 	\centering
