@@ -956,6 +956,33 @@ Esto también se utilza para validar la fórmula, evaluando las fórmulas con va
 	\caption{\label{fig:dash-settings-res} Resolución de datos en formulario de gráfico/tabla. Fuente: Elaboración propia.}
 \end{figure}
 
+Teniendo las fórmulas validadas, las fórmulas se guardaran en el objeto \textit{JSON} de configuración del widget en el \textit{array} de fórmulas como muestra en la figura \ref{fig:ejemplo-formula-json}.
+\begin{figure}[H]
+    \centering
+    \begin{lstlisting}[language=XML, frame=single, basicstyle=\ttfamily\small]
+        {
+            "type": "graph",
+            "sensors": [...],
+            "plotLines": [...],
+            "axisConfig": [...],
+            "formulas": [
+              {
+                "id": 1,
+                "formula": "(D1-32)*(5/9)",
+                "unit": "ºC",
+                "name": "Celsius 1",
+                "esta_habilitado": true,
+                "color": "#e10909",
+                "axis": 1,
+                "decimal_places": 3,
+                "type": "line"
+              }
+            ]
+          }
+    \end{lstlisting}
+    \caption{Configuración de fórmulas en \textit{JSON} de configuración del \textit{widget}. Fuente: Elaboración propia.}
+    \label{fig:ejemplo-formula-json}
+\end{figure}
 Si bien el problema principal es la visualización de datos en otras unidades, esta nueva funcionalidad le dará más libertades al usuario de realizar distintas operaciones sobre los datos de sus sensores.
 
 \iffalse
